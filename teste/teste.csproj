@@ -280,6 +280,9 @@
     <Content Include="Imagens\1\Placa Lab jogos.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Videos\3\SnapSave.io-MOSQUITO GRITANDO EFEITOS SONOROS DO RODRIGO FARO%28720p%29.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\proximo.png" />
     <None Include="Resources\proximo-esquerda.png" />
     <None Include="Resources\proximo %281%29.png" />
@@ -302,16 +305,17 @@
     <Content Include="Imagens\6\6.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Videos\Laboratorio 002\NM.mp4">
+    <Content Include="Videos\1\SnapSave.io-Rainbow Cockroach dancing to draft punk %28around the world%29￼%28360p%29 %281%29.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Videos\2\NM.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Videos\Laboratorio 001\" />
-    <Folder Include="Videos\Laboratorio 003\" />
-    <Folder Include="Videos\Laboratorio 004\" />
-    <Folder Include="Videos\Laboratorio 005\" />
-    <Folder Include="Videos\Laboratorio 006\" />
+    <Folder Include="Videos\4\" />
+    <Folder Include="Videos\5\" />
+    <Folder Include="Videos\6\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
