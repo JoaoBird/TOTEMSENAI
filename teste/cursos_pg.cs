@@ -20,7 +20,8 @@ namespace teste
         Font SuperMiniFont = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
         Font MiniFont = new Font("Microsoft Sans Serif", 12, FontStyle.Bold | FontStyle.Underline);
         Font SmallFont = new Font("Arial", 14);
-        Font MediumFont = new Font("Arial", 16, FontStyle.Bold | FontStyle.Italic);
+        Font MediumFont = new Font("Arial", 16, FontStyle.Bold);
+        Font CurseFont = new Font("Arial", 16);
         
 
         int id_cursod;
@@ -138,12 +139,12 @@ namespace teste
             Conexao.Open();//abre conexao
             if (box_nome.Text == "" && box_pmin.Text == "" && box_pmax.Text == ""&& box_duracao.Text == ""&&box_modalidade.Text==""&&box_tp.Text=="")
             {
-                query = "select tb_curso.id_curso,tb_curso.nome_curso,tb_curso.preco,tb_tipo_curso.tipo_curso,tb_modalidade.modalidade, tb_curso.carga_horaria from tb_curso inner join tb_tipo_curso on tb_tipo_curso.id_tipo_curso=tb_curso.id_tipo_curso inner join tb_modalidade on tb_modalidade.id_modalidade=tb_curso.id_modalidade";
+                query = "select tb_curso.id_curso,tb_curso.nome_curso,tb_curso.preco,tb_tipo_curso.tipo_curso,tb_modalidade.modalidade, tb_curso.carga_horaria, tb_curso.profissao from tb_curso inner join tb_tipo_curso on tb_tipo_curso.id_tipo_curso=tb_curso.id_tipo_curso inner join tb_modalidade on tb_modalidade.id_modalidade=tb_curso.id_modalidade";
 
             }
             else
             {
-                query = "select tb_curso.id_curso,tb_curso.nome_curso,tb_curso.preco,tb_tipo_curso.tipo_curso,tb_modalidade.modalidade, tb_curso.carga_horaria from tb_curso inner join tb_modalidade on tb_modalidade.id_modalidade=tb_curso.id_modalidade inner join tb_tipo_curso on tb_tipo_curso.id_tipo_curso=tb_curso.id_tipo_curso where ";
+                query = "select tb_curso.id_curso,tb_curso.nome_curso,tb_curso.preco,tb_tipo_curso.tipo_curso,tb_modalidade.modalidade, tb_curso.carga_horaria, tb_curso.profissao from tb_curso inner join tb_modalidade on tb_modalidade.id_modalidade=tb_curso.id_modalidade inner join tb_tipo_curso on tb_tipo_curso.id_tipo_curso=tb_curso.id_tipo_curso where ";
 
                 string min = box_pmin.Text.ToString();
                 min=min.Replace(",", ".");
@@ -192,7 +193,7 @@ namespace teste
                 Panel cursos = new Panel()
                 {
                     BorderStyle = BorderStyle.FixedSingle,
-                    Size = new Size(painel_r.Width-50, painel_r.Width/6),
+                    Size = new Size(painel_r.Width-20, painel_r.Width/6),
                     
                     };
                     Label lbl_cursod = new Label()
@@ -205,7 +206,7 @@ namespace teste
                 {
                     AutoSize = false,
                     Width = painel_r.Width,
-                    TextAlign= ContentAlignment.MiddleCenter,
+                    //TextAlign= ContentAlignment.MiddleCenter,
                     Font = MediumFont, 
 
                     };
@@ -213,33 +214,57 @@ namespace teste
 
                     {
                         AutoSize = true,
-                        Font = SmallFont,
-                        
-                        
+                        Font = CurseFont,
+
+
 
                     };
                     Label Ltipo_curso = new Label()
 
                     {
                         AutoSize = true,
-                        Font = SmallFont,
-                        
+                        Font = CurseFont,
+
 
                     };
                     Label Lmodalidade = new Label()
 
                     {
                         AutoSize = true,
-                        Font = SmallFont,
-                        
+                        Font = CurseFont,
+
 
                     };
                 Label Ltempo = new Label()
 
                 {
                     AutoSize = true,
-                    Font = SmallFont,
+                    Font = CurseFont,
 
+                };
+
+                Label Ldesc = new Label()
+                {
+                    AutoSize = false,
+                    Width = cursos.Width/4,
+                    Height= cursos.Height/2-cursos.Height/6,
+                    Font = SmallFont,
+                };
+
+                PanelArred Btnvermais = new PanelArred()
+                {
+                    Size = new Size(150, 60),
+                    BackColor= Color.RoyalBlue,
+                    Location = new Point(cursos.Width-250 ,cursos.Height/2-30),
+                    BorderRadius = 50,
+                };
+                Label Lvermais = new Label()
+                {
+                    AutoSize = true,
+                    Text = "Ver Mais",
+                    Font = SmallFont,
+                    ForeColor= Color.White,
+                    
                 };
 
                 Button curso_pg = new Button()
@@ -254,44 +279,73 @@ namespace teste
                 id_cursod = registro.GetInt32("id_curso");
                     lbl_cursod.Text = id_cursod.ToString();
                     Lnome_curso.Text = registro.GetString("nome_curso");
+                Ldesc.Text = "Descrição: "+ registro.GetString("profissao");
                     Lmodalidade.Text = registro.GetString("modalidade");
-                Ltempo.Text = registro.GetString("carga_horaria");
+                Ltempo.Text = "Carga horária: "+registro.GetString("carga_horaria");
 
                 cursos.Click += new EventHandler((sender1, e1) => cursosClick(sender1, e1, Convert.ToInt32(lbl_cursod.Text)));
+                Lvermais.Click += new EventHandler((sender1, e1) => cursosClick(sender1, e1, Convert.ToInt32(lbl_cursod.Text)));
+                Btnvermais.Click += new EventHandler((sender1, e1) => cursosClick(sender1, e1, Convert.ToInt32(lbl_cursod.Text)));
                 Lnome_curso.Click += new EventHandler((sender1, e1) => cursosClick(sender1, e1, Convert.ToInt32(lbl_cursod.Text)));
 
                 //cursos.Click += Abre_tela_c();
 
 
+                string textoDoBancoDeDados = Ldesc.Text;
+                int tamanhoMaximoLabel = 150; // Tamanho máximo da label
+
+                string textoLabel;
+
+                if (textoDoBancoDeDados.Length <= tamanhoMaximoLabel)
+                {
+                    textoLabel = textoDoBancoDeDados;
+                }
+                else
+                {
+                    int caracteresVisiveis = tamanhoMaximoLabel - 3; // Desconta 3 caracteres para os "..."
+                    textoLabel = textoDoBancoDeDados.Substring(0, caracteresVisiveis) + "...";
+                }
+                Ldesc.Text = textoLabel;
 
 
 
 
 
-                Lpreco.Text = "R$ "+Convert.ToString(registro.GetDecimal("preco"));
+
+
+                Lpreco.Text = "Preço: R$ "+Convert.ToString(registro.GetDecimal("preco"));
                
                     Ltipo_curso.Text = registro.GetString("tipo_curso");
                     espacoy(Lnome_curso, 20);
                     espacox(Lnome_curso, 10);
                     cursos.Controls.Add(Lnome_curso);
 
-                    espacoy(Lpreco, 105);
-                    espacox(Lpreco, 10);
+                    espacoy(Lpreco, cursos.Height/3);
+                    espacox(Lpreco, 500);
                     //preco.Location = new Point((int)preco.Location.X, (int)(preco.Location.Y - 50));
 
                     cursos.Controls.Add(Lpreco);
 
                     cursos.Controls.Add(Ltipo_curso);
-                    espacoy(Ltipo_curso, 65);
-                    espacox(Ltipo_curso, 400);
+                    espacoy(Ltipo_curso, cursos.Height / 3 + cursos.Height / 3);
+                    espacox(Ltipo_curso, 10);
 
                     cursos.Controls.Add(Lmodalidade);
-                    espacoy(Lmodalidade, 65);
+                    espacoy(Lmodalidade, cursos.Height/3);
                     espacox(Lmodalidade, 10);
 
+                cursos.Controls.Add(Ldesc);
+                espacoy(Ldesc, cursos.Height / 3);
+                espacox(Ldesc, 900);
+
                 cursos.Controls.Add(Ltempo);
-                espacoy(Ltempo, 105);
-                espacox(Ltempo, 400);
+                espacoy(Ltempo, cursos.Height / 3 + cursos.Height / 3);
+                espacox(Ltempo, 500);
+
+                cursos.Controls.Add(Btnvermais);
+                Btnvermais.Controls.Add(Lvermais);
+                espacoy(Lvermais, 20);
+                espacox(Lvermais, 35);
 
                 painel_r.Controls.Add(cursos);
                 }
