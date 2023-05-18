@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16-Maio-2023 às 04:59
--- Versão do servidor: 10.4.27-MariaDB
--- versão do PHP: 8.0.25
+-- Generation Time: 18-Maio-2023 às 22:05
+-- Versão do servidor: 10.1.32-MariaDB
+-- PHP Version: 7.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `tcc`
+-- Database: `tcc`
 --
 
 -- --------------------------------------------------------
@@ -31,7 +32,7 @@ CREATE TABLE `tb_adm` (
   `id_ADM` int(11) NOT NULL,
   `login_ADM` varchar(60) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
   `senha_ADM` varchar(60) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `tb_adm`
@@ -58,7 +59,7 @@ CREATE TABLE `tb_curso` (
   `id_tipo_curso` int(11) NOT NULL,
   `id_modalidade` int(11) NOT NULL,
   `nome_img` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `tb_curso`
@@ -116,19 +117,19 @@ CREATE TABLE `tb_lab` (
   `nome_lab` varchar(150) NOT NULL,
   `txt_laboratorio` varchar(2500) NOT NULL,
   `caminho_img` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `tb_lab`
 --
 
 INSERT INTO `tb_lab` (`id_lab`, `nome_lab`, `txt_laboratorio`, `caminho_img`) VALUES
-(1, 'Laboratorio de Jogos', 'TESTE 1', 'Imagens\\1\\Placa Lab jogos.jpeg'),
-(2, 'Laboratorio 002', 'TESTE 2', 'Imagens\\2\\2.jpeg'),
-(3, 'Laboratorio 003', 'TESTE 3', 'Imagens\\3\\3.jpeg'),
-(4, 'Laboratorio 004', 'TESTE 4', 'Imagens\\4\\4.jpeg'),
-(5, 'Laboratorio 005', 'TESTE 5', 'Imagens\\5\\5.jpeg'),
-(6, 'Laboratorio 006', 'TESTE 6', 'Imagens\\6\\6.jpeg');
+(1, 'Laboratorio de Jogos', 'Laboratório utilizado para cursos de TI, com foco no desenvolvimento de jogos.', 'Imagens\\1\\Placa Lab jogos.jpeg'),
+(2, 'Laboratório de Redes', 'laboratório que possui duas salas interligadas com uma rede de servidores no meio.', 'Imagens\\2\\2.jpeg'),
+(3, 'Laboratório Huawei', 'laborátorio de redes de antena de telefonia.', 'Imagens\\3\\3.jpg'),
+(4, 'Laboratório de Moda', 'laboratório utilizado para o curso de moda, essa sala possui todos os equipamentos necessários para o curso.', 'Imagens\\4\\4.jpeg'),
+(5, 'Biblioteca', 'Biblioteca da unidade SENAI', 'Imagens\\5\\5.jpg'),
+(6, 'Laboratorio 006', 'TESTE 6', 'Imagens\\6\\6.jpg');
 
 -- --------------------------------------------------------
 
@@ -139,7 +140,7 @@ INSERT INTO `tb_lab` (`id_lab`, `nome_lab`, `txt_laboratorio`, `caminho_img`) VA
 CREATE TABLE `tb_modalidade` (
   `id_modalidade` int(11) NOT NULL,
   `modalidade` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `tb_modalidade`
@@ -160,7 +161,7 @@ CREATE TABLE `tb_tipo_curso` (
   `id_tipo_curso` int(11) NOT NULL,
   `tipo_curso` varchar(60) DEFAULT NULL,
   `id_modalidade` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `tb_tipo_curso`
@@ -174,17 +175,17 @@ INSERT INTO `tb_tipo_curso` (`id_tipo_curso`, `tipo_curso`, `id_modalidade`) VAL
 (5, '', 3);
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `tb_adm`
+-- Indexes for table `tb_adm`
 --
 ALTER TABLE `tb_adm`
   ADD PRIMARY KEY (`id_ADM`);
 
 --
--- Índices para tabela `tb_curso`
+-- Indexes for table `tb_curso`
 --
 ALTER TABLE `tb_curso`
   ADD PRIMARY KEY (`id_curso`),
@@ -192,48 +193,48 @@ ALTER TABLE `tb_curso`
   ADD KEY `fk_id_modalidade2` (`id_modalidade`);
 
 --
--- Índices para tabela `tb_lab`
+-- Indexes for table `tb_lab`
 --
 ALTER TABLE `tb_lab`
   ADD PRIMARY KEY (`id_lab`);
 
 --
--- Índices para tabela `tb_modalidade`
+-- Indexes for table `tb_modalidade`
 --
 ALTER TABLE `tb_modalidade`
   ADD PRIMARY KEY (`id_modalidade`);
 
 --
--- Índices para tabela `tb_tipo_curso`
+-- Indexes for table `tb_tipo_curso`
 --
 ALTER TABLE `tb_tipo_curso`
   ADD PRIMARY KEY (`id_tipo_curso`),
   ADD KEY `fk_id_modalidade` (`id_modalidade`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `tb_curso`
+-- AUTO_INCREMENT for table `tb_curso`
 --
 ALTER TABLE `tb_curso`
   MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
--- AUTO_INCREMENT de tabela `tb_lab`
+-- AUTO_INCREMENT for table `tb_lab`
 --
 ALTER TABLE `tb_lab`
   MODIFY `id_lab` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de tabela `tb_tipo_curso`
+-- AUTO_INCREMENT for table `tb_tipo_curso`
 --
 ALTER TABLE `tb_tipo_curso`
   MODIFY `id_tipo_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --

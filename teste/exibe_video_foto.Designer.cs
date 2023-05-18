@@ -179,7 +179,7 @@
             this.panelArred1.ForeColor = System.Drawing.Color.Black;
             this.panelArred1.Location = new System.Drawing.Point(868, 132);
             this.panelArred1.Name = "panelArred1";
-            this.panelArred1.Size = new System.Drawing.Size(946, 798);
+            this.panelArred1.Size = new System.Drawing.Size(946, 823);
             this.panelArred1.TabIndex = 5;
             // 
             // btn_proximo
@@ -188,7 +188,7 @@
             this.btn_proximo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_proximo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_proximo.Image = ((System.Drawing.Image)(resources.GetObject("btn_proximo.Image")));
-            this.btn_proximo.Location = new System.Drawing.Point(833, 374);
+            this.btn_proximo.Location = new System.Drawing.Point(833, 386);
             this.btn_proximo.Name = "btn_proximo";
             this.btn_proximo.Size = new System.Drawing.Size(87, 51);
             this.btn_proximo.TabIndex = 3;
@@ -201,7 +201,7 @@
             this.btn_voltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_voltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_voltar.Image = ((System.Drawing.Image)(resources.GetObject("btn_voltar.Image")));
-            this.btn_voltar.Location = new System.Drawing.Point(27, 374);
+            this.btn_voltar.Location = new System.Drawing.Point(27, 386);
             this.btn_voltar.Name = "btn_voltar";
             this.btn_voltar.Size = new System.Drawing.Size(87, 51);
             this.btn_voltar.TabIndex = 2;
@@ -211,28 +211,28 @@
             // player
             // 
             this.player.Enabled = true;
-            this.player.Location = new System.Drawing.Point(146, 161);
+            this.player.Location = new System.Drawing.Point(159, 133);
             this.player.Name = "player";
             this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
-            this.player.Size = new System.Drawing.Size(655, 524);
+            this.player.Size = new System.Drawing.Size(629, 603);
             this.player.TabIndex = 3;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(146, 114);
+            this.pictureBox1.Location = new System.Drawing.Point(159, 86);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(655, 571);
+            this.pictureBox1.Size = new System.Drawing.Size(629, 650);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // txt_laboratorio
             // 
-            this.txt_laboratorio.AutoSize = true;
             this.txt_laboratorio.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_laboratorio.Location = new System.Drawing.Point(43, 274);
+            this.txt_laboratorio.MaximumSize = new System.Drawing.Size(675, 0);
             this.txt_laboratorio.Name = "txt_laboratorio";
-            this.txt_laboratorio.Size = new System.Drawing.Size(65, 24);
+            this.txt_laboratorio.Size = new System.Drawing.Size(673, 0);
             this.txt_laboratorio.TabIndex = 8;
             this.txt_laboratorio.Text = "label1";
             // 
