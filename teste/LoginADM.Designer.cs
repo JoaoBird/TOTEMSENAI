@@ -37,11 +37,12 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panelArred1 = new teste.PanelArred();
+            this.label2 = new System.Windows.Forms.Label();
             this.lbl_senha = new System.Windows.Forms.Label();
             this.box_senha = new System.Windows.Forms.TextBox();
             this.lbl_login = new System.Windows.Forms.Label();
             this.box_login = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btn_enviar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelArred1.SuspendLayout();
@@ -166,6 +167,18 @@
             this.panelArred1.Size = new System.Drawing.Size(350, 241);
             this.panelArred1.TabIndex = 6;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(66, 212);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(180, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Esqueci minha senha";
+            this.label2.DoubleClick += new System.EventHandler(this.label2_DoubleClick);
+            // 
             // lbl_senha
             // 
             this.lbl_senha.AutoSize = true;
@@ -204,23 +217,28 @@
             this.box_login.Size = new System.Drawing.Size(133, 26);
             this.box_login.TabIndex = 2;
             // 
-            // label2
+            // btn_enviar
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(66, 212);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(180, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Esqueci minha senha";
-            this.label2.DoubleClick += new System.EventHandler(this.label2_DoubleClick);
+            this.btn_enviar.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_enviar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btn_enviar.FlatAppearance.BorderSize = 10;
+            this.btn_enviar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_enviar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_enviar.ForeColor = System.Drawing.Color.White;
+            this.btn_enviar.Location = new System.Drawing.Point(193, 457);
+            this.btn_enviar.Name = "btn_enviar";
+            this.btn_enviar.Size = new System.Drawing.Size(92, 38);
+            this.btn_enviar.TabIndex = 7;
+            this.btn_enviar.Text = "Enviar";
+            this.btn_enviar.UseVisualStyleBackColor = false;
+            this.btn_enviar.Click += new System.EventHandler(this.btn_enviar_Click);
             // 
             // LoginADM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(478, 514);
+            this.Controls.Add(this.btn_enviar);
             this.Controls.Add(this.panelArred1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_entrar);
@@ -253,5 +271,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_enviar;
     }
 }

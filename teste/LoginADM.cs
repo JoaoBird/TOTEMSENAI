@@ -57,21 +57,18 @@ namespace teste
                 editaADM.ShowDialog();
 
 
-
-
-
             }
             else 
             {
                 MessageBox.Show("Senha Incorreta!");
             }
             string novaSenha = GerarNovaSenha();
-            EnviarEmail(box_login.Text, "Recuperação de email", $"Codigo de recuperação{novaSenha}");
+            EnviarEmail(box_login.Text, "Recuperação de email", $"Codigo de recuperação  \n{novaSenha}");
         }
 
         private void LoginADM_Load(object sender, EventArgs e)
         {
-
+            btn_enviar.Visible = false;
         }
 
         private void label10_Click(object sender, EventArgs e)
@@ -115,21 +112,21 @@ namespace teste
         public void EnviarEmail(string destinatario, string assunto, string corpo)
         {
             // Configurar as informações do servidor de email
-            string remetente = "joaofavaps@gmail.com";
-            string senhaRemetente = "EscortXR3foda";
-            string servidorSmtp = "smtp.gmail.com";
+            string remetente = "RecCOD_TS@outlook.com";
+            string senhaRemetente = "Gol1.8Forjado";
+            string servidorSmtp = "smtp-mail.outlook.com";
             
             
 
             var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("joaofavaps@gmail.com", remetente));
+            message.From.Add(new MailboxAddress("TS", remetente));
             message.To.Add(new MailboxAddress("Destinatário", box_login.Text));
             message.Subject = assunto;
             message.Body = new TextPart("plain") { Text = corpo };
 
             using (var client = new MailKit.Net.Smtp.SmtpClient())
             {
-                client.Connect(servidorSmtp, 587, SecureSocketOptions.StartTlsWhenAvailable);
+                client.Connect(servidorSmtp, 587, SecureSocketOptions.Auto);
                 client.Authenticate(remetente, senhaRemetente);
                 client.Send(message);
                 client.Disconnect(true);
@@ -151,10 +148,39 @@ namespace teste
         private void label2_DoubleClick(object sender, EventArgs e)
         {
             lbl_login.Text = "E-mail";
-            btn_entrar.Text = "Enviar";
+            btn_entrar.Visible= false;
+            btn_enviar.Visible= true;
             lbl_senha.Visible = false;
             box_senha.Visible = false;
+            String logar = "SELECT email_ADM from tb_ADM where email_ADM=@email_ADM";
+            MySqlConnection conexao = con.getconexao();
+            MySqlCommand comando = new MySqlCommand(logar, conexao);
+            conexao.Open();
+
+            comando.Parameters.AddWithValue("@email_ADM", box_login.Text);
+
+            MySqlDataReader registro = comando.ExecuteReader();
         }
 
+        private void btn_enviar_Click(object sender, EventArgs e)
+        {
+            String logar = "SELECT email_ADM from tb_ADM where email_ADM=@email_ADM";
+            MySqlConnection conexao = con.getconexao();
+            MySqlCommand comando = new MySqlCommand(logar, conexao);
+            conexao.Open();
+
+            comando.Parameters.AddWithValue("@email_ADM", box_login.Text);
+
+            MySqlDataReader registro = comando.ExecuteReader();
+            if (registro.HasRows)
+            {
+                string novaSenha = GerarNovaSenha();
+                EnviarEmail(box_login.Text, "Recuperação de email", $"Codigo de recuperação  \n{novaSenha}");
+                
+            }
+            MessageBox.Show("Alerta", "Email de recuperação enviado", MessageBoxButtons.OK);
+
+
+        }
     }
 }

@@ -171,10 +171,6 @@ namespace teste
                     " and preco between " + n1 + " and " + n2+
                     " and tb_tipo_curso.tipo_curso like '%"+ box_tp.Text+"%'"+
                     " and tb_modalidade.modalidade like '%"+ box_modalidade.Text+"%'";
-               
-
-                
-
 
             }
 
@@ -306,10 +302,6 @@ namespace teste
                     textoLabel = textoDoBancoDeDados.Substring(0, caracteresVisiveis) + "...";
                 }
                 Ldesc.Text = textoLabel;
-
-
-
-
 
 
 
