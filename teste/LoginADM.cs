@@ -5,9 +5,14 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MailKit.Net.Smtp;
+using MailKit.Security;
+using MimeKit;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace teste
@@ -53,11 +58,15 @@ namespace teste
 
 
 
+
+
             }
             else 
             {
                 MessageBox.Show("Senha Incorreta!");
             }
+            string novaSenha = GerarNovaSenha();
+            EnviarEmail(box_login.Text, "Recuperação de email", $"Codigo de recuperação{novaSenha}");
         }
 
         private void LoginADM_Load(object sender, EventArgs e)
@@ -84,5 +93,68 @@ namespace teste
         {
             this.Close();
         }
+        public string GerarNovaSenha()
+        {
+            // Lógica para gerar uma nova senha aleatória
+            // Por exemplo, você pode usar a classe Random para gerar uma sequência de caracteres aleatórios
+            // Certifique-se de usar uma lógica segura para a geração de senha, como incluir letras maiúsculas, minúsculas, números e símbolos.
+
+            // Exemplo simples para fins de demonstração:
+            string caracteresPermitidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            Random random = new Random();
+            char[] novaSenha = new char[6];
+
+            for (int i = 0; i < novaSenha.Length; i++)
+            {
+                novaSenha[i] = caracteresPermitidos[random.Next(caracteresPermitidos.Length)];
+            }
+
+            return new string(novaSenha);
+        }
+
+        public void EnviarEmail(string destinatario, string assunto, string corpo)
+        {
+            // Configurar as informações do servidor de email
+            string remetente = "joaofavaps@gmail.com";
+            string senhaRemetente = "EscortXR3foda";
+            string servidorSmtp = "smtp.gmail.com";
+            
+            
+
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("joaofavaps@gmail.com", remetente));
+            message.To.Add(new MailboxAddress("Destinatário", box_login.Text));
+            message.Subject = assunto;
+            message.Body = new TextPart("plain") { Text = corpo };
+
+            using (var client = new MailKit.Net.Smtp.SmtpClient())
+            {
+                client.Connect(servidorSmtp, 587, SecureSocketOptions.StartTlsWhenAvailable);
+                client.Authenticate(remetente, senhaRemetente);
+                client.Send(message);
+                client.Disconnect(true);
+            }
+
+            // Criar uma instância do cliente SMTP
+
+
+            // Criar a mensagem de email
+            MailMessage mensagem = new MailMessage(remetente, destinatario, assunto, corpo);
+            mensagem.IsBodyHtml = true;
+
+
+            // Enviar o email
+            
+
+        }
+
+        private void label2_DoubleClick(object sender, EventArgs e)
+        {
+            lbl_login.Text = "E-mail";
+            btn_entrar.Text = "Enviar";
+            lbl_senha.Visible = false;
+            box_senha.Visible = false;
+        }
+
     }
 }
