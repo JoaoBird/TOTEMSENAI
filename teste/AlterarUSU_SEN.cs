@@ -27,6 +27,7 @@ namespace teste
             conexao.Open();
             comando.Parameters.AddWithValue("@login_ADM", box_usu.Text);
             comando.Parameters.AddWithValue("@senha_ADM", box_senha.Text);
+            
             int linhaqrecebe=  Convert.ToInt32(comando.ExecuteScalar());
             //MessageBox.Show(Convert.ToString(linhaqrecebe));
 
@@ -46,12 +47,42 @@ namespace teste
 
         private void AlterarUSU_SEN_Load(object sender, EventArgs e)
         {
-
+            btn_n_vis.Visible = false;
+            btn_n_vis2.Visible = false;
         }
 
         private void btn_back_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+
+        private void btn_vis_Click(object sender, EventArgs e)
+        {
+            box_senha.PasswordChar = '\0';
+            btn_n_vis.Visible = true;
+            btn_vis.Visible = false;
+        }
+
+        private void btn_n_vis_Click_1(object sender, EventArgs e)
+        {
+            box_senha.PasswordChar = '●';
+            btn_n_vis.Visible = false;
+            btn_vis.Visible = true;
+        }
+
+        private void btn_n_vis2_Click(object sender, EventArgs e)
+        {
+            box_senhaN.PasswordChar = '●';
+            btn_n_vis2.Visible = false;
+            btn_vis2.Visible = true;
+        }
+
+        private void btn_vis2_Click(object sender, EventArgs e)
+        {
+            box_senhaN.PasswordChar = '\0';
+            btn_n_vis2.Visible = true;
+            btn_vis2.Visible = false;
         }
     }
 }

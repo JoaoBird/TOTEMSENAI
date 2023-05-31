@@ -36,13 +36,18 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.btn_enviar = new System.Windows.Forms.Button();
+            this.btn_ALT = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelArred1 = new teste.PanelArred();
+            this.btn_n_vis = new System.Windows.Forms.Button();
+            this.btn_vis = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_senha = new System.Windows.Forms.Label();
             this.box_senha = new System.Windows.Forms.TextBox();
             this.lbl_login = new System.Windows.Forms.Label();
             this.box_login = new System.Windows.Forms.TextBox();
-            this.btn_enviar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelArred1.SuspendLayout();
@@ -56,7 +61,7 @@
             this.btn_entrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_entrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_entrar.ForeColor = System.Drawing.Color.White;
-            this.btn_entrar.Location = new System.Drawing.Point(193, 413);
+            this.btn_entrar.Location = new System.Drawing.Point(200, 380);
             this.btn_entrar.Name = "btn_entrar";
             this.btn_entrar.Size = new System.Drawing.Size(92, 38);
             this.btn_entrar.TabIndex = 4;
@@ -152,10 +157,63 @@
             this.label10.MouseEnter += new System.EventHandler(this.label10_MouseEnter);
             this.label10.MouseLeave += new System.EventHandler(this.label10_MouseLeave);
             // 
+            // btn_enviar
+            // 
+            this.btn_enviar.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_enviar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btn_enviar.FlatAppearance.BorderSize = 10;
+            this.btn_enviar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_enviar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_enviar.ForeColor = System.Drawing.Color.White;
+            this.btn_enviar.Location = new System.Drawing.Point(200, 380);
+            this.btn_enviar.Name = "btn_enviar";
+            this.btn_enviar.Size = new System.Drawing.Size(92, 38);
+            this.btn_enviar.TabIndex = 7;
+            this.btn_enviar.Text = "Enviar";
+            this.btn_enviar.UseVisualStyleBackColor = false;
+            this.btn_enviar.Click += new System.EventHandler(this.btn_enviar_Click);
+            // 
+            // btn_ALT
+            // 
+            this.btn_ALT.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_ALT.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btn_ALT.FlatAppearance.BorderSize = 10;
+            this.btn_ALT.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_ALT.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ALT.ForeColor = System.Drawing.Color.White;
+            this.btn_ALT.Location = new System.Drawing.Point(200, 380);
+            this.btn_ALT.Name = "btn_ALT";
+            this.btn_ALT.Size = new System.Drawing.Size(92, 38);
+            this.btn_ALT.TabIndex = 8;
+            this.btn_ALT.Text = "Alterar";
+            this.btn_ALT.UseVisualStyleBackColor = false;
+            this.btn_ALT.Visible = false;
+            this.btn_ALT.Click += new System.EventHandler(this.btn_ALT_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button1.FlatAppearance.BorderSize = 10;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(147, 380);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(187, 38);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Enviar codigo";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // panelArred1
             // 
             this.panelArred1.BackColor = System.Drawing.Color.RoyalBlue;
             this.panelArred1.BorderRadius = 30;
+            this.panelArred1.Controls.Add(this.btn_n_vis);
+            this.panelArred1.Controls.Add(this.btn_vis);
+            this.panelArred1.Controls.Add(this.label3);
             this.panelArred1.Controls.Add(this.label2);
             this.panelArred1.Controls.Add(this.lbl_senha);
             this.panelArred1.Controls.Add(this.box_senha);
@@ -164,15 +222,51 @@
             this.panelArred1.ForeColor = System.Drawing.Color.Black;
             this.panelArred1.Location = new System.Drawing.Point(64, 120);
             this.panelArred1.Name = "panelArred1";
-            this.panelArred1.Size = new System.Drawing.Size(350, 241);
+            this.panelArred1.Size = new System.Drawing.Size(365, 241);
             this.panelArred1.TabIndex = 6;
+            // 
+            // btn_n_vis
+            // 
+            this.btn_n_vis.BackColor = System.Drawing.Color.White;
+            this.btn_n_vis.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_n_vis.Location = new System.Drawing.Point(279, 148);
+            this.btn_n_vis.Name = "btn_n_vis";
+            this.btn_n_vis.Size = new System.Drawing.Size(29, 26);
+            this.btn_n_vis.TabIndex = 10;
+            this.btn_n_vis.Text = "●";
+            this.btn_n_vis.UseVisualStyleBackColor = false;
+            this.btn_n_vis.Click += new System.EventHandler(this.btn_n_vis_Click);
+            // 
+            // btn_vis
+            // 
+            this.btn_vis.BackColor = System.Drawing.Color.White;
+            this.btn_vis.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_vis.Location = new System.Drawing.Point(279, 148);
+            this.btn_vis.Name = "btn_vis";
+            this.btn_vis.Size = new System.Drawing.Size(29, 26);
+            this.btn_vis.TabIndex = 6;
+            this.btn_vis.Text = "○";
+            this.btn_vis.UseVisualStyleBackColor = false;
+            this.btn_vis.Click += new System.EventHandler(this.btn_vis_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(79, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(194, 20);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Insira o codigo enviado";
+            this.label3.Visible = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(66, 212);
+            this.label2.Location = new System.Drawing.Point(79, 209);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(180, 20);
             this.label2.TabIndex = 4;
@@ -184,7 +278,7 @@
             this.lbl_senha.AutoSize = true;
             this.lbl_senha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_senha.ForeColor = System.Drawing.Color.White;
-            this.lbl_senha.Location = new System.Drawing.Point(66, 151);
+            this.lbl_senha.Location = new System.Drawing.Point(34, 154);
             this.lbl_senha.Name = "lbl_senha";
             this.lbl_senha.Size = new System.Drawing.Size(61, 20);
             this.lbl_senha.TabIndex = 1;
@@ -192,10 +286,11 @@
             // 
             // box_senha
             // 
-            this.box_senha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.box_senha.Location = new System.Drawing.Point(151, 148);
+            this.box_senha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.box_senha.Location = new System.Drawing.Point(137, 148);
             this.box_senha.Name = "box_senha";
-            this.box_senha.Size = new System.Drawing.Size(133, 26);
+            this.box_senha.PasswordChar = '●';
+            this.box_senha.Size = new System.Drawing.Size(171, 26);
             this.box_senha.TabIndex = 3;
             // 
             // lbl_login
@@ -203,7 +298,7 @@
             this.lbl_login.AutoSize = true;
             this.lbl_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_login.ForeColor = System.Drawing.Color.White;
-            this.lbl_login.Location = new System.Drawing.Point(66, 65);
+            this.lbl_login.Location = new System.Drawing.Point(34, 68);
             this.lbl_login.Name = "lbl_login";
             this.lbl_login.Size = new System.Drawing.Size(53, 20);
             this.lbl_login.TabIndex = 0;
@@ -212,32 +307,18 @@
             // box_login
             // 
             this.box_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.box_login.Location = new System.Drawing.Point(151, 62);
+            this.box_login.Location = new System.Drawing.Point(137, 62);
             this.box_login.Name = "box_login";
-            this.box_login.Size = new System.Drawing.Size(133, 26);
+            this.box_login.Size = new System.Drawing.Size(171, 26);
             this.box_login.TabIndex = 2;
-            // 
-            // btn_enviar
-            // 
-            this.btn_enviar.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btn_enviar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn_enviar.FlatAppearance.BorderSize = 10;
-            this.btn_enviar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_enviar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_enviar.ForeColor = System.Drawing.Color.White;
-            this.btn_enviar.Location = new System.Drawing.Point(193, 457);
-            this.btn_enviar.Name = "btn_enviar";
-            this.btn_enviar.Size = new System.Drawing.Size(92, 38);
-            this.btn_enviar.TabIndex = 7;
-            this.btn_enviar.Text = "Enviar";
-            this.btn_enviar.UseVisualStyleBackColor = false;
-            this.btn_enviar.Click += new System.EventHandler(this.btn_enviar_Click);
             // 
             // LoginADM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(478, 514);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_ALT);
             this.Controls.Add(this.btn_enviar);
             this.Controls.Add(this.panelArred1);
             this.Controls.Add(this.panel1);
@@ -272,5 +353,10 @@
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_enviar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_ALT;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_vis;
+        private System.Windows.Forms.Button btn_n_vis;
     }
 }

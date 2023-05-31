@@ -19,7 +19,7 @@ namespace teste
 {
     public partial class LoginADM : Form
     {
-
+        string novaSenha = GerarNovaSenha();
         Font SuperMiniFont = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
         Font MiniFont = new Font("Microsoft Sans Serif", 12, FontStyle.Bold | FontStyle.Underline);
 
@@ -60,15 +60,17 @@ namespace teste
             }
             else 
             {
-                MessageBox.Show("Senha Incorreta!");
+                MessageBox.Show("Senha Incorreta!", "Aviso", MessageBoxButtons.OK);
             }
-            string novaSenha = GerarNovaSenha();
-            EnviarEmail(box_login.Text, "Recuperação de email", $"Codigo de recuperação  \n{novaSenha}");
+            //string novaSenha = GerarNovaSenha();
+            //EnviarEmail(box_login.Text, "Recuperação de email", $"Codigo de recuperação  \n{novaSenha}");
         }
 
         private void LoginADM_Load(object sender, EventArgs e)
         {
             btn_enviar.Visible = false;
+            btn_n_vis.Visible = false;
+
         }
 
         private void label10_Click(object sender, EventArgs e)
@@ -90,7 +92,7 @@ namespace teste
         {
             this.Close();
         }
-        public string GerarNovaSenha()
+        static string GerarNovaSenha()
         {
             // Lógica para gerar uma nova senha aleatória
             // Por exemplo, você pode usar a classe Random para gerar uma sequência de caracteres aleatórios
@@ -147,19 +149,22 @@ namespace teste
 
         private void label2_DoubleClick(object sender, EventArgs e)
         {
+            label3.Text = "Insira o E-mail cadastrado";
+            label3.Visible = true;
             lbl_login.Text = "E-mail";
             btn_entrar.Visible= false;
             btn_enviar.Visible= true;
             lbl_senha.Visible = false;
             box_senha.Visible = false;
-            String logar = "SELECT email_ADM from tb_ADM where email_ADM=@email_ADM";
-            MySqlConnection conexao = con.getconexao();
-            MySqlCommand comando = new MySqlCommand(logar, conexao);
-            conexao.Open();
+            label2.Visible = false;
+            //String logar = "SELECT email_ADM from tb_ADM where email_ADM=@email_ADM";
+            //MySqlConnection conexao = con.getconexao();
+            //MySqlCommand comando = new MySqlCommand(logar, conexao);
+            //conexao.Open();
 
-            comando.Parameters.AddWithValue("@email_ADM", box_login.Text);
+            //comando.Parameters.AddWithValue("@email_ADM", box_login.Text);
 
-            MySqlDataReader registro = comando.ExecuteReader();
+            //MySqlDataReader registro = comando.ExecuteReader();
         }
 
         private void btn_enviar_Click(object sender, EventArgs e)
@@ -174,13 +179,83 @@ namespace teste
             MySqlDataReader registro = comando.ExecuteReader();
             if (registro.HasRows)
             {
-                string novaSenha = GerarNovaSenha();
-                EnviarEmail(box_login.Text, "Recuperação de email", $"Codigo de recuperação  \n{novaSenha}");
                 
+                EnviarEmail(box_login.Text, "Recuperação de email", $"Codigo de recuperação  \n{novaSenha}");
+                label3.Text = "Insira o codigo enviado";
+                box_login.Text = "";
+                lbl_login.Text = "Codigo";
+                label3.Visible = true;
+                btn_enviar.Visible = false;
+                button1.Visible= true;
+                label2.Visible = false;
+
+
             }
-            MessageBox.Show("Alerta", "Email de recuperação enviado", MessageBoxButtons.OK);
+            MessageBox.Show("Email de recuperação enviado", "Alerta", MessageBoxButtons.OK);
 
 
+
+        }
+
+        private void btn_ALT_Click(object sender, EventArgs e)
+        {
+
+                MySqlConnection conexao = con.getconexao();
+                conexao.Open();
+                String UPDADM = "UPDATE tb_ADM set login_ADM=@login_ADM, senha_ADM=@senha_ADM  where id_ADM=@id_ADM ";
+                MySqlCommand comandoADM = new MySqlCommand(UPDADM, conexao);
+                comandoADM.Parameters.AddWithValue("@id_ADM", 1);
+                comandoADM.Parameters.AddWithValue("@login_ADM", box_login.Text);
+                comandoADM.Parameters.AddWithValue("@senha_ADM", box_senha.Text);
+                comandoADM.ExecuteNonQuery();
+                MessageBox.Show("Usuario e senha alterados com sucesso!", "AVISO", MessageBoxButtons.OK);
+                this.Close();
+            
+        }
+
+        public void espacoy(Label label, int pos)
+        {
+            label.Location = new Point(label.Location.X, (label.Location.Y + pos));
+            label.Refresh();
+        }
+        public void espacox(Label label, int pos)
+        {
+            label.Location = new Point(label.Location.X + pos, (label.Location.Y));
+            label.Refresh();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            if (Convert.ToString(box_login.Text) == novaSenha)
+            {
+                label3.Text = "Insira um novo login e senha";
+                lbl_login.Visible = true;
+                lbl_senha.Visible = true;
+                box_login.Visible = true;
+                box_senha.Visible = true;
+                btn_enviar.Visible = false;
+                lbl_login.Text = "Login";
+                lbl_senha.Text = "Senha";
+                box_login.Text = "";
+                button1.Visible = false;
+                btn_enviar.Visible = false;
+                btn_ALT.Visible = true;
+            }
+        }
+
+        private void btn_vis_Click(object sender, EventArgs e)
+        {
+            box_senha.PasswordChar= '\0';
+            btn_n_vis.Visible = true;
+            btn_vis.Visible= false;
+        }
+
+        private void btn_n_vis_Click(object sender, EventArgs e)
+        {
+            box_senha.PasswordChar = '●';
+            btn_n_vis.Visible = false;
+            btn_vis.Visible = true;
         }
     }
 }

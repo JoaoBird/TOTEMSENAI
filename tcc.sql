@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 18-Maio-2023 às 22:05
+-- Generation Time: 31-Maio-2023 às 21:49
 -- Versão do servidor: 10.1.32-MariaDB
 -- PHP Version: 7.0.30
 
@@ -31,15 +31,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `tb_adm` (
   `id_ADM` int(11) NOT NULL,
   `login_ADM` varchar(60) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
-  `senha_ADM` varchar(60) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL
+  `senha_ADM` varchar(60) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `email_ADM` varchar(120) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `tb_adm`
 --
 
-INSERT INTO `tb_adm` (`id_ADM`, `login_ADM`, `senha_ADM`) VALUES
-(1, 'a', 'a');
+INSERT INTO `tb_adm` (`id_ADM`, `login_ADM`, `senha_ADM`, `email_ADM`) VALUES
+(1, 'AAA', 'CCC', 'joaofava38@gmail.com');
 
 -- --------------------------------------------------------
 
