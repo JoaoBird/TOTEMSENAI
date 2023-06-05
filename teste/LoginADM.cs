@@ -152,6 +152,8 @@ namespace teste
             label3.Text = "Insira o E-mail cadastrado";
             label3.Visible = true;
             lbl_login.Text = "E-mail";
+            btn_vis.Visible = false;
+            btn_n_vis.Visible = false;
             btn_entrar.Visible= false;
             btn_enviar.Visible= true;
             lbl_senha.Visible = false;
@@ -234,6 +236,8 @@ namespace teste
                 lbl_senha.Visible = true;
                 box_login.Visible = true;
                 box_senha.Visible = true;
+                btn_vis.Visible = true;
+                btn_n_vis.Visible = true;
                 btn_enviar.Visible = false;
                 lbl_login.Text = "Login";
                 lbl_senha.Text = "Senha";

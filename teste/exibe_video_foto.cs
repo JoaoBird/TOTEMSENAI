@@ -41,6 +41,8 @@ namespace teste
         {
             lbl_lab.Text = laboratorio.nome_lab;
             txt_laboratorio.Text = laboratorio.txt_laboratorio;
+            lbl_desc.Font = SmallFont;
+            lbl_desc.Text=laboratorio.txt_laboratorio;
 
             lbl_nomelab.Text = laboratorio.nome_lab;
             AdicionarMedia();

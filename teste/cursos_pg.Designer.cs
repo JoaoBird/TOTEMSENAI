@@ -180,17 +180,19 @@
             // 
             // box_pmax
             // 
+            this.box_pmax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.box_pmax.Location = new System.Drawing.Point(121, 324);
             this.box_pmax.Name = "box_pmax";
-            this.box_pmax.Size = new System.Drawing.Size(79, 20);
+            this.box_pmax.Size = new System.Drawing.Size(79, 26);
             this.box_pmax.TabIndex = 11;
             this.box_pmax.TextChanged += new System.EventHandler(this.box_pmax_TextChanged);
             // 
             // box_pmin
             // 
+            this.box_pmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.box_pmin.Location = new System.Drawing.Point(23, 324);
             this.box_pmin.Name = "box_pmin";
-            this.box_pmin.Size = new System.Drawing.Size(79, 20);
+            this.box_pmin.Size = new System.Drawing.Size(79, 26);
             this.box_pmin.TabIndex = 10;
             this.box_pmin.TextChanged += new System.EventHandler(this.box_pmin_TextChanged);
             // 
@@ -251,52 +253,52 @@
             // 
             // box_modalidade
             // 
-            this.box_modalidade.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.box_modalidade.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.box_modalidade.FormattingEnabled = true;
             this.box_modalidade.Items.AddRange(new object[] {
             ""});
             this.box_modalidade.Location = new System.Drawing.Point(23, 544);
             this.box_modalidade.Margin = new System.Windows.Forms.Padding(2);
             this.box_modalidade.Name = "box_modalidade";
-            this.box_modalidade.Size = new System.Drawing.Size(177, 24);
+            this.box_modalidade.Size = new System.Drawing.Size(177, 26);
             this.box_modalidade.TabIndex = 3;
             this.box_modalidade.TextChanged += new System.EventHandler(this.box_modalidade_TextChanged);
             // 
             // box_duracao
             // 
-            this.box_duracao.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.box_duracao.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.box_duracao.FormattingEnabled = true;
             this.box_duracao.Items.AddRange(new object[] {
             ""});
             this.box_duracao.Location = new System.Drawing.Point(23, 432);
             this.box_duracao.Margin = new System.Windows.Forms.Padding(2);
             this.box_duracao.Name = "box_duracao";
-            this.box_duracao.Size = new System.Drawing.Size(177, 24);
+            this.box_duracao.Size = new System.Drawing.Size(177, 26);
             this.box_duracao.TabIndex = 2;
             this.box_duracao.SelectedIndexChanged += new System.EventHandler(this.box_duracao_SelectedIndexChanged);
             this.box_duracao.TextChanged += new System.EventHandler(this.box_duracao_TextChanged);
             // 
             // box_tp
             // 
-            this.box_tp.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.box_tp.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.box_tp.FormattingEnabled = true;
             this.box_tp.Items.AddRange(new object[] {
             ""});
             this.box_tp.Location = new System.Drawing.Point(23, 668);
             this.box_tp.Margin = new System.Windows.Forms.Padding(2);
             this.box_tp.Name = "box_tp";
-            this.box_tp.Size = new System.Drawing.Size(177, 24);
+            this.box_tp.Size = new System.Drawing.Size(177, 26);
             this.box_tp.TabIndex = 1;
             this.box_tp.TextChanged += new System.EventHandler(this.box_tp_TextChanged);
             // 
             // box_nome
             // 
-            this.box_nome.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.box_nome.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.box_nome.ImeMode = System.Windows.Forms.ImeMode.On;
             this.box_nome.Location = new System.Drawing.Point(23, 176);
             this.box_nome.Margin = new System.Windows.Forms.Padding(2);
             this.box_nome.Name = "box_nome";
-            this.box_nome.Size = new System.Drawing.Size(177, 23);
+            this.box_nome.Size = new System.Drawing.Size(177, 26);
             this.box_nome.TabIndex = 0;
             this.box_nome.TextChanged += new System.EventHandler(this.box_nome_TextChanged);
             // 

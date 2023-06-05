@@ -70,7 +70,18 @@ namespace teste
 
 
         }
-
+        private void puxa_dados2()
+        {
+            dataGridView2.Refresh();
+            MySqlConnection Conexao = con.getconexao();// chama a conexão mysql
+            Conexao.Open();//abre conexao
+            string SLCT = "select id_lab,nome_lab,txt_laboratorio from tb_lab";//nome da consulta
+            MySqlCommand comando = new MySqlCommand(SLCT, Conexao);//comando sql para montar
+            MySqlDataAdapter adaptador = new MySqlDataAdapter(comando);
+            DataTable tabela2 = new DataTable();
+            adaptador.Fill(tabela2);
+            dataGridView2.DataSource = tabela2;
+        }
     
 
 
@@ -79,6 +90,7 @@ namespace teste
         private void EdicaoADM_Load(object sender, EventArgs e)
         {
             puxa_dados();
+            puxa_dados2();
         }
         public void puxa_dados()
         {
@@ -137,6 +149,18 @@ namespace teste
         private void btn_back_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btn_edt_lab_Click(object sender, EventArgs e)
+        {
+            //)
+            int index = dataGridView2.CurrentRow.Index;
+            if (index >= 0)
+            {
+                Edc_lab edicao_lab = new Edc_lab(Convert.ToInt32(dataGridView2.Rows[index].Cells[0].Value));
+                this.Hide();
+                edicao_lab.ShowDialog();
+            }
         }
     }
 }

@@ -136,6 +136,12 @@
     <Compile Include="cursos_pg.Designer.cs">
       <DependentUpon>cursos_pg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Edc_lab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edc_lab.Designer.cs">
+      <DependentUpon>Edc_lab.cs</DependentUpon>
+    </Compile>
     <Compile Include="EdicaoADM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="cursos_pg.resx">
       <DependentUpon>cursos_pg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edc_lab.resx">
+      <DependentUpon>Edc_lab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EdicaoADM.resx">
       <DependentUpon>EdicaoADM.cs</DependentUpon>

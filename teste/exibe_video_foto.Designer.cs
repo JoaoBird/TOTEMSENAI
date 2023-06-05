@@ -44,6 +44,7 @@
             this.player = new AxWMPLib.AxWindowsMediaPlayer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txt_laboratorio = new System.Windows.Forms.Label();
+            this.lbl_desc = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelArred1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
@@ -236,11 +237,23 @@
             this.txt_laboratorio.TabIndex = 8;
             this.txt_laboratorio.Text = "label1";
             // 
+            // lbl_desc
+            // 
+            this.lbl_desc.AutoSize = true;
+            this.lbl_desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_desc.Location = new System.Drawing.Point(47, 274);
+            this.lbl_desc.MaximumSize = new System.Drawing.Size(700, 0);
+            this.lbl_desc.Name = "lbl_desc";
+            this.lbl_desc.Size = new System.Drawing.Size(94, 24);
+            this.lbl_desc.TabIndex = 9;
+            this.lbl_desc.Text = "Descrição";
+            // 
             // exibe_video_foto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.lbl_desc);
             this.Controls.Add(this.txt_laboratorio);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbl_nomelab);
@@ -275,5 +288,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Label txt_laboratorio;
+        private System.Windows.Forms.Label lbl_desc;
     }
 }
