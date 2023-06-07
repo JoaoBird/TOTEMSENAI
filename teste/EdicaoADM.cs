@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace teste
         conexao con = new conexao();
         public EdicaoADM()
         {
-            
+
             InitializeComponent();
         }
 
@@ -37,7 +38,7 @@ namespace teste
 
         private void btn_Editar_Click(object sender, EventArgs e)
         {
-      
+
             int index = dataGridView1.CurrentRow.Index;
             if (index >= 0)
             {
@@ -45,25 +46,25 @@ namespace teste
                 this.Hide();
                 cadastrocurso.ShowDialog();
             }
-            
-            
+
+
         }
-    
+
 
         private void btn_Excluir_Click(object sender, EventArgs e)
         {
             //dataGridView1.CellClick += DataGridView1_CellClick;
 
-            
+
             MySqlConnection Conexao = con.getconexao();// chama a conexão mysql
             Conexao.Open();//abre conexao
             int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id_curso"].Value);
-            string DEL = "DELETE  FROM tb_curso WHERE  id_curso="+id;
+            string DEL = "DELETE  FROM tb_curso WHERE  id_curso=" + id;
             MySqlCommand comando = new MySqlCommand(DEL, Conexao);
-            DialogResult Ok = MessageBox.Show("Tem certeza que deseja excluir o registro selecionado?", "AVISO", MessageBoxButtons.OKCancel);
-            if (Ok == DialogResult.OK )
+            DialogResult Ok = MessageBox.Show("Tem certeza que deseja excluir o registro selecionado?", "AVISO", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (Ok == DialogResult.OK)
             {
-                
+
                 comando.ExecuteNonQuery();
                 puxa_dados();
             }
@@ -82,7 +83,7 @@ namespace teste
             adaptador.Fill(tabela2);
             dataGridView2.DataSource = tabela2;
         }
-    
+
 
 
 
@@ -107,7 +108,7 @@ namespace teste
 
         private void btn_AlterarUS_Click(object sender, EventArgs e)
         {
-            AlterarUSU_SEN alteraUSU_SEN= new AlterarUSU_SEN();
+            AlterarUSU_SEN alteraUSU_SEN = new AlterarUSU_SEN();
             alteraUSU_SEN.ShowDialog();
         }
 
@@ -161,6 +162,45 @@ namespace teste
                 this.Hide();
                 edicao_lab.ShowDialog();
             }
+        }
+
+        private void btn_adc_lab_Click(object sender, EventArgs e)
+        {
+
+            Edc_lab edicao_lab = new Edc_lab(0);
+            this.Hide();
+            edicao_lab.ShowDialog();
+
+        }
+
+        private void btn_excluir_lab_Click(object sender, EventArgs e)
+        {
+            MySqlConnection Conexao = con.getconexao();// chama a conexão mysql
+            Conexao.Open();//abre conexao
+            int idL = Convert.ToInt32(dataGridView2.CurrentRow.Cells["id_lab"].Value);
+            string DEL = "DELETE  FROM tb_lab WHERE  id_lab=" + idL;
+            MySqlCommand comando = new MySqlCommand(DEL, Conexao);
+            DialogResult Ok = MessageBox.Show("Tem certeza que deseja excluir o registro selecionado?", "AVISO", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (Ok == DialogResult.OK)
+            {
+                if (Directory.Exists($"Imagens/{idL}"))
+                {
+                    Directory.Delete($"Imagens/{idL}");
+                }
+                if (Directory.Exists($"Videos/{idL}"))
+                {
+                    Directory.Delete($"Videos/{idL}"); ;
+                }
+
+
+                comando.ExecuteNonQuery();
+                puxa_dados2();
+            }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

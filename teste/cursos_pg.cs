@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Shapes;
 using static System.Windows.Forms.LinkLabel;
 
 namespace teste
@@ -166,7 +167,8 @@ namespace teste
                 Single.TryParse(max, out n2);
 
 
-                query += " nome_curso like  '%" + box_nome.Text + "%'"+ 
+                query += "( nome_curso like  '%" + box_nome.Text + "%'"+
+                    " or op_trabalho like  '%" + box_nome.Text + "%')"+
                     " and carga_horaria like '%" + box_duracao.Text + "%'"+ 
                     " and preco between " + n1 + " and " + n2+
                     " and tb_tipo_curso.tipo_curso like '%"+ box_tp.Text+"%'"+

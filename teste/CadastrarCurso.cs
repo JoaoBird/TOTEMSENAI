@@ -47,6 +47,9 @@ namespace teste
             box_modalidade.DisplayMember = "modalidade";
             box_modalidade.ValueMember = "id_modalidade";
 
+            box_modalidade.Text = "";
+            box_tp.Text = "";
+
             //
             //
             string SLCGR = "select nome_curso,requisitos,profissao,op_trabalho,q_vai_aprender,preco,carga_horaria,tb_tipo_curso." +
@@ -96,8 +99,13 @@ namespace teste
             comando3.Parameters.AddWithValue("@id_tipo_curso", box_tp.SelectedValue);
             comando3.Parameters.AddWithValue("@id_modalidade", box_modalidade.SelectedValue);
             comando3.Parameters.AddWithValue("@nome_img", box_url.Text);
+            if (box_nome.Text == "" || box_requisitos.Text == "" || box_profissao.Text == "" || box_op.Text == "" || box_oq_aprender.Text == "" || box_preco.Text == "" || box_carga_horaria.Text == "" || box_tp.Text == "" || box_modalidade.Text == "" || box_url.Text == "")
+            {
+                MessageBox.Show("Preencha os campos em branco!!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             comando3.ExecuteNonQuery();//ler os dados da consulta
-            MessageBox.Show("Cadastrado com sucesso!", "AVISO", MessageBoxButtons.OK);
+            MessageBox.Show("Enviado com sucesso!", "AVISO", MessageBoxButtons.OK);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

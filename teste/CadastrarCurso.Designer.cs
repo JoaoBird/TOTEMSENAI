@@ -263,18 +263,23 @@
             // 
             this.box_tp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.box_tp.FormattingEnabled = true;
+            this.box_tp.Items.AddRange(new object[] {
+            "",
+            ""});
             this.box_tp.Location = new System.Drawing.Point(721, 523);
             this.box_tp.Name = "box_tp";
-            this.box_tp.Size = new System.Drawing.Size(198, 28);
+            this.box_tp.Size = new System.Drawing.Size(258, 28);
             this.box_tp.TabIndex = 18;
             // 
             // box_modalidade
             // 
             this.box_modalidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.box_modalidade.FormattingEnabled = true;
+            this.box_modalidade.Items.AddRange(new object[] {
+            ""});
             this.box_modalidade.Location = new System.Drawing.Point(721, 583);
             this.box_modalidade.Name = "box_modalidade";
-            this.box_modalidade.Size = new System.Drawing.Size(198, 28);
+            this.box_modalidade.Size = new System.Drawing.Size(258, 28);
             this.box_modalidade.TabIndex = 19;
             // 
             // box_nome
@@ -299,7 +304,7 @@
             this.box_preco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.box_preco.Location = new System.Drawing.Point(227, 524);
             this.box_preco.Name = "box_preco";
-            this.box_preco.Size = new System.Drawing.Size(198, 26);
+            this.box_preco.Size = new System.Drawing.Size(236, 26);
             this.box_preco.TabIndex = 22;
             // 
             // box_carga_horaria
@@ -307,7 +312,7 @@
             this.box_carga_horaria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.box_carga_horaria.Location = new System.Drawing.Point(227, 579);
             this.box_carga_horaria.Name = "box_carga_horaria";
-            this.box_carga_horaria.Size = new System.Drawing.Size(198, 26);
+            this.box_carga_horaria.Size = new System.Drawing.Size(236, 26);
             this.box_carga_horaria.TabIndex = 23;
             // 
             // box_profissao
@@ -344,7 +349,7 @@
             this.btn_enviar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_enviar.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_enviar.ForeColor = System.Drawing.Color.White;
-            this.btn_enviar.Location = new System.Drawing.Point(503, 634);
+            this.btn_enviar.Location = new System.Drawing.Point(502, 672);
             this.btn_enviar.Name = "btn_enviar";
             this.btn_enviar.Size = new System.Drawing.Size(89, 35);
             this.btn_enviar.TabIndex = 27;
@@ -366,14 +371,14 @@
             this.box_url.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.box_url.Location = new System.Drawing.Point(227, 627);
             this.box_url.Name = "box_url";
-            this.box_url.Size = new System.Drawing.Size(198, 26);
+            this.box_url.Size = new System.Drawing.Size(236, 26);
             this.box_url.TabIndex = 29;
             // 
             // CadastrarCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 681);
+            this.ClientSize = new System.Drawing.Size(1064, 707);
             this.Controls.Add(this.box_url);
             this.Controls.Add(this.lbl_url);
             this.Controls.Add(this.btn_enviar);
