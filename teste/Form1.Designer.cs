@@ -31,7 +31,6 @@ namespace teste
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panelArred1 = new teste.PanelArred();
             this.label2 = new System.Windows.Forms.Label();
             this.panelArred2 = new teste.PanelArred();
@@ -47,15 +46,6 @@ namespace teste
             this.panelArred3.SuspendLayout();
             this.panelArred4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(195, 45);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // panelArred1
             // 
@@ -175,7 +165,6 @@ namespace teste
             // 
             this.panelArred3.BackColor = System.Drawing.Color.RoyalBlue;
             this.panelArred3.BorderRadius = 30;
-            this.panelArred3.Controls.Add(this.textBox1);
             this.panelArred3.Controls.Add(this.panelArred1);
             this.panelArred3.Controls.Add(this.label2);
             this.panelArred3.ForeColor = System.Drawing.Color.Black;
@@ -232,7 +221,6 @@ namespace teste
         private Label label4;
         private PanelArred panelArred1;
         private PanelArred panelArred2;
-        private TextBox textBox1;
         private PanelArred panelArred3;
         private PanelArred panelArred4;
     }

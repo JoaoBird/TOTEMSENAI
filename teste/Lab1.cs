@@ -10,10 +10,10 @@ namespace teste
     public class Laboratorio
     {
         
-        public Laboratorio(string nome) 
+        public Laboratorio(string nome, int _id_lab) 
         {
             nome_lab = nome;
-
+            id_lab = _id_lab;
             Medias = new List<Media>();
 
         }

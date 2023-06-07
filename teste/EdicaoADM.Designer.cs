@@ -163,7 +163,7 @@
             this.btn_edt_lab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_edt_lab.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F);
             this.btn_edt_lab.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_edt_lab.Location = new System.Drawing.Point(43, 703);
+            this.btn_edt_lab.Location = new System.Drawing.Point(43, 594);
             this.btn_edt_lab.Name = "btn_edt_lab";
             this.btn_edt_lab.Size = new System.Drawing.Size(151, 115);
             this.btn_edt_lab.TabIndex = 4;
@@ -177,7 +177,7 @@
             this.btn_AlterarUS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_AlterarUS.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AlterarUS.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_AlterarUS.Location = new System.Drawing.Point(43, 529);
+            this.btn_AlterarUS.Location = new System.Drawing.Point(43, 439);
             this.btn_AlterarUS.Name = "btn_AlterarUS";
             this.btn_AlterarUS.Size = new System.Drawing.Size(151, 136);
             this.btn_AlterarUS.TabIndex = 3;
@@ -191,7 +191,7 @@
             this.btn_Excluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Excluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Excluir.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Excluir.Location = new System.Drawing.Point(43, 382);
+            this.btn_Excluir.Location = new System.Drawing.Point(43, 300);
             this.btn_Excluir.Name = "btn_Excluir";
             this.btn_Excluir.Size = new System.Drawing.Size(151, 115);
             this.btn_Excluir.TabIndex = 2;
@@ -206,7 +206,7 @@
             this.btn_Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Editar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Editar.Location = new System.Drawing.Point(43, 235);
+            this.btn_Editar.Location = new System.Drawing.Point(43, 162);
             this.btn_Editar.Name = "btn_Editar";
             this.btn_Editar.Size = new System.Drawing.Size(151, 115);
             this.btn_Editar.TabIndex = 1;
@@ -221,7 +221,7 @@
             this.btn_Cadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Cadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cadastrar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Cadastrar.Location = new System.Drawing.Point(43, 88);
+            this.btn_Cadastrar.Location = new System.Drawing.Point(43, 25);
             this.btn_Cadastrar.Name = "btn_Cadastrar";
             this.btn_Cadastrar.Size = new System.Drawing.Size(151, 115);
             this.btn_Cadastrar.TabIndex = 0;
@@ -233,6 +233,7 @@
             // 
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -298,6 +299,7 @@
             // 
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

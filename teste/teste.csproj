@@ -194,9 +194,11 @@
     <Compile Include="Usuario.cs" />
     <EmbeddedResource Include="AlterarUSU_SEN.resx">
       <DependentUpon>AlterarUSU_SEN.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="CadastrarCurso.resx">
       <DependentUpon>CadastrarCurso.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="cursos_pg.resx">
       <DependentUpon>cursos_pg.cs</DependentUpon>

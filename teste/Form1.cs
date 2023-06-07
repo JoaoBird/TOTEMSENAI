@@ -128,7 +128,6 @@ namespace teste
             {
                 Hide();
                 LoginADM tela_login_ADM = new LoginADM();
-                textBox1.Visible = false;
                 tela_login_ADM.ShowDialog();
                 Show();
             }
@@ -141,7 +140,7 @@ namespace teste
 
         private void Form1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            textBox1.Visible = true;
+
 
 
         }

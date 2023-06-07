@@ -38,7 +38,7 @@ namespace teste
             while ( registro.Read())
             {
                 
-                Laboratorio lab = new Laboratorio(registro.GetString("nome_lab"));
+                Laboratorio lab = new Laboratorio(registro.GetString("nome_lab"), registro.GetInt32("id_lab"));
                 lab.id_lab = registro.GetInt32("id_lab");
                 lab.caminho_img = registro.GetString("caminho_img");
                 lab.txt_laboratorio = registro.GetString("txt_laboratorio");
