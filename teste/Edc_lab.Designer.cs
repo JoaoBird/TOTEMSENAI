@@ -251,7 +251,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 31);
             this.label5.TabIndex = 50;
-            this.label5.Text = "1/1";
+            this.label5.Text = "0/0";
             // 
             // label6
             // 
@@ -262,7 +262,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 31);
             this.label6.TabIndex = 51;
-            this.label6.Text = "1/1";
+            this.label6.Text = "0/0";
             // 
             // panelArred1
             // 
