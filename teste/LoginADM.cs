@@ -17,7 +17,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace teste
 {
-    public partial class LoginADM : Form
+    public partial class LoginADM : Form//Essa tela e a responsavel para logar o adm, caso as credenciais estejam corretas ele tem acesso a edição dos cursos e lab
     {
         string novaSenha = GerarNovaSenha();
         Font SuperMiniFont = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
@@ -29,7 +29,7 @@ namespace teste
             InitializeComponent();
         }
 
-        private void btn_entrar_Click(object sender, EventArgs e)
+        private void btn_entrar_Click(object sender, EventArgs e)//Botão para logar e entrar na tela de edição do adm
         {
             String logar = "SELECT login_ADM,senha_ADM,id_ADM from tb_ADM where login_ADM=@login_ADM AND senha_ADM=@senha_ADM";
             MySqlConnection conexao = con.getconexao();
@@ -92,13 +92,9 @@ namespace teste
         {
             this.Close();
         }
-        static string GerarNovaSenha()
+        static string GerarNovaSenha()// Metodo para gerar uma nova senha aleatória
         {
-            // Lógica para gerar uma nova senha aleatória
-            // Por exemplo, você pode usar a classe Random para gerar uma sequência de caracteres aleatórios
-            // Certifique-se de usar uma lógica segura para a geração de senha, como incluir letras maiúsculas, minúsculas, números e símbolos.
 
-            // Exemplo simples para fins de demonstração:
             string caracteresPermitidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
             Random random = new Random();
             char[] novaSenha = new char[6];
@@ -111,7 +107,7 @@ namespace teste
             return new string(novaSenha);
         }
 
-        public void EnviarEmail(string destinatario, string assunto, string corpo)
+        public void EnviarEmail(string destinatario, string assunto, string corpo)//Metodo para enviar o email
         {
             // Configurar as informações do servidor de email
             string remetente = "RecCOD_TS@outlook.com";
@@ -136,7 +132,6 @@ namespace teste
 
             // Criar uma instância do cliente SMTP
 
-
             // Criar a mensagem de email
             MailMessage mensagem = new MailMessage(remetente, destinatario, assunto, corpo);
             mensagem.IsBodyHtml = true;
@@ -147,7 +142,7 @@ namespace teste
 
         }
 
-        private void label2_DoubleClick(object sender, EventArgs e)
+        private void label2_DoubleClick(object sender, EventArgs e)//Aqui abre se a aba para colocar o email
         {
             label3.Text = "Insira o E-mail cadastrado";
             label3.Visible = true;
@@ -169,7 +164,7 @@ namespace teste
             //MySqlDataReader registro = comando.ExecuteReader();
         }
 
-        private void btn_enviar_Click(object sender, EventArgs e)
+        private void btn_enviar_Click(object sender, EventArgs e)//aqui se faz uma comparação com o banco
         {
             String logar = "SELECT email_ADM from tb_ADM where email_ADM=@email_ADM";
             MySqlConnection conexao = con.getconexao();
@@ -179,10 +174,10 @@ namespace teste
             comando.Parameters.AddWithValue("@email_ADM", box_login.Text);
 
             MySqlDataReader registro = comando.ExecuteReader();
-            if (registro.HasRows)
+            if (registro.HasRows)//caso o email escrito na box tenha registro, ele segue os passos para o envio do codigo
             {
                 
-                EnviarEmail(box_login.Text, "Recuperação de email", $"Codigo de recuperação  \n{novaSenha}");
+                EnviarEmail(box_login.Text, "Recuperação de email", $"Codigo de recuperação  \n{novaSenha}");//Aqui envia se o email com titulo, descrição e o codigo
                 label3.Text = "Insira o codigo enviado";
                 box_login.Text = "";
                 lbl_login.Text = "Codigo";
@@ -190,16 +185,21 @@ namespace teste
                 btn_enviar.Visible = false;
                 button1.Visible= true;
                 label2.Visible = false;
-
+                MessageBox.Show("Email de recuperação enviado", "Alerta", MessageBoxButtons.OK);
 
             }
-            MessageBox.Show("Email de recuperação enviado", "Alerta", MessageBoxButtons.OK);
+            else
+            {
+                MessageBox.Show("Email não encontrado", "Alerta", MessageBoxButtons.OK);
+                return;
+            }
+
 
 
 
         }
 
-        private void btn_ALT_Click(object sender, EventArgs e)
+        private void btn_ALT_Click(object sender, EventArgs e)//Aqui altera se o email e senha do ADM
         {
 
                 MySqlConnection conexao = con.getconexao();
@@ -226,10 +226,10 @@ namespace teste
             label.Refresh();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)//Aqui verifica se o codigo enviado por email
         {
 
-            if (Convert.ToString(box_login.Text) == novaSenha)
+            if (Convert.ToString(box_login.Text) == novaSenha)//caso o codigo verificado por email bata com o gerado, ele permitira a troca do login e senha do adm
             {
                 label3.Text = "Insira um novo login e senha";
                 lbl_login.Visible = true;
@@ -248,14 +248,14 @@ namespace teste
             }
         }
 
-        private void btn_vis_Click(object sender, EventArgs e)
+        private void btn_vis_Click(object sender, EventArgs e)//botão para ver a senha
         {
             box_senha.PasswordChar= '\0';
             btn_n_vis.Visible = true;
             btn_vis.Visible= false;
         }
 
-        private void btn_n_vis_Click(object sender, EventArgs e)
+        private void btn_n_vis_Click(object sender, EventArgs e)//botão para esconder a senha
         {
             box_senha.PasswordChar = '●';
             btn_n_vis.Visible = false;

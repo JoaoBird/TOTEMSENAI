@@ -52,7 +52,7 @@ namespace teste
 
         }
 
-        private void panelArred1_Click(object sender, EventArgs e)
+        private void panelArred1_Click(object sender, EventArgs e)//Aqui abre se a pagina dos Cursos
         {
             cursos_pg cursos = new cursos_pg();
             cursos.Show();
@@ -96,14 +96,14 @@ namespace teste
 
         }
 
-        private void label3_Click_1(object sender, EventArgs e)
+        private void label3_Click_1(object sender, EventArgs e)//Aqui abre se a pagina dos Laboratorios
         {
             lab labo = new lab();
             labo.Show();
             this.Hide();
         }
 
-        private void panelArred2_Click(object sender, EventArgs e)
+        private void panelArred2_Click(object sender, EventArgs e)//Aqui abre se a pagina dos Laboratorios
         {
             lab labo = new lab();
             labo.Show();
@@ -122,7 +122,7 @@ namespace teste
             tela_login_ADM.ShowDialog();
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void Form1_KeyDown(object sender, KeyEventArgs e)//Aqui abre se a pagina do login do ADM
         {
             if (e.KeyCode == Keys.F12 && e.Shift && e.Alt )
             {

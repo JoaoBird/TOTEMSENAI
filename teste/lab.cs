@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace teste
 {
-    public partial class lab : Form
+    public partial class lab : Form//Nessa Pagina temos uma preview dos laboratorios disponiveis
     {
         private readonly List<Laboratorio> laboratorios = new List<Laboratorio>();
 
@@ -29,13 +29,13 @@ namespace teste
         {
     
             InitializeComponent();
-            laboratorios = new List<Laboratorio>();
+            laboratorios = new List<Laboratorio>();//Cria se uma lista dos laboratorios
             MySqlConnection Conexao = con.getconexao();// chama a conexão mysql
             Conexao.Open();//abre conexao
             string query = "select id_lab,nome_lab,txt_laboratorio,caminho_img from tb_lab";//nome da consulta
             MySqlCommand comando = new MySqlCommand(query, Conexao);//comando sql para montar
             MySqlDataReader registro = comando.ExecuteReader();//ler os dados da consulta
-            while ( registro.Read())
+            while ( registro.Read())//a cada registro que aqui ele lê ele busca os dados no banco
             {
                 
                 Laboratorio lab = new Laboratorio(registro.GetString("nome_lab"), registro.GetInt32("id_lab"));
@@ -45,18 +45,18 @@ namespace teste
                 laboratorios.Add(lab);
             }
 
-            foreach (var laboratorio in laboratorios)
+            foreach (var laboratorio in laboratorios)//para cada laboratorio cria se 
             {
 
-                laboratorio.Medias.AddRange(MediaProvider.GetImagens(laboratorio));
-                laboratorio.Medias.AddRange(MediaProvider.GetVideos(laboratorio));
+                laboratorio.Medias.AddRange(MediaProvider.GetImagens(laboratorio));//Aqui pegamos as imagens
+                laboratorio.Medias.AddRange(MediaProvider.GetVideos(laboratorio));//Aqui pegamos os videos
 
                 CriarItemLaboratorio(laboratorio);
             }
 
 
         }
-        private void CriarItemLaboratorio(Laboratorio laboratorio)
+        private void CriarItemLaboratorio(Laboratorio laboratorio)//Aqui cria se o visual dos paineis do laboratorios
         {
             var mainPanel = MainPanel();
             var headerPanel = HeaderPanel(laboratorio.nome_lab);
@@ -66,9 +66,6 @@ namespace teste
             mainPanel.Controls.Add(headerPanel);
             mainPanel.Controls.Add(picturebox);
             headerPanel.SendToBack();
-            
-           
-
             pnLaboratorios.Controls.Add(mainPanel);
         }
 
@@ -104,7 +101,7 @@ namespace teste
             panel.Dock = DockStyle.Top;
             return panel;
         }
-        private static PictureBox puxa_primeira_foto(string imagem)
+        private static PictureBox puxa_primeira_foto(string imagem)//Essa função e criada para puxar a primeira foto, a exibida nos paineis
         {
             if (imagem == null)
             {
@@ -112,19 +109,12 @@ namespace teste
             }
             return new PictureBox { ImageLocation = imagem,Dock= DockStyle.Fill,SizeMode= PictureBoxSizeMode.StretchImage };
         }
-        private void OnPanelClick(Laboratorio laboratorio)
+        private void OnPanelClick(Laboratorio laboratorio)//Aqui abre se o laboratorio escolhido
         {
-
 
             exibe_video_foto exibe = new exibe_video_foto(laboratorio);
             exibe.Show();
             this.Close();
-
-            //using (var exibe  = new exibe_video_foto(laboratorio))
-            //{
-            //    exibe.Show();
-            //    this.Close();
-            //}
 
         }
 

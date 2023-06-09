@@ -25,7 +25,7 @@ namespace teste
 
         int _id_curso; 
         conexao con = new conexao();
-        public tela_c(int id_curso)
+        public tela_c(int id_curso)// Nessa tela e puxado o id do curso selecionado na pagina cursos_pg, e aqui e mostrado com mais detalhes
         {
            _id_curso = id_curso;
             InitializeComponent();
@@ -59,13 +59,9 @@ namespace teste
             panelArred.Location = new Point(panelArred.Location.X, (panelArred.Location.Y + pos));
             panelArred.Refresh();
         }
-        private void tela_c_Load(object sender, EventArgs e)
+        private void tela_c_Load(object sender, EventArgs e)//aqui e feito o select baseado no ID que foi puxado na cursos_pg
         {
-           
-                
-               
-
-                CultureInfo.CurrentCulture = new CultureInfo("pt-BR", false);
+            CultureInfo.CurrentCulture = new CultureInfo("pt-BR", false);
             MySqlConnection Conexao = con.getconexao();// chama a conexão mysql
             Conexao.Open();//abre conexao
             string query = "select id_curso,nome_curso,requisitos,profissao,op_trabalho,q_vai_aprender,preco,carga_horaria,tb_tipo_curso.tipo_curso,tb_modalidade.modalidade,nome_img from tb_curso inner join tb_tipo_curso on tb_tipo_curso.id_tipo_curso=tb_curso.id_tipo_curso inner join tb_modalidade on tb_modalidade.id_modalidade=tb_curso.id_modalidade where id_curso="+_id_curso;//nome da consulta
@@ -94,20 +90,13 @@ namespace teste
 
 
             }
-
-
-                //lbl_prof.Text = textoSemQuebrasDeLinha;
-                //lbl_prof.TextAlign = ContentAlignment.TopLeft;
-                //lbl_prof.UseCompatibleTextRendering = true;
-
-                lbl_op_trabalho.Text = registro.GetString("op_trabalho");
-
+            lbl_op_trabalho.Text = registro.GetString("op_trabalho");
             lbl_aprender.Text = registro.GetString("q_vai_aprender");
             lbl_preco.Text += registro.GetString("preco");
             lbl_hora.Text += registro.GetString("carga_horaria");
             lbl_tp_curso.Text = registro.GetString("tipo_curso");
             lbl_modalidade.Text = registro.GetString("modalidade");
-            string nome_img = registro["nome_img"].ToString();
+            string nome_img = registro["nome_img"].ToString();// o nome img no banco e o link do site do curso selecionado
 
             registro.Close();
             Conexao.Close();
@@ -118,7 +107,7 @@ namespace teste
             espacoy(lbl_aprender, lbl_prof.Height + lbl_op_trabalho.Height);
             
             
-            
+            //Aqui gera se o QR code para o usuario visualizar no site do senai o curso
             var qrGenerator = new QRCodeGenerator();
             var qrCodeData = qrGenerator.CreateQrCode(nome_img, QRCodeGenerator.ECCLevel.Q);
             var qrCode = new QRCode(qrCodeData);
@@ -126,21 +115,6 @@ namespace teste
             pic_QR.Image = qrCodeImage;
 
         }
-        //protected override void OnPaint(PaintEventArgs e)
-        //{
-        //    Point[] myArray =
-        // {
-        //    new Point(20,100),
-        //    new Point(40,100),
-        //    new Point(20,250),
-        //    new Point(40,250),
-           
-        // };
-        //    GraphicsPath Forma = new GraphicsPath();
-            
-        //    Forma.AddClosedCurve(myArray,.3f);
-        //    panel2.Region=new   Region( Forma);
-        //}
         private void label12_Click_1(object sender, EventArgs e)
         {
             cursos_pg curso = new cursos_pg();

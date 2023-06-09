@@ -12,14 +12,14 @@ using System.Windows.Forms;
 namespace teste
 {
     
-    public partial class CadastrarCurso : Form
+    public partial class CadastrarCurso : Form//Aqui e onde cadastra se ou atualiza o curso
     {
         Font SuperMiniFont = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
         Font MiniFont = new Font("Microsoft Sans Serif", 12, FontStyle.Bold | FontStyle.Underline);
 
         int _puxa_selecao;
         conexao conF = new conexao();
-        public CadastrarCurso(int puxa_selecao)
+        public CadastrarCurso(int puxa_selecao)//Esse puxa seleção e o curso escolhido
         {
             _puxa_selecao = puxa_selecao;
             InitializeComponent();
@@ -27,19 +27,18 @@ namespace teste
 
         private void CadastrarCurso_Load(object sender, EventArgs e)
         {
-            if (_puxa_selecao!=0)
+            if (_puxa_selecao!=0)//Caso o puxa seleção nao for zero, ou seja e um curso existente ele muda a label para atualizar
             {
                 lbl_cadastrar.Text = "Atualizar Curso";
 
             }
             else
             {
-                lbl_cadastrar.Text = "Cadastrar Curso";
+                lbl_cadastrar.Text = "Cadastrar Curso";//Caso o puxa seleção for zero, ou seja e um curso existente ele muda a label para Cadastrar
             }
             MySqlConnection ConBD = conF.getconexao();// chama a conexão mysql
             ConBD.Open();//abre conexao
-            Funcoes funcao = new Funcoes(ConBD);
-   
+            Funcoes funcao = new Funcoes(ConBD);  
             box_tp.DataSource = funcao.Fun_tipo_curso();
             box_tp.DisplayMember = "tipo_curso";
             box_tp.ValueMember = "id_tipo_curso";
@@ -51,7 +50,7 @@ namespace teste
             box_tp.Text = "";
 
             //
-            //
+            //Esse select e feito para puxar os dados do curso, caso o adm vá atualizar, aparecerao os dados atuais do curso
             string SLCGR = "select nome_curso,requisitos,profissao,op_trabalho,q_vai_aprender,preco,carga_horaria,tb_tipo_curso." +
                 "id_tipo_curso,tb_modalidade.id_modalidade, nome_img from tb_curso inner join tb_tipo_curso on tb_tipo_curso.id_tipo_curso=tb_curso.id_tipo_curso" +
                 " inner join tb_modalidade on tb_modalidade.id_modalidade=tb_curso.id_modalidade where id_curso="+_puxa_selecao;//nome da consulta
@@ -69,8 +68,7 @@ namespace teste
                 box_url.Text = registro.GetString("nome_img");
             }
             //
-            //
-           
+            //   
 
         }
 
@@ -78,17 +76,16 @@ namespace teste
         {
             MySqlConnection Conexao = conF.getconexao();// chama a conexão mysql
             Conexao.Open();//abre conexao
-            
+            //Essa query de insert e para cadastrar um curso novo
             string query = "insert into tb_curso values (default,@nome_curso,@requisitos,@profissao,@op_trabalho,@q_vai_aprender,@preco,@carga_horaria,@id_tipo_curso,@id_modalidade, @nome_img) ";//nome da consulta   
             if (_puxa_selecao != 0)
+                //Se a seleçao nao for zero, ou seja e selecionado um curso, aqui e feito a solicitação para atualizar o curso desejado
             {
 
                  query = "UPDATE  tb_curso set nome_curso=@nome_curso,requisitos=@requisitos,profissao=@profissao,op_trabalho=@op_trabalho,q_vai_aprender=@q_vai_aprender,preco=@preco,carga_horaria=@carga_horaria,id_tipo_curso=@id_tipo_curso,id_modalidade=@id_modalidade, nome_img=@nome_img where id_curso =  "+this._puxa_selecao;//nome da consulta   
 
-
             }
-            MySqlCommand comando3 = new MySqlCommand(query, Conexao);//comando sql para montar
-            
+            MySqlCommand comando3 = new MySqlCommand(query, Conexao);//comando sql para montar         
             comando3.Parameters.AddWithValue("@nome_curso", box_nome.Text);
             comando3.Parameters.AddWithValue("@requisitos", box_requisitos.Text);
             comando3.Parameters.AddWithValue("@profissao", box_profissao.Text);
@@ -100,6 +97,7 @@ namespace teste
             comando3.Parameters.AddWithValue("@id_modalidade", box_modalidade.SelectedValue);
             comando3.Parameters.AddWithValue("@nome_img", box_url.Text);
             if (box_nome.Text == "" || box_requisitos.Text == "" || box_profissao.Text == "" || box_op.Text == "" || box_oq_aprender.Text == "" || box_preco.Text == "" || box_carga_horaria.Text == "" || box_tp.Text == "" || box_modalidade.Text == "" || box_url.Text == "")
+            //caso qualquer banco esteja em branco, a alteração ou cadastro nao sera enviada ao banco
             {
                 MessageBox.Show("Preencha os campos em branco!!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

@@ -15,7 +15,7 @@ using Teste;
 
 namespace teste
 {
-    public partial class exibe_video_foto : Form
+    public partial class exibe_video_foto : Form//Aqui e exibido o laboratorio escolhido na tela de laboratorio
     {
         private List<MediaItem> mediaList = new List<MediaItem>();
         conexao con = new conexao();
@@ -38,7 +38,7 @@ namespace teste
 
             
         }
-        private void CarregarLaborario(Laboratorio laboratorio)
+        private void CarregarLaborario(Laboratorio laboratorio)//Aqui puxa se os dados do banco sobre o laboratorio como nome e descrição
         {
             lbl_lab.Text = laboratorio.nome_lab;
             txt_laboratorio.Text = laboratorio.txt_laboratorio;
@@ -48,25 +48,25 @@ namespace teste
             lbl_nomelab.Text = laboratorio.nome_lab;
             AdicionarMedia();
         }
-        private void AdicionarMedia()
+        private void AdicionarMedia()//Aqui e onde puxa se as midias
         {
-            if(_laboratorio.Medias.Count==0)
+            if(_laboratorio.Medias.Count==0)//caso nao tenha nenhuma midia nao retorna se nada
             {
                 return;
             }
-            var media = _laboratorio.Medias[currentMediaIndex];
+            var media = _laboratorio.Medias[currentMediaIndex];//Aqui e para ver qual tipo de midia e baseado na posição
             switch (media.Tipo)
             { 
-                case Media.Imagem:
+                case Media.Imagem://caso seja imagem
                     CarregarImagem(media.Path);
                     break;
-                case Media.Video:
+                case Media.Video://caso seja video
                     CarregarVideo(media.Path);
                     break;
             }
             //lbCounter.Text = $"{_imagemIndex + 1}/{_laboratorio.Medias.Length}";//contador 
         }
-        private void CarregarImagem(string path)
+        private void CarregarImagem(string path)//Aqui sendo imagem ele esconde o player do video, exibe as imagens e enquanto tiver imagem ele pausa o video
         {
             pictureBox1.Load(path);
             pictureBox1.Visible = true;
@@ -75,7 +75,7 @@ namespace teste
 
         }
 
-        private void CarregarVideo(string path)
+        private void CarregarVideo(string path)//Aqui sendo video ele esconde as imagens, exibe os videos e os reproduz
         {
             player.URL = path;
             pictureBox1.Visible = false;
@@ -85,7 +85,7 @@ namespace teste
 
 
        
-        public class MediaItem
+        public class MediaItem//Aqui pegamos a imagem e seu caminho
         {
             public Image Image { get; set; }
             public string VideoPath { get; set; }
@@ -99,12 +99,12 @@ namespace teste
         private void exibe_video_foto_Load(object sender, EventArgs e)
         {
 
-            lbl_cont.Text = $"{currentMediaIndex + 1}/{_laboratorio.Medias.Count}";//contador
+            lbl_cont.Text = $"{currentMediaIndex + 1}/{_laboratorio.Medias.Count}";////Contador de qual foto estamos e quantas tem ao total
 
         }
 
 
-        private void btn_voltar_Click(object sender, EventArgs e)
+        private void btn_voltar_Click(object sender, EventArgs e)//Botao para voltar para a midia anterior
         {
             // Retroceda para o item anterior na lista
             currentMediaIndex--;
@@ -121,7 +121,7 @@ namespace teste
 
         }
 
-        private void btn_proximo_Click(object sender, EventArgs e)
+        private void btn_proximo_Click(object sender, EventArgs e)//Botao para avançar para a proxima midia 
         {
             // Avance para o próximo item na lista
             currentMediaIndex++;

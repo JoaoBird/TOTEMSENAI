@@ -16,14 +16,14 @@ using static System.Windows.Forms.LinkLabel;
 
 namespace teste
 {
-    public partial class cursos_pg : Form
+    public partial class cursos_pg : Form//nessa pagina e mostrado todos os cursos disponiveis
     {
         Font SuperMiniFont = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
         Font MiniFont = new Font("Microsoft Sans Serif", 12, FontStyle.Bold | FontStyle.Underline);
         Font SmallFont = new Font("Arial", 14);
         Font MediumFont = new Font("Arial", 16, FontStyle.Bold);
         Font CurseFont = new Font("Arial", 16);
-        
+
 
         int id_cursod;
         conexao con = new conexao();
@@ -32,7 +32,7 @@ namespace teste
             InitializeComponent();
         }
 
-        
+
         private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
 
@@ -51,7 +51,7 @@ namespace teste
             this.Close();
         }
 
-        public static void Abre_tela_c(int id_curso)
+        public static void Abre_tela_c(int id_curso)//Aqui abre se a tela de detalhes do curso, o id_curso representa o curso selecionado pelo usuario
         {
 
             tela_c cursos_exibidos = new tela_c(id_curso);
@@ -59,16 +59,16 @@ namespace teste
 
         }
 
-        private void cursos_pg_Load(object sender, EventArgs e)
+        private void cursos_pg_Load(object sender, EventArgs e)//Essas caixas carregam as modalidades, duração e tipo do curso, como estão em combo_box foi preferido carregar separado da busca
         {
-            
+
             CultureInfo.CurrentCulture = new CultureInfo("pt-BR", false);
-            Funcoes funcao_box= new Funcoes(con.getconexao());
-            
+            Funcoes funcao_box = new Funcoes(con.getconexao());
+
             box_modalidade.DataSource = funcao_box.Fun_modalidade();
             box_modalidade.DisplayMember = "modalidade";
             box_modalidade.ValueMember = "id_modalidade";
-            
+
             box_duracao.DataSource = funcao_box.Fun_duracao();
             box_duracao.DisplayMember = "carga_horaria";
 
@@ -84,11 +84,11 @@ namespace teste
             box_duracao.Text = "";
             box_tp.Text = "";
 
-            busca();
+            busca();//esse metodo e o que busca se todos os cursos
 
         }
 
-        private void cursosClick(object sender, EventArgs e, int id_curso)
+        private void cursosClick(object sender, EventArgs e, int id_curso)//Quando clica se nesse painel e redirecionado a pagina do curso selecionado
         {
             tela_c tela = new tela_c(id_curso);
             tela.Show();
@@ -97,7 +97,7 @@ namespace teste
 
         }
 
-        public void espacoy(Label label,int pos)
+        public void espacoy(Label label, int pos)
         {
             label.Location = new Point(label.Location.X, (label.Location.Y + pos));
             label.Refresh();
@@ -110,7 +110,7 @@ namespace teste
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void B(object sender, EventArgs e)
@@ -118,27 +118,30 @@ namespace teste
 
         }
 
-     
-        private void busca()
+
+        private void busca()//Aqui e feito todos os filtros de busca necessarios
         {
-            
+
             CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
-            painel_r.Controls.Clear();   
+            painel_r.Controls.Clear();
             string query;
-            
+
             MySqlConnection Conexao = con.getconexao();// chama a conexão mysql
             Conexao.Open();//abre conexao
-            if (box_nome.Text == "" && box_pmin.Text == "" && box_pmax.Text == ""&& box_duracao.Text == ""&&box_modalidade.Text==""&&box_tp.Text=="")
+            if (box_nome.Text == "" && box_pmin.Text == "" && box_pmax.Text == "" && box_duracao.Text == "" && box_modalidade.Text == "" && box_tp.Text == "")
+            //No caso dessa condição se nenhuma caixa de filtro tiver preenchida ele busca todos os cursos sem o filtro
             {
                 query = "select tb_curso.id_curso,tb_curso.nome_curso,tb_curso.preco,tb_tipo_curso.tipo_curso,tb_modalidade.modalidade, tb_curso.carga_horaria, tb_curso.profissao from tb_curso inner join tb_tipo_curso on tb_tipo_curso.id_tipo_curso=tb_curso.id_tipo_curso inner join tb_modalidade on tb_modalidade.id_modalidade=tb_curso.id_modalidade";
 
             }
             else
+            //No caso do else, ele começa a filtrar conforme as caixas são preenchidas
             {
-                query = "select tb_curso.id_curso,tb_curso.nome_curso,tb_curso.preco,tb_tipo_curso.tipo_curso,tb_modalidade.modalidade, tb_curso.carga_horaria, tb_curso.profissao from tb_curso inner join tb_modalidade on tb_modalidade.id_modalidade=tb_curso.id_modalidade inner join tb_tipo_curso on tb_tipo_curso.id_tipo_curso=tb_curso.id_tipo_curso where ";
+                query = "select DISTINCT tb_curso.id_curso,tb_curso.nome_curso,tb_curso.preco,tb_tipo_curso.tipo_curso,tb_modalidade.modalidade, tb_curso.carga_horaria, tb_curso.profissao from tb_curso inner join tb_modalidade on tb_modalidade.id_modalidade=tb_curso.id_modalidade inner join tb_tipo_curso on tb_tipo_curso.id_tipo_curso=tb_curso.id_tipo_curso where ";
 
+                //O replace e para trocar a virgula por ponto
                 string min = box_pmin.Text.ToString();
-                min=min.Replace(",", ".");
+                min = min.Replace(",", ".");
 
                 string max = box_pmax.Text.ToString();
                 max = max.Replace(",", ".");
@@ -151,18 +154,20 @@ namespace teste
                 {
                     max = "999999999";
                 }
-                
-                Single n1, n2; 
+
+                Single n1, n2;
                 Single.TryParse(min, out n1);
                 Single.TryParse(max, out n2);
 
-
-                query += "( nome_curso like  '%" + box_nome.Text + "%'"+
-                    " or op_trabalho like  '%" + box_nome.Text + "%')"+
-                    " and carga_horaria like '%" + box_duracao.Text + "%'"+ 
-                    " and preco between " + n1 + " and " + n2+
-                    " and tb_tipo_curso.tipo_curso like '%"+ box_tp.Text+"%'"+
-                    " and tb_modalidade.modalidade like '%"+ box_modalidade.Text+"%'";
+                //Aqui ficam as querys dos filtros preenchidos
+                query += "( nome_curso like  '%" + box_nome.Text + "%'" +
+                    " or op_trabalho like  '%" + box_nome.Text + "%'" +
+                    " or profissao like  '%" + box_nome.Text + "%')" +
+                    " and carga_horaria like '%" + box_duracao.Text + "%'" +
+                    " and preco between " + n1 + " and " + n2 +
+                    " and tb_tipo_curso.tipo_curso like '%" + box_tp.Text + "%'" +
+                    " and tb_modalidade.modalidade like '%" + box_modalidade.Text + "%'"+
+                 " GROUP BY tb_curso.id_curso, tb_curso.nome_curso, tb_curso.preco, tb_tipo_curso.tipo_curso, tb_modalidade.modalidade, tb_curso.carga_horaria, tb_curso.profissao";
 
             }
 
@@ -174,56 +179,56 @@ namespace teste
 
 
 
-                while (registro.Read())//ler 1 registro
-                {
+            while (registro.Read())//ler 1 registro //Os paineis são gerados conforme a leitura de cada registro no banco
+            {
 
 
-                Panel cursos = new Panel()
+                Panel cursos = new Panel()//Gera se o painel
                 {
                     BorderStyle = BorderStyle.FixedSingle,
-                    Size = new Size(painel_r.Width-20, painel_r.Width/6),
-                    
-                    };
-                    Label lbl_cursod = new Label()
-                    {
+                    Size = new Size(painel_r.Width - 20, painel_r.Width / 6),
 
-                    };
+                };
+                Label lbl_cursod = new Label()
+                {
 
-                Label Lnome_curso = new Label()
+                };
+
+                Label Lnome_curso = new Label()//Gera se a label do nome
 
                 {
                     AutoSize = false,
                     Width = painel_r.Width,
                     //TextAlign= ContentAlignment.MiddleCenter,
-                    Font = MediumFont, 
+                    Font = MediumFont,
 
-                    };
-                    Label Lpreco = new Label()
+                };
+                Label Lpreco = new Label()//Gera se a label do preço
 
-                    {
-                        AutoSize = true,
-                        Font = CurseFont,
-
-
-
-                    };
-                    Label Ltipo_curso = new Label()
-
-                    {
-                        AutoSize = true,
-                        Font = CurseFont,
+                {
+                    AutoSize = true,
+                    Font = CurseFont,
 
 
-                    };
-                    Label Lmodalidade = new Label()
 
-                    {
-                        AutoSize = true,
-                        Font = CurseFont,
+                };
+                Label Ltipo_curso = new Label()//Gera se a label do tipo do curso
+
+                {
+                    AutoSize = true,
+                    Font = CurseFont,
 
 
-                    };
-                Label Ltempo = new Label()
+                };
+                Label Lmodalidade = new Label()//Gera se a label da modalidade
+
+                {
+                    AutoSize = true,
+                    Font = CurseFont,
+
+
+                };
+                Label Ltempo = new Label()//Gera se a label da carga horaria
 
                 {
                     AutoSize = true,
@@ -231,45 +236,45 @@ namespace teste
 
                 };
 
-                Label Ldesc = new Label()
+                Label Ldesc = new Label()//Gera se a label da descrição
                 {
                     AutoSize = false,
-                    Width = cursos.Width/4,
-                    Height= cursos.Height/2-cursos.Height/6,
+                    Width = cursos.Width / 4,
+                    Height = cursos.Height / 2 - cursos.Height / 6,
                     Font = SmallFont,
                 };
 
-                PanelArred Btnvermais = new PanelArred()
+                PanelArred Btnvermais = new PanelArred()//Gera se o "botao" para ir para a pagina dos cursos
                 {
                     Size = new Size(150, 60),
-                    BackColor= Color.RoyalBlue,
-                    Location = new Point(cursos.Width-250 ,cursos.Height/2-30),
+                    BackColor = Color.RoyalBlue,
+                    Location = new Point(cursos.Width - 250, cursos.Height / 2 - 30),
                     BorderRadius = 50,
                 };
-                Label Lvermais = new Label()
+                Label Lvermais = new Label()//Gera se a label do ver mais
                 {
                     AutoSize = true,
                     Text = "Ver Mais",
                     Font = SmallFont,
-                    ForeColor= Color.White,
-                    
+                    ForeColor = Color.White,
+
                 };
 
                 Button curso_pg = new Button()
 
-                    {
-                        AutoSize = true
+                {
+                    AutoSize = true
 
-                    };
+                };
                 CultureInfo.CurrentCulture = new CultureInfo("pt-BR", false);
 
 
                 id_cursod = registro.GetInt32("id_curso");
-                    lbl_cursod.Text = id_cursod.ToString();
-                    Lnome_curso.Text = registro.GetString("nome_curso");
-                Ldesc.Text = "Descrição: "+ registro.GetString("profissao");
-                    Lmodalidade.Text = registro.GetString("modalidade");
-                Ltempo.Text = "Carga horária: "+registro.GetString("carga_horaria");
+                lbl_cursod.Text = id_cursod.ToString();
+                Lnome_curso.Text = registro.GetString("nome_curso");
+                Ldesc.Text = "Descrição: " + registro.GetString("profissao");
+                Lmodalidade.Text = registro.GetString("modalidade");
+                Ltempo.Text = "Carga horária: " + registro.GetString("carga_horaria");
 
                 cursos.Click += new EventHandler((sender1, e1) => cursosClick(sender1, e1, Convert.ToInt32(lbl_cursod.Text)));
                 Lvermais.Click += new EventHandler((sender1, e1) => cursosClick(sender1, e1, Convert.ToInt32(lbl_cursod.Text)));
@@ -297,26 +302,26 @@ namespace teste
 
 
 
-                Lpreco.Text = "Preço: R$ "+Convert.ToString(registro.GetDecimal("preco"));
-               
-                    Ltipo_curso.Text = registro.GetString("tipo_curso");
-                    espacoy(Lnome_curso, 20);
-                    espacox(Lnome_curso, 10);
-                    cursos.Controls.Add(Lnome_curso);
+                Lpreco.Text = "Preço: R$ " + Convert.ToString(registro.GetDecimal("preco"));
 
-                    espacoy(Lpreco, cursos.Height/3);
-                    espacox(Lpreco, 500);
-                    //preco.Location = new Point((int)preco.Location.X, (int)(preco.Location.Y - 50));
+                Ltipo_curso.Text = registro.GetString("tipo_curso");
+                espacoy(Lnome_curso, 20);
+                espacox(Lnome_curso, 10);
+                cursos.Controls.Add(Lnome_curso);
 
-                    cursos.Controls.Add(Lpreco);
+                espacoy(Lpreco, cursos.Height / 3);
+                espacox(Lpreco, 500);
+                //preco.Location = new Point((int)preco.Location.X, (int)(preco.Location.Y - 50));
 
-                    cursos.Controls.Add(Ltipo_curso);
-                    espacoy(Ltipo_curso, cursos.Height / 3 + cursos.Height / 3);
-                    espacox(Ltipo_curso, 10);
+                cursos.Controls.Add(Lpreco);
 
-                    cursos.Controls.Add(Lmodalidade);
-                    espacoy(Lmodalidade, cursos.Height/3);
-                    espacox(Lmodalidade, 10);
+                cursos.Controls.Add(Ltipo_curso);
+                espacoy(Ltipo_curso, cursos.Height / 3 + cursos.Height / 3);
+                espacox(Ltipo_curso, 10);
+
+                cursos.Controls.Add(Lmodalidade);
+                espacoy(Lmodalidade, cursos.Height / 3);
+                espacox(Lmodalidade, 10);
 
                 cursos.Controls.Add(Ldesc);
                 espacoy(Ldesc, cursos.Height / 3);
@@ -332,12 +337,12 @@ namespace teste
                 espacox(Lvermais, 35);
 
                 painel_r.Controls.Add(cursos);
-                }
+            }
             Conexao.Close();
         }
 
 
-      
+
 
         private void box_duracao_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -374,27 +379,27 @@ namespace teste
             busca();
         }
 
-        private void box_modalidade_TextChanged(object sender, EventArgs e)
+        private void box_modalidade_TextChanged(object sender, EventArgs e)//Essa box modalidade tem 3 querrys
         {
             Funcoes funcao_box = new Funcoes(con.getconexao());
             MySqlConnection Conexao = con.getconexao();
             busca();
             string bsc;
             bsc = box_modalidade.Text;
-            if(bsc== "Cursos Profissionalizantes")
+            if (bsc == "Cursos Profissionalizantes")
             {
 
-                box_tp.DataSource=funcao_box.Fun_tipo_curs1o();
+                box_tp.DataSource = funcao_box.Fun_tipo_curs1o();//Query baseada nos cursos profissionalizantes
 
             }
-            if(bsc=="Cursos Superiores")
+            if (bsc == "Cursos Superiores")
             {
-                box_tp.DataSource=funcao_box.Fun_tipo_curs2o();
+                box_tp.DataSource = funcao_box.Fun_tipo_curs2o();//Query baseada nos cursos superiores
             }
             if (bsc == "")
             {
-                box_tp.DataSource = funcao_box.Fun_tipo_curso();
-                
+                box_tp.DataSource = funcao_box.Fun_tipo_curso();//Query baseada nos cursos gerais
+
             }
             box_tp.Text = "";
         }

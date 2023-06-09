@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace teste
 {
-    public partial class AlterarUSU_SEN : Form
+    public partial class AlterarUSU_SEN : Form// nessa tela o adm altera sua senha
     {
         conexao con = new conexao();
         public AlterarUSU_SEN()
@@ -25,12 +25,13 @@ namespace teste
             MySqlConnection conexao = con.getconexao();
             MySqlCommand comando = new MySqlCommand(logar, conexao);
             conexao.Open();
+            //Aqui ele compara com o banco se o login e senha tem registro
             comando.Parameters.AddWithValue("@login_ADM", box_usu.Text);
             comando.Parameters.AddWithValue("@senha_ADM", box_senha.Text);
             
             int linhaqrecebe=  Convert.ToInt32(comando.ExecuteScalar());
-            //MessageBox.Show(Convert.ToString(linhaqrecebe));
-
+            
+            //caso tenha ele permite trocar o login e senha
             if (linhaqrecebe>0)
             {
                 String UPDADM = "UPDATE tb_ADM set login_ADM=@login_ADM, senha_ADM=@senha_ADM  where id_ADM=@id_ADM ";   
@@ -38,7 +39,7 @@ namespace teste
                 comandoADM.Parameters.AddWithValue("@id_ADM", 1);
                 comandoADM.Parameters.AddWithValue("@login_ADM", box_usuN.Text);
                 comandoADM.Parameters.AddWithValue("@senha_ADM", box_senhaN.Text);
-                if(box_senhaN.Text==""||box_usuN.Text=="")
+                if(box_senhaN.Text==""||box_usuN.Text=="")//caso os campos estejam em branco ele nao permite alterar login e senha
                 {
                  MessageBox.Show("Preencha os campos em branco!", "AVISO", MessageBoxButtons.OK,MessageBoxIcon.Error);
                     return;
@@ -61,6 +62,10 @@ namespace teste
             this.Close();
         }
 
+        //Esses botões abaixo sao para ver ou nao a senha, por padrao ela nao e visivel
+        //Os btn vis sao para deixar a senha visivel
+        //os btn nao vis sao para esconder a senha
+        //os que tem 2 no nome do metodo sao da caixa da nova senha
 
         private void btn_vis_Click(object sender, EventArgs e)
         {

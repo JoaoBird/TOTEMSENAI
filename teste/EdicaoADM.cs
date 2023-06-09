@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace teste
 {
-    public partial class EdicaoADM : Form
+    public partial class EdicaoADM : Form//Aqui e a tela onde o adm seleciona se cadastra edita ou exclui os cursos ou laboratorios ou pode alterar seu login e senha
     {
         Font SuperMiniFont = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
         Font MiniFont = new Font("Microsoft Sans Serif", 12, FontStyle.Bold | FontStyle.Underline);
@@ -25,10 +25,7 @@ namespace teste
             InitializeComponent();
         }
 
-
-
-
-        private void btn_Cadastrar_Click(object sender, EventArgs e)
+        private void btn_Cadastrar_Click(object sender, EventArgs e)//Aqui redireciona para tela de cadastro dos cursos, puxando um id 0, ou seja um id novo
         {
             this.Hide();
             CadastrarCurso cadastrocurso = new CadastrarCurso(0);
@@ -37,6 +34,7 @@ namespace teste
         }
 
         private void btn_Editar_Click(object sender, EventArgs e)
+        //Aqui selecionamos um curso, com isso um index que vira nosso id para editarmos o curso selecionado na tela de editar
         {
 
             int index = dataGridView1.CurrentRow.Index;
@@ -50,12 +48,8 @@ namespace teste
 
         }
 
-
-        private void btn_Excluir_Click(object sender, EventArgs e)
+        private void btn_Excluir_Click(object sender, EventArgs e)//Aqui excluimos o curso selecionado 
         {
-            //dataGridView1.CellClick += DataGridView1_CellClick;
-
-
             MySqlConnection Conexao = con.getconexao();// chama a conexão mysql
             Conexao.Open();//abre conexao
             int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id_curso"].Value);
@@ -63,15 +57,14 @@ namespace teste
             MySqlCommand comando = new MySqlCommand(DEL, Conexao);
             DialogResult Ok = MessageBox.Show("Tem certeza que deseja excluir o registro selecionado?", "AVISO", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (Ok == DialogResult.OK)
+            //Caso o adm aperte ok, ele exclui os cursos
             {
-
                 comando.ExecuteNonQuery();
                 puxa_dados();
             }
 
-
         }
-        private void puxa_dados2()
+        private void puxa_dados2()//Aqui puxamos os dados da tabela de laboratorios
         {
             dataGridView2.Refresh();
             MySqlConnection Conexao = con.getconexao();// chama a conexão mysql
@@ -82,18 +75,53 @@ namespace teste
             DataTable tabela2 = new DataTable();
             adaptador.Fill(tabela2);
             dataGridView2.DataSource = tabela2;
+
+            //Alteração do cabeçalho das colunas
+            if (dataGridView2.Columns.Count > 0)
+            {
+                int columnIndex = 0; // índice da coluna "id_lab" (começando em 0)
+
+                if (columnIndex >= 0 && columnIndex < dataGridView2.Columns.Count)
+                {
+                    // Alterar o nome do cabeçalho da coluna
+                    string novoNome = "Id lab"; // novo nome para o cabeçalho
+                    dataGridView2.Columns[columnIndex].HeaderText = novoNome;
+                }
+            }
+
+            if (dataGridView2.Columns.Count > 1)
+            {
+                int columnIndexN = 1; // índice da coluna "nome_lab" (começando em 0)
+
+                if (columnIndexN >= 0 && columnIndexN < dataGridView2.Columns.Count)
+                {
+                    // Alterar o nome do cabeçalho da coluna
+                    string novoNomeN = "Nome dos Laboratorios"; // novo nome para o cabeçalho
+                    dataGridView2.Columns[columnIndexN].HeaderText = novoNomeN;
+                }
+            }
+
+            if (dataGridView2.Columns.Count > 2)
+            {
+                int columnIndexD = 2; // índice da coluna "txt_laboratorios" (começando em 0)
+
+                if (columnIndexD >= 0 && columnIndexD < dataGridView2.Columns.Count)
+                {
+                    // Alterar o nome do cabeçalho da coluna
+                    string novoNomeD = "Descrição"; // novo nome para o cabeçalho
+                    dataGridView2.Columns[columnIndexD].HeaderText = novoNomeD;
+                }
+            }
+
+
         }
 
-
-
-
-
-        private void EdicaoADM_Load(object sender, EventArgs e)
+        private void EdicaoADM_Load(object sender, EventArgs e)//Ao carregar a tela, ele puxa os dados das tabelas de cursos e laboratorios
         {
             puxa_dados();
             puxa_dados2();
         }
-        public void puxa_dados()
+        public void puxa_dados()//Aqui puxamos os dados da tabela de cursos
         {
             dataGridView1.Refresh();
             MySqlConnection Conexao = con.getconexao();// chama a conexão mysql
@@ -106,7 +134,7 @@ namespace teste
             dataGridView1.DataSource = tabela;
         }
 
-        private void btn_AlterarUS_Click(object sender, EventArgs e)
+        private void btn_AlterarUS_Click(object sender, EventArgs e)//Aqui e onde redireciona o adm para a tela de alterar login e senha
         {
             AlterarUSU_SEN alteraUSU_SEN = new AlterarUSU_SEN();
             alteraUSU_SEN.ShowDialog();
@@ -153,8 +181,9 @@ namespace teste
         }
 
         private void btn_edt_lab_Click(object sender, EventArgs e)
+        //Aqui selecionamos um laboratorio, com isso um index que vira nosso id para editarmos o curso selecionado na tela de editar
         {
-            //)
+
             int index = dataGridView2.CurrentRow.Index;
             if (index >= 0)
             {
@@ -165,8 +194,8 @@ namespace teste
         }
 
         private void btn_adc_lab_Click(object sender, EventArgs e)
+        //Aqui criamos um laboratorio novo puxando um id 0, ou seja que ainda nao existe
         {
-
             Edc_lab edicao_lab = new Edc_lab(0);
             this.Hide();
             edicao_lab.ShowDialog();
@@ -174,6 +203,7 @@ namespace teste
         }
 
         private void btn_excluir_lab_Click(object sender, EventArgs e)
+        //Aqui excluimos o laboratorio selecionado
         {
             MySqlConnection Conexao = con.getconexao();// chama a conexão mysql
             Conexao.Open();//abre conexao
@@ -182,7 +212,9 @@ namespace teste
             MySqlCommand comando = new MySqlCommand(DEL, Conexao);
             DialogResult Ok = MessageBox.Show("Tem certeza que deseja excluir o registro selecionado?", "AVISO", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (Ok == DialogResult.OK)
+                //Caso o usuario clique em Ok, sera excluido os laboratorios
             {
+                //Aqui caso exista a pasta de imagens pasta dos laboratorios com o nome do id do laboratorio ele ira as excluir 
                 if (Directory.Exists($"Imagens/{idL}"))
                 {
                     Directory.Delete($"Imagens/{idL}");
@@ -191,8 +223,6 @@ namespace teste
                 {
                     Directory.Delete($"Videos/{idL}"); ;
                 }
-
-
                 comando.ExecuteNonQuery();
                 puxa_dados2();
             }
