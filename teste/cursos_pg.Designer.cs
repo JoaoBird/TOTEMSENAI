@@ -366,6 +366,7 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "cursos_pg";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "cursos_pg";
             this.Load += new System.EventHandler(this.cursos_pg_Load);
             this.TextChanged += new System.EventHandler(this.B);

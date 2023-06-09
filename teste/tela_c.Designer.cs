@@ -470,6 +470,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "tela_c";
             this.Text = "tela_c";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.tela_c_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -39,6 +39,7 @@
             this.btn_back = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panelArred1 = new teste.PanelArred();
+            this.lbl_cont = new System.Windows.Forms.Label();
             this.btn_proximo = new System.Windows.Forms.Button();
             this.btn_voltar = new System.Windows.Forms.Button();
             this.player = new AxWMPLib.AxWindowsMediaPlayer();
@@ -173,6 +174,7 @@
             this.panelArred1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelArred1.BackColor = System.Drawing.Color.RoyalBlue;
             this.panelArred1.BorderRadius = 30;
+            this.panelArred1.Controls.Add(this.lbl_cont);
             this.panelArred1.Controls.Add(this.btn_proximo);
             this.panelArred1.Controls.Add(this.btn_voltar);
             this.panelArred1.Controls.Add(this.player);
@@ -182,6 +184,17 @@
             this.panelArred1.Name = "panelArred1";
             this.panelArred1.Size = new System.Drawing.Size(946, 823);
             this.panelArred1.TabIndex = 5;
+            // 
+            // lbl_cont
+            // 
+            this.lbl_cont.AutoSize = true;
+            this.lbl_cont.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_cont.ForeColor = System.Drawing.Color.White;
+            this.lbl_cont.Location = new System.Drawing.Point(447, 758);
+            this.lbl_cont.Name = "lbl_cont";
+            this.lbl_cont.Size = new System.Drawing.Size(52, 31);
+            this.lbl_cont.TabIndex = 4;
+            this.lbl_cont.Text = "1/1";
             // 
             // btn_proximo
             // 
@@ -260,10 +273,12 @@
             this.Controls.Add(this.panelArred1);
             this.Name = "exibe_video_foto";
             this.Text = "media";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.exibe_video_foto_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelArred1.ResumeLayout(false);
+            this.panelArred1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -289,5 +304,6 @@
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Label txt_laboratorio;
         private System.Windows.Forms.Label lbl_desc;
+        private System.Windows.Forms.Label lbl_cont;
     }
 }

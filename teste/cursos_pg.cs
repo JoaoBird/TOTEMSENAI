@@ -31,17 +31,7 @@ namespace teste
         {
             InitializeComponent();
         }
-        public static void abre_home()
-        {
 
-            Application.Run(new Form1());
-        }
-
-        public static void abre_cursos()
-        {
-
-            Application.Run(new cursos_pg());
-        }
         
         private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {

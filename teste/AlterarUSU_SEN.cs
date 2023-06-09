@@ -38,6 +38,11 @@ namespace teste
                 comandoADM.Parameters.AddWithValue("@id_ADM", 1);
                 comandoADM.Parameters.AddWithValue("@login_ADM", box_usuN.Text);
                 comandoADM.Parameters.AddWithValue("@senha_ADM", box_senhaN.Text);
+                if(box_senhaN.Text==""||box_usuN.Text=="")
+                {
+                 MessageBox.Show("Preencha os campos em branco!", "AVISO", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    return;
+                }
                 comandoADM.ExecuteNonQuery();
                 MessageBox.Show("Usuario e senha alterados com sucesso!", "AVISO", MessageBoxButtons.OK);
                 this.Close();

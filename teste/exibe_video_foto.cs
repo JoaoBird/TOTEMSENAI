@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
 using System.Numerics;
+using Teste;
 
 namespace teste
 {
@@ -70,6 +71,8 @@ namespace teste
             pictureBox1.Load(path);
             pictureBox1.Visible = true;
             player.Visible = false;
+            player.Ctlcontrols.stop();
+
         }
 
         private void CarregarVideo(string path)
@@ -77,6 +80,7 @@ namespace teste
             player.URL = path;
             pictureBox1.Visible = false;
             player.Visible = true;
+            player.Ctlcontrols.play();
         }
 
 
@@ -95,10 +99,7 @@ namespace teste
         private void exibe_video_foto_Load(object sender, EventArgs e)
         {
 
-            if (!Directory.Exists("Jogos"))
-            {
-                Directory.CreateDirectory("Jogos");
-            }
+            lbl_cont.Text = $"{currentMediaIndex + 1}/{_laboratorio.Medias.Count}";//contador
 
         }
 
@@ -111,7 +112,12 @@ namespace teste
             {
                 currentMediaIndex = _laboratorio.Medias.Count - 1; // Volte para o último item se chegarmos ao início da lista
             }
+            if (currentMediaIndex >= 0)
+            {
+                lbl_cont.Text = $"{currentMediaIndex + 1}/{_laboratorio.Medias.Count}"; // Atualize o contador apenas se o índice for positivo
+            }
             AdicionarMedia();
+            
 
         }
 
@@ -122,8 +128,11 @@ namespace teste
             if (currentMediaIndex == _laboratorio.Medias.Count)
             {
                 currentMediaIndex = 0; // Volte para o primeiro item se chegarmos ao fim da lista
+                lbl_cont.Text = $"{currentMediaIndex + 1}/{_laboratorio.Medias.Count}"; // Atualize o contador apenas se o índice for positivo
             }
+            lbl_cont.Text = $"{currentMediaIndex + 1}/{_laboratorio.Medias.Count}"; // Atualize o contador apenas se o índice for positivo
             AdicionarMedia();
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -169,9 +178,12 @@ namespace teste
 
         private void btn_back_Click(object sender, EventArgs e)
         {
+            player.Ctlcontrols.stop();
             lab labo = new lab();
             labo.Show();
             this.Close();
+            
+
         }
     }
 }

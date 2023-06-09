@@ -18,6 +18,8 @@ namespace teste
 {
     public partial class Edc_lab : Form
     {
+        Font SuperMiniFont = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+        Font MiniFont = new Font("Microsoft Sans Serif", 12, FontStyle.Bold | FontStyle.Underline);
         int _puxa_lab;
         conexao conF = new conexao();
         private List<Media> mediaI = new List<Media>();
@@ -31,7 +33,7 @@ namespace teste
         {
             _puxa_lab = puxa_lab;
             _laboratorio = new Laboratorio("", puxa_lab);
-            dadosEnviados = _puxa_lab!=0;
+            dadosEnviados = _puxa_lab != 0;
 
             InitializeComponent();
         }
@@ -52,7 +54,7 @@ namespace teste
             comando3.Parameters.AddWithValue("@txt_laboratorio", box_desc.Text);
             if (box_nome.Text == "" || box_desc.Text == "")
             {
-                MessageBox.Show("Preencha os campos em branco", "AVISO", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Preencha os campos em branco", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             comando3.ExecuteNonQuery();//ler os dados da consulta
@@ -60,32 +62,10 @@ namespace teste
             player.Ctlcontrols.stop();
             dadosEnviados = true;
         }
-        private void EnviarMidias()
+
+        private void Edc_lab_Load(object sender, EventArgs e)
         {
-            if (mediaI.Count > 0)
-            {
-                foreach (var media in mediaI)
-                {
-                    // Lógica para envio das imagens ao banco
-                    // ...
-
-                }
-            }
-
-            if (mediaV.Count > 0)
-            {
-                foreach (var media in mediaV)
-                {
-                    // Lógica para envio dos vídeos ao banco
-                    // ...
-                    
-                }
-            }
-        }
-
-            private void Edc_lab_Load(object sender, EventArgs e)
-        {
-            if(_puxa_lab == 0)
+            if (_puxa_lab == 0)
             {
                 btn_enviar.Text = "Cadastrar";
                 lbl_cadastrar.Text = "Cadastrar";
@@ -106,9 +86,11 @@ namespace teste
                 mediaV.AddRange(vid);
                 carregar_img();
                 carregar_vid();
+                //
+                label5.Text = $"{currentMediaIndexI + 1}/{img.Count()}";//contador
+                label6.Text = $"{currentMediaIndexI + 1}/{vid.Count()}";//contador 
 
             }
-
 
         }
         private void carregar_img()
@@ -121,6 +103,7 @@ namespace teste
 
             var media = mediaI[currentMediaIndexI];
             pictureBox1.Image = Image.FromFile(media.Path);
+
         }
         private void carregar_vid()
         {
@@ -128,7 +111,6 @@ namespace teste
             {
                 return;
             }
-
 
             var media = mediaV[currentMediaIndexV];
             player.URL = media.Path;
@@ -162,7 +144,7 @@ namespace teste
                 mediaI = new List<Media>();
                 var img = MediaProvider.GetImagens(_laboratorio);
                 mediaI.AddRange(img);
-                
+
             }
 
         }
@@ -185,7 +167,6 @@ namespace teste
                 mediaV = new List<Media>();
                 var vid = MediaProvider.GetVideos(_laboratorio);
                 mediaV.AddRange(vid);
-                
 
             }
         }
@@ -195,12 +176,17 @@ namespace teste
 
             // Retroceda para o item anterior na lista
             currentMediaIndexI--;
+            var img = MediaProvider.GetImagens(_laboratorio);
             if (currentMediaIndexI < 0)
             {
                 currentMediaIndexI = mediaI.Count - 1; // Volte para o último item se chegarmos ao início da lista
+
+            }
+            if (currentMediaIndexI >= 0)
+            {
+                label5.Text = $"{currentMediaIndexI + 1}/{img.Count()}"; // Atualize o contador apenas se o índice for positivo
             }
             carregar_img();
-
 
         }
 
@@ -209,10 +195,16 @@ namespace teste
 
             // Avance para o próximo item na lista
             currentMediaIndexI++;
+            var img = MediaProvider.GetImagens(_laboratorio);
             if (currentMediaIndexI == mediaI.Count)
             {
+
                 currentMediaIndexI = 0; // Volte para o primeiro item se chegarmos ao fim da lista
+                label5.Text = $"{currentMediaIndexI + 1}/{img.Count()}";//contador
+
             }
+            label5.Text = $"{currentMediaIndexI + 1}/{img.Count()}";//contador 
+
             carregar_img();
 
         }
@@ -221,11 +213,17 @@ namespace teste
         {
             // Retroceda para o item anterior na lista
             currentMediaIndexV--;
+            var vid = MediaProvider.GetVideos(_laboratorio);
             if (currentMediaIndexV < 0)
             {
                 currentMediaIndexV = mediaV.Count - 1; // Volte para o último item se chegarmos ao início da lista
             }
+            if (currentMediaIndexV >= 0)
+            {
+                label6.Text = $"{currentMediaIndexV + 1}/{vid.Count()}"; // Atualize o contador apenas se o índice for positivo
+            }
             carregar_vid();
+            player.Ctlcontrols.pause();
 
         }
 
@@ -233,11 +231,14 @@ namespace teste
         {
             // Avance para o próximo item na lista
             currentMediaIndexV++;
+            var vid = MediaProvider.GetVideos(_laboratorio);
             if (currentMediaIndexV == mediaV.Count)
             {
                 currentMediaIndexV = 0; // Volte para o primeiro item se chegarmos ao fim da lista
             }
+            label6.Text = $"{currentMediaIndexV + 1}/{vid.Count()}";//contador 
             carregar_vid();
+            player.Ctlcontrols.pause();
 
         }
 
@@ -258,7 +259,6 @@ namespace teste
 
         private void excluir_video_Click(object sender, EventArgs e)
         {
-
             DialogResult ok = MessageBox.Show("Tem certeza que deseja excluir o video selecionado?", "AVISO!", MessageBoxButtons.OKCancel);
             if (ok == DialogResult.OK)
             {
@@ -270,7 +270,6 @@ namespace teste
                 player.Refresh();
                 carregar_vid();
             }
-
         }
 
         private void btn_def_primaria_Click(object sender, EventArgs e)
@@ -291,6 +290,46 @@ namespace teste
                 comandoIU.Parameters.AddWithValue("@caminho_img", caminhoImagemAtual);
                 comandoIU.ExecuteNonQuery();//ler os dados da consulta
             }
+        }
+
+        private void panelArred2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lbl_adm_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            EdicaoADM editaADM = new EdicaoADM();
+            editaADM.ShowDialog();
+        }
+
+        private void lbl_adm_MouseLeave(object sender, EventArgs e)
+        {
+            lbl_adm.Font = SuperMiniFont;
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 inicio = new Form1();
+            inicio.ShowDialog();
+        }
+
+        private void label10_MouseLeave(object sender, EventArgs e)
+        {
+            label10.Font= MiniFont;
+        }
+
+        private void lbl_adm_MouseHover(object sender, EventArgs e)
+        {
+            lbl_adm.Font= MiniFont;
+        }
+
+        private void label10_MouseHover(object sender, EventArgs e)
+        {
+            label10.Font= MiniFont;
         }
     }
 }

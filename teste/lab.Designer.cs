@@ -141,6 +141,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "lab";
             this.Text = "lab";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.lab_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
