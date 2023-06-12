@@ -64,14 +64,27 @@ namespace teste
             MessageBox.Show("Enviado com sucesso!", "AVISO", MessageBoxButtons.OK);
             player.Ctlcontrols.stop();
             dadosEnviados = true;//Essa variavel e para nao deixar o usuario enviar fotos e videos sem colocar nome e descrição do laboratorio
+            if (_puxa_lab == 0)
+            //Caso o laboratorio ja exista ele vai alterar conforme desejo do usuario
+            {
+                MessageBox.Show("Lembre-se de editar o laboratorio recem criado para inserir as suas fotos e videos", "Lembrete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+                EdicaoADM adm = new EdicaoADM();
+                adm.ShowDialog();
+            }
+
+
         }
 
         private void Edc_lab_Load(object sender, EventArgs e)
         {
+
             if (_puxa_lab == 0)//Aqui caso puxa lab seja zero, ele ira alterar as labels para cadastro
             {
                 btn_enviar.Text = "Cadastrar";
                 lbl_cadastrar.Text = "Cadastrar";
+                panelArred1.Visible= false;
+                panelArred2.Visible= false; 
             }
             player.Ctlcontrols.pause();
             MySqlConnection ConBD = conF.getconexao();// chama a conexão mysql
@@ -280,24 +293,20 @@ namespace teste
         private void btn_def_primaria_Click(object sender, EventArgs e)
         //Aqui e onde define se a imagem que esta vendo atualmente como a imagem que demonstre o laboratorio na pagina dos laboratorios
         {
-            if (currentMediaIndexI >= 0 && currentMediaIndexI < mediaI.Count)
-            {
-                MySqlConnection Conexao = conF.getconexao();// chama a conexão mysql
-                Conexao.Open();//abre conexao
-                string UPD = "INSERT into tb_lab values (default,@caminho_img)";
-                //Caso o id seja 0 ele ira inserir o caminho da imagem
-                if (_puxa_lab != 0)
-                //Caso o id seja 0 ele ira trocar o caminho da imagem
-                {
-                    UPD = "UPDATE tb_lab set caminho_img=@caminho_img where id_lab=" + _puxa_lab;
 
-                }
-                MySqlCommand comandoIU = new MySqlCommand(UPD, Conexao);//comando sql para montar
+            MySqlConnection Conexao = conF.getconexao();// chama a conexão mysql
+            Conexao.Open();//abre conexao
 
-                string caminhoImagemAtual = mediaI[currentMediaIndexI].Path;
-                comandoIU.Parameters.AddWithValue("@caminho_img", caminhoImagemAtual);
-                comandoIU.ExecuteNonQuery();//ler os dados da consulta
-            }
+
+            string UPD = "UPDATE tb_lab set caminho_img=@caminho_img where id_lab=" + _puxa_lab;
+
+
+            MySqlCommand comandoIU = new MySqlCommand(UPD, Conexao);//comando sql para montar
+
+            string caminhoImagemAtual = mediaI[currentMediaIndexI].Path;
+            comandoIU.Parameters.AddWithValue("@caminho_img", caminhoImagemAtual);
+            comandoIU.ExecuteNonQuery();//ler os dados da consulta
+
         }
 
         private void panelArred2_Paint(object sender, PaintEventArgs e)
@@ -339,5 +348,7 @@ namespace teste
         {
             label10.Font = MiniFont;
         }
+
+
     }
 }

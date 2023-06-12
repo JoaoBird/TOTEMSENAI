@@ -117,20 +117,15 @@
             this.label1.Text = "SENAI";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // customInstaller1
-            // 
-            this.customInstaller1.AfterInstall += new System.Configuration.Install.InstallEventHandler(this.customInstaller1_AfterInstall);
-            // 
             // pnLaboratorios
             // 
+            this.pnLaboratorios.AutoScroll = true;
             this.pnLaboratorios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnLaboratorios.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.pnLaboratorios.Location = new System.Drawing.Point(0, 76);
             this.pnLaboratorios.Name = "pnLaboratorios";
-            this.pnLaboratorios.Padding = new System.Windows.Forms.Padding(395, 10, 0, 10);
+            this.pnLaboratorios.Padding = new System.Windows.Forms.Padding(70, 10, 0, 10);
             this.pnLaboratorios.Size = new System.Drawing.Size(1904, 965);
             this.pnLaboratorios.TabIndex = 4;
-            this.pnLaboratorios.Paint += new System.Windows.Forms.PaintEventHandler(this.pnLaboratorios_Paint_1);
             // 
             // lab
             // 
@@ -142,7 +137,6 @@
             this.Name = "lab";
             this.Text = "lab";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.lab_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

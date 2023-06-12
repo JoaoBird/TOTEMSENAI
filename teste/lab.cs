@@ -16,7 +16,7 @@ namespace teste
     {
         private readonly List<Laboratorio> laboratorios = new List<Laboratorio>();
 
-        
+
         conexao con = new conexao();
         Font SuperMiniFont = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
         Font MiniFont = new Font("Microsoft Sans Serif", 12, FontStyle.Bold | FontStyle.Underline);
@@ -27,7 +27,7 @@ namespace teste
 
         public lab()
         {
-    
+
             InitializeComponent();
             laboratorios = new List<Laboratorio>();//Cria se uma lista dos laboratorios
             MySqlConnection Conexao = con.getconexao();// chama a conexão mysql
@@ -35,9 +35,9 @@ namespace teste
             string query = "select id_lab,nome_lab,txt_laboratorio,caminho_img from tb_lab";//nome da consulta
             MySqlCommand comando = new MySqlCommand(query, Conexao);//comando sql para montar
             MySqlDataReader registro = comando.ExecuteReader();//ler os dados da consulta
-            while ( registro.Read())//a cada registro que aqui ele lê ele busca os dados no banco
+            while (registro.Read())//a cada registro que aqui ele lê ele busca os dados no banco
             {
-                
+
                 Laboratorio lab = new Laboratorio(registro.GetString("nome_lab"), registro.GetInt32("id_lab"));
                 lab.id_lab = registro.GetInt32("id_lab");
                 lab.caminho_img = registro.GetString("caminho_img");
@@ -53,6 +53,14 @@ namespace teste
 
                 CriarItemLaboratorio(laboratorio);
             }
+            //if (registro.GetInt32("id_lab")%2==0)
+            //{
+            //    pnLaboratorios.FlowDirection = FlowDirection.TopDown;
+            //}
+            //else
+            //{
+            //    pnLaboratorios.FlowDirection = FlowDirection.LeftToRight;
+            //}
 
 
         }
@@ -75,8 +83,10 @@ namespace teste
             {
                 Width = 350,
                 Height = 450,
-                BorderStyle = BorderStyle.FixedSingle
-                
+                BorderStyle = BorderStyle.FixedSingle,
+
+
+
             };
         }
 
@@ -95,7 +105,7 @@ namespace teste
                 ForeColor = Color.White,
                 Dock = DockStyle.Fill,
                 TextAlign = ContentAlignment.MiddleCenter,
-                Font=SmaFont,
+                Font = SmaFont,
             };
             panel.Controls.Add(label);
             panel.Dock = DockStyle.Top;
@@ -107,7 +117,7 @@ namespace teste
             {
                 return new PictureBox();
             }
-            return new PictureBox { ImageLocation = imagem,Dock= DockStyle.Fill,SizeMode= PictureBoxSizeMode.StretchImage };
+            return new PictureBox { ImageLocation = imagem, Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.StretchImage };
         }
         private void OnPanelClick(Laboratorio laboratorio)//Aqui abre se o laboratorio escolhido
         {

@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Microsoft.Win32;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -120,6 +122,7 @@ namespace teste
         {
             puxa_dados();
             puxa_dados2();
+
         }
         public void puxa_dados()//Aqui puxamos os dados da tabela de cursos
         {
@@ -196,41 +199,74 @@ namespace teste
         private void btn_adc_lab_Click(object sender, EventArgs e)
         //Aqui criamos um laboratorio novo puxando um id 0, ou seja que ainda nao existe
         {
+
             Edc_lab edicao_lab = new Edc_lab(0);
             this.Hide();
             edicao_lab.ShowDialog();
 
+
         }
 
         private void btn_excluir_lab_Click(object sender, EventArgs e)
-        //Aqui excluimos o laboratorio selecionado
         {
-            MySqlConnection Conexao = con.getconexao();// chama a conexão mysql
-            Conexao.Open();//abre conexao
+            MySqlConnection Conexao = con.getconexao();
+            Conexao.Open();
             int idL = Convert.ToInt32(dataGridView2.CurrentRow.Cells["id_lab"].Value);
-            string DEL = "DELETE  FROM tb_lab WHERE  id_lab=" + idL;
+            string DEL = "DELETE FROM tb_lab WHERE id_lab=" + idL;
             MySqlCommand comando = new MySqlCommand(DEL, Conexao);
-            DialogResult Ok = MessageBox.Show("Tem certeza que deseja excluir o registro selecionado?", "AVISO", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (Ok == DialogResult.OK)
-                //Caso o usuario clique em Ok, sera excluido os laboratorios
+            DialogResult result = MessageBox.Show("Tem certeza que deseja excluir o registro selecionado?", "AVISO", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.OK)
             {
-                //Aqui caso exista a pasta de imagens pasta dos laboratorios com o nome do id do laboratorio ele ira as excluir 
-                if (Directory.Exists($"Imagens/{idL}"))
+                // Verificar se a pasta de imagens do laboratório existe e excluir os arquivos dentro dela
+                string imagensPath = $"Imagens/{idL}";
+                if (Directory.Exists(imagensPath))
                 {
-                    Directory.Delete($"Imagens/{idL}");
+                    string[] files = Directory.GetFiles(imagensPath);
+                    foreach (string file in files)
+                    {
+                        File.SetAttributes(file, FileAttributes.Normal);
+                        File.Delete(file);
+                    }
+                    Directory.Delete(imagensPath);
                 }
-                if (Directory.Exists($"Videos/{idL}"))
+
+                // Verificar se a pasta de vídeos do laboratório existe e excluir os arquivos dentro dela
+                string videosPath = $"Videos/{idL}";
+                if (Directory.Exists(videosPath))
                 {
-                    Directory.Delete($"Videos/{idL}"); ;
+                    string[] files = Directory.GetFiles(videosPath);
+                    foreach (string file in files)
+                    {
+                        File.SetAttributes(file, FileAttributes.Normal);
+                        File.Delete(file);
+                    }
+                    Directory.Delete(videosPath);
                 }
+
                 comando.ExecuteNonQuery();
                 puxa_dados2();
             }
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DeleteDirectoryContents(string folderPath)
         {
+            foreach (string file in Directory.GetFiles(folderPath))
+            {
+                try
+                {
+                    File.Delete(file);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Erro ao excluir o arquivo {file}: {ex.Message}");
+                }
+            }
 
+            foreach (string subfolder in Directory.GetDirectories(folderPath))
+            {
+                DeleteDirectoryContents(subfolder);
+                Directory.Delete(subfolder);
+            }
         }
     }
 }

@@ -45,9 +45,8 @@
             this.btn_enviar = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.panelArred1 = new teste.PanelArred();
+            this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_voltar_img = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -55,6 +54,7 @@
             this.btn_proximo_img = new System.Windows.Forms.Button();
             this.btn_adc_img = new System.Windows.Forms.Button();
             this.panelArred2 = new teste.PanelArred();
+            this.label6 = new System.Windows.Forms.Label();
             this.player = new AxWMPLib.AxWindowsMediaPlayer();
             this.btn_prev_vid = new System.Windows.Forms.Button();
             this.excluir_video = new System.Windows.Forms.Button();
@@ -242,28 +242,6 @@
             // 
             this.openFileDialog2.FileName = "openFileDialog1";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(354, 347);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 31);
-            this.label5.TabIndex = 50;
-            this.label5.Text = "0/0";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(354, 406);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 31);
-            this.label6.TabIndex = 51;
-            this.label6.Text = "0/0";
-            // 
             // panelArred1
             // 
             this.panelArred1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -281,6 +259,17 @@
             this.panelArred1.Name = "panelArred1";
             this.panelArred1.Size = new System.Drawing.Size(745, 448);
             this.panelArred1.TabIndex = 52;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(354, 347);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 31);
+            this.label5.TabIndex = 50;
+            this.label5.Text = "0/0";
             // 
             // pictureBox1
             // 
@@ -385,6 +374,17 @@
             this.panelArred2.Size = new System.Drawing.Size(745, 464);
             this.panelArred2.TabIndex = 53;
             this.panelArred2.Paint += new System.Windows.Forms.PaintEventHandler(this.panelArred2_Paint);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(354, 406);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 31);
+            this.label6.TabIndex = 51;
+            this.label6.Text = "0/0";
             // 
             // player
             // 
