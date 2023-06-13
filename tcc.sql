@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 31-Maio-2023 às 21:49
+-- Generation Time: 13-Jun-2023 às 21:52
 -- Versão do servidor: 10.1.32-MariaDB
 -- PHP Version: 7.0.30
 
@@ -126,8 +126,8 @@ CREATE TABLE `tb_lab` (
 
 INSERT INTO `tb_lab` (`id_lab`, `nome_lab`, `txt_laboratorio`, `caminho_img`) VALUES
 (1, 'Laboratorio de Jogos', 'Laboratório utilizado para cursos de TI, com foco no desenvolvimento de jogos.', 'Imagens\\1\\Placa Lab jogos.jpeg'),
-(2, 'Laboratório de Redes', 'laboratório que possui duas salas interligadas com uma rede de servidores no meio.', 'Imagens\\2\\2.jpeg'),
-(3, 'Laboratório Huawei', 'laborátorio de redes de antena de telefonia.', 'Imagens\\3\\3.jpg'),
+(2, 'Laboratório de Redes 1 e 2', 'Laboratórios com racks compartilhados munidos de equipamentos (roteadores, switches, etc) utilizados para treinamentos do programa Cisco Networking Academy, com foco na certificação internacional CCNA (Cisco Certified Network Associate).', 'Imagens\\2\\2.jpeg'),
+(3, 'Laboratório Huawei', 'Laboratório de TELECOM com equipamentos Huawei para lecionar cursos que visam a instalação, configuração e manutenção de equipamentos das tecnologias 3G, 4G e 5G, links entre torres via Rádio frequência e estabelecimento de link com operadoras.', 'Imagens\\3\\3.jpg'),
 (4, 'Laboratório de Moda', 'laboratório utilizado para o curso de moda, essa sala possui todos os equipamentos necessários para o curso.', 'Imagens\\4\\4.jpeg'),
 (5, 'Biblioteca', 'Biblioteca da unidade SENAI', 'Imagens\\5\\5.jpg'),
 (6, 'Laboratorio 006', 'TESTE 6', 'Imagens\\6\\6.jpg');

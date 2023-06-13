@@ -155,7 +155,6 @@ namespace teste
                 }
                 string Novo_nome_arq = $"{Guid.NewGuid()}.jpg";//o metodo guid serve para aleatorizar o nome do arquivo
                 Pasta_destino = $"Imagens/{_puxa_lab}/{Novo_nome_arq}";//lembrete, a imagem e local, porem o caminho vai para o banco 
-
                 File.Copy(openFileDialog1.FileName, Pasta_destino);//aqui e de onde se copiara o video e qual sera a pasta destino
                 //essa lista e criada novamente para atualizar as imagens, ou seja cada vez que uma imagem e adicionada, o painel e o index e atualizado
                 mediaI = new List<Media>();
@@ -175,7 +174,6 @@ namespace teste
             }
             if (openFileDialog1.ShowDialog() == DialogResult.OK)// caso o usuario selecione OK sem selecionar algum arquivo
             {
-
                 if (!Directory.Exists($"Videos/{_puxa_lab}"))//caso nao exista uma pasta com o nome do id
                 {
                     Directory.CreateDirectory($"Videos/{_puxa_lab}");//cria se uma pasta com o nome do id
@@ -185,7 +183,6 @@ namespace teste
                 mediaV = new List<Media>();
                 var vid = MediaProvider.GetVideos(_laboratorio);
                 mediaV.AddRange(vid);
-
             }
         }
 
@@ -293,20 +290,13 @@ namespace teste
         private void btn_def_primaria_Click(object sender, EventArgs e)
         //Aqui e onde define se a imagem que esta vendo atualmente como a imagem que demonstre o laboratorio na pagina dos laboratorios
         {
-
             MySqlConnection Conexao = conF.getconexao();// chama a conexão mysql
             Conexao.Open();//abre conexao
-
-
             string UPD = "UPDATE tb_lab set caminho_img=@caminho_img where id_lab=" + _puxa_lab;
-
-
             MySqlCommand comandoIU = new MySqlCommand(UPD, Conexao);//comando sql para montar
-
             string caminhoImagemAtual = mediaI[currentMediaIndexI].Path;
             comandoIU.Parameters.AddWithValue("@caminho_img", caminhoImagemAtual);
             comandoIU.ExecuteNonQuery();//ler os dados da consulta
-
         }
 
         private void panelArred2_Paint(object sender, PaintEventArgs e)
