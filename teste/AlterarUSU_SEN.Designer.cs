@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlterarUSU_SEN));
             this.btn_enviar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_back = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panelArred2 = new teste.PanelArred();
+            this.btn_n_vis2 = new System.Windows.Forms.Button();
+            this.btn_vis2 = new System.Windows.Forms.Button();
             this.box_senhaN = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,8 +49,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.box_usu = new System.Windows.Forms.TextBox();
             this.lbl_login = new System.Windows.Forms.Label();
-            this.btn_vis2 = new System.Windows.Forms.Button();
-            this.btn_n_vis2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelArred2.SuspendLayout();
             this.panelArred1.SuspendLayout();
@@ -119,6 +120,30 @@
             this.panelArred2.Name = "panelArred2";
             this.panelArred2.Size = new System.Drawing.Size(350, 241);
             this.panelArred2.TabIndex = 8;
+            // 
+            // btn_n_vis2
+            // 
+            this.btn_n_vis2.BackColor = System.Drawing.Color.White;
+            this.btn_n_vis2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_n_vis2.Location = new System.Drawing.Point(270, 156);
+            this.btn_n_vis2.Name = "btn_n_vis2";
+            this.btn_n_vis2.Size = new System.Drawing.Size(29, 26);
+            this.btn_n_vis2.TabIndex = 13;
+            this.btn_n_vis2.Text = "●";
+            this.btn_n_vis2.UseVisualStyleBackColor = false;
+            this.btn_n_vis2.Click += new System.EventHandler(this.btn_n_vis2_Click);
+            // 
+            // btn_vis2
+            // 
+            this.btn_vis2.BackColor = System.Drawing.Color.White;
+            this.btn_vis2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_vis2.Location = new System.Drawing.Point(270, 156);
+            this.btn_vis2.Name = "btn_vis2";
+            this.btn_vis2.Size = new System.Drawing.Size(29, 26);
+            this.btn_vis2.TabIndex = 12;
+            this.btn_vis2.Text = "○";
+            this.btn_vis2.UseVisualStyleBackColor = false;
+            this.btn_vis2.Click += new System.EventHandler(this.btn_vis2_Click);
             // 
             // box_senhaN
             // 
@@ -261,30 +286,6 @@
             this.lbl_login.TabIndex = 0;
             this.lbl_login.Text = "Login";
             // 
-            // btn_vis2
-            // 
-            this.btn_vis2.BackColor = System.Drawing.Color.White;
-            this.btn_vis2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_vis2.Location = new System.Drawing.Point(270, 156);
-            this.btn_vis2.Name = "btn_vis2";
-            this.btn_vis2.Size = new System.Drawing.Size(29, 26);
-            this.btn_vis2.TabIndex = 12;
-            this.btn_vis2.Text = "○";
-            this.btn_vis2.UseVisualStyleBackColor = false;
-            this.btn_vis2.Click += new System.EventHandler(this.btn_vis2_Click);
-            // 
-            // btn_n_vis2
-            // 
-            this.btn_n_vis2.BackColor = System.Drawing.Color.White;
-            this.btn_n_vis2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_n_vis2.Location = new System.Drawing.Point(270, 156);
-            this.btn_n_vis2.Name = "btn_n_vis2";
-            this.btn_n_vis2.Size = new System.Drawing.Size(29, 26);
-            this.btn_n_vis2.TabIndex = 13;
-            this.btn_n_vis2.Text = "●";
-            this.btn_n_vis2.UseVisualStyleBackColor = false;
-            this.btn_n_vis2.Click += new System.EventHandler(this.btn_n_vis2_Click);
-            // 
             // AlterarUSU_SEN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -294,6 +295,7 @@
             this.Controls.Add(this.panelArred1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_enviar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AlterarUSU_SEN";
             this.Text = "AlterarUSU_SEN";
             this.Load += new System.EventHandler(this.AlterarUSU_SEN_Load);

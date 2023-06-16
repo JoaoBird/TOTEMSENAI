@@ -466,6 +466,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelArred1);
             this.Controls.Add(this.panelArred2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Edc_lab";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edc_lab";

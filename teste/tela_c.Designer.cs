@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(tela_c));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_back = new System.Windows.Forms.Button();
             this.lbl_NomeMenu = new System.Windows.Forms.Label();
@@ -292,7 +293,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(192, 30);
             this.label7.TabIndex = 1;
-            this.label7.Text = "(41) 99999-8888";
+            this.label7.Text = "0800-648-0088";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label9
@@ -468,6 +469,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelArredondado3);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "tela_c";
             this.Text = "tela_c";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

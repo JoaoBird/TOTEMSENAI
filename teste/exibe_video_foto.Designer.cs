@@ -271,6 +271,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbl_nomelab);
             this.Controls.Add(this.panelArred1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "exibe_video_foto";
             this.Text = "media";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

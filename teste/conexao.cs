@@ -18,6 +18,8 @@ namespace teste
         static private string senha = "";
                              //caminho para a conexao do banco
         static private string StrCon = "server=" + servidor + ";database=" + bancodedados + ";user id=" + usuario + ";password=" + senha;
+        //
+
         public MySqlConnection getconexao()
         {
             MySqlConnection conn = new MySqlConnection(StrCon);
