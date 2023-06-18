@@ -7,7 +7,7 @@
     <ProjectGuid>{58588511-9E73-455E-8EEC-EF86C7DF7B95}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>teste</RootNamespace>
-    <AssemblyName>teste</AssemblyName>
+    <AssemblyName>Totem_Senai</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>imagem_2023-06-18_000807110.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
@@ -307,6 +310,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="imagem_2023-06-18_000807110.ico" />
     <Content Include="Imagens\1\1-1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
