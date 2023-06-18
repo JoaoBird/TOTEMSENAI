@@ -51,8 +51,9 @@ namespace teste
 
             //
             //Esse select e feito para puxar os dados do curso, caso o adm vá atualizar, aparecerao os dados atuais do curso
-            string SLCGR = "select nome_curso,requisitos,profissao,op_trabalho,q_vai_aprender,preco,carga_horaria,tb_tipo_curso." +
-                "id_tipo_curso,tb_modalidade.id_modalidade, nome_img from   where id_curso="+_puxa_selecao;//nome da consulta
+            string SLCGR = "select tb_curso.id_curso,tb_curso.nome_curso,tb_curso.preco,tb_curso.requisitos,tb_curso.op_trabalho,tb_curso.q_vai_aprender,tb_tipo_curso.tipo_curso,tb_modalidade.modalidade, tb_curso.carga_horaria, tb_curso.profissao,nome_img from tb_curso inner join tb_tipo_curso on tb_tipo_curso.id_tipo_curso=tb_curso.id_tipo_curso inner join tb_modalidade on tb_modalidade.id_modalidade=tb_curso.id_modalidade where id_curso= " + _puxa_selecao;//nome da consulta
+
+
             MySqlCommand comandoGR = new MySqlCommand(SLCGR, ConBD);//comando sql para montar
             MySqlDataReader registro = comandoGR.ExecuteReader();//ler os dados da consulta
             if (registro.Read())
