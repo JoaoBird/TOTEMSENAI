@@ -33,7 +33,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_back = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.panelArred3 = new teste.PanelArred();
+            this.box_email = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panelArred2 = new teste.PanelArred();
+            this.label8 = new System.Windows.Forms.Label();
             this.btn_n_vis2 = new System.Windows.Forms.Button();
             this.btn_vis2 = new System.Windows.Forms.Button();
             this.box_senhaN = new System.Windows.Forms.TextBox();
@@ -50,6 +54,7 @@
             this.box_usu = new System.Windows.Forms.TextBox();
             this.lbl_login = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panelArred3.SuspendLayout();
             this.panelArred2.SuspendLayout();
             this.panelArred1.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +65,7 @@
             this.btn_enviar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_enviar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_enviar.ForeColor = System.Drawing.Color.White;
-            this.btn_enviar.Location = new System.Drawing.Point(244, 633);
+            this.btn_enviar.Location = new System.Drawing.Point(240, 736);
             this.btn_enviar.Name = "btn_enviar";
             this.btn_enviar.Size = new System.Drawing.Size(97, 37);
             this.btn_enviar.TabIndex = 2;
@@ -104,10 +109,44 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "SENAI";
             // 
+            // panelArred3
+            // 
+            this.panelArred3.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panelArred3.BorderRadius = 30;
+            this.panelArred3.Controls.Add(this.box_email);
+            this.panelArred3.Controls.Add(this.label9);
+            this.panelArred3.ForeColor = System.Drawing.Color.Black;
+            this.panelArred3.Location = new System.Drawing.Point(117, 627);
+            this.panelArred3.Name = "panelArred3";
+            this.panelArred3.Size = new System.Drawing.Size(350, 103);
+            this.panelArred3.TabIndex = 9;
+            this.panelArred3.Visible = false;
+            // 
+            // box_email
+            // 
+            this.box_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.box_email.Location = new System.Drawing.Point(158, 40);
+            this.box_email.Name = "box_email";
+            this.box_email.Size = new System.Drawing.Size(132, 26);
+            this.box_email.TabIndex = 3;
+            this.box_email.Enter += new System.EventHandler(this.box_email_Enter);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(57, 43);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(57, 20);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "e-mail";
+            // 
             // panelArred2
             // 
             this.panelArred2.BackColor = System.Drawing.Color.RoyalBlue;
             this.panelArred2.BorderRadius = 30;
+            this.panelArred2.Controls.Add(this.label8);
             this.panelArred2.Controls.Add(this.btn_n_vis2);
             this.panelArred2.Controls.Add(this.btn_vis2);
             this.panelArred2.Controls.Add(this.box_senhaN);
@@ -120,6 +159,18 @@
             this.panelArred2.Name = "panelArred2";
             this.panelArred2.Size = new System.Drawing.Size(350, 241);
             this.panelArred2.TabIndex = 8;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(60, 217);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(230, 24);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Deseja alterar o e-mail?";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // btn_n_vis2
             // 
@@ -290,7 +341,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 693);
+            this.ClientSize = new System.Drawing.Size(584, 785);
+            this.Controls.Add(this.panelArred3);
             this.Controls.Add(this.panelArred2);
             this.Controls.Add(this.panelArred1);
             this.Controls.Add(this.panel1);
@@ -301,6 +353,8 @@
             this.Load += new System.EventHandler(this.AlterarUSU_SEN_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelArred3.ResumeLayout(false);
+            this.panelArred3.PerformLayout();
             this.panelArred2.ResumeLayout(false);
             this.panelArred2.PerformLayout();
             this.panelArred1.ResumeLayout(false);
@@ -330,5 +384,9 @@
         private System.Windows.Forms.Button btn_vis;
         private System.Windows.Forms.Button btn_n_vis2;
         private System.Windows.Forms.Button btn_vis2;
+        private PanelArred panelArred3;
+        private System.Windows.Forms.TextBox box_email;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
     }
 }

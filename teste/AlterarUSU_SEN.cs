@@ -28,25 +28,40 @@ namespace teste
             //Aqui ele compara com o banco se o login e senha tem registro
             comando.Parameters.AddWithValue("@login_ADM", box_usu.Text);
             comando.Parameters.AddWithValue("@senha_ADM", box_senha.Text);
-            
-            int linhaqrecebe=  Convert.ToInt32(comando.ExecuteScalar());
-            
+
+            int linhaqrecebe = Convert.ToInt32(comando.ExecuteScalar());
+
             //caso tenha ele permite trocar o login e senha
-            if (linhaqrecebe>0)
+            if (linhaqrecebe > 0)
             {
-                String UPDADM = "UPDATE tb_ADM set login_ADM=@login_ADM, senha_ADM=@senha_ADM  where id_ADM=@id_ADM ";   
+                String UPDADM = "UPDATE tb_ADM set login_ADM=@login_ADM, senha_ADM=@senha_ADM where id_ADM=@id_ADM ";
+
                 MySqlCommand comandoADM = new MySqlCommand(UPDADM, conexao);
+                if (box_senhaN.Text == "" || box_usuN.Text == "")//caso os campos estejam em branco ele nao permite alterar login e senha
+                {
+                    MessageBox.Show("Preencha os campos em branco!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 comandoADM.Parameters.AddWithValue("@id_ADM", 1);
                 comandoADM.Parameters.AddWithValue("@login_ADM", box_usuN.Text);
                 comandoADM.Parameters.AddWithValue("@senha_ADM", box_senhaN.Text);
-                if(box_senhaN.Text==""||box_usuN.Text=="")//caso os campos estejam em branco ele nao permite alterar login e senha
-                {
-                 MessageBox.Show("Preencha os campos em branco!", "AVISO", MessageBoxButtons.OK,MessageBoxIcon.Error);
-                    return;
-                }
                 comandoADM.ExecuteNonQuery();
                 MessageBox.Show("Usuario e senha alterados com sucesso!", "AVISO", MessageBoxButtons.OK);
                 this.Close();
+                if (panelArred3.Visible==true)
+                {
+                    string UPDADM2 = "UPDATE tb_ADM set email_ADM=@email_ADM  where id_ADM=@id_ADM ";
+                    MySqlCommand comandoADM2 = new MySqlCommand(UPDADM2, conexao);
+                    if (box_email.Text == "")//caso os campos estejam em branco ele nao permite alterar login e senha
+                    {
+                        MessageBox.Show("Preencha o campo em branco!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    comandoADM2.Parameters.AddWithValue("@id_ADM", 1);
+                    comandoADM2.Parameters.AddWithValue("@email_ADM", box_email.Text);
+                    comandoADM2.ExecuteNonQuery();
+                    MessageBox.Show("E-mail alterado com sucesso!", "AVISO", MessageBoxButtons.OK);
+                }
 
             }
         }
@@ -93,6 +108,17 @@ namespace teste
             box_senhaN.PasswordChar = '\0';
             btn_n_vis2.Visible = true;
             btn_vis2.Visible = false;
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            panelArred3.Visible= true;
+
+        }
+
+        private void box_email_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -204,10 +204,9 @@ namespace teste
 
                 MySqlConnection conexao = con.getconexao();
                 conexao.Open();
-                String UPDADM = "UPDATE tb_ADM set login_ADM=@login_ADM, senha_ADM=@senha_ADM  where id_ADM=@id_ADM ";
+                String UPDADM = "UPDATE tb_ADM set senha_ADM=@senha_ADM  where id_ADM=@id_ADM ";
                 MySqlCommand comandoADM = new MySqlCommand(UPDADM, conexao);
                 comandoADM.Parameters.AddWithValue("@id_ADM", 1);
-                comandoADM.Parameters.AddWithValue("@login_ADM", box_login.Text);
                 comandoADM.Parameters.AddWithValue("@senha_ADM", box_senha.Text);
                 comandoADM.ExecuteNonQuery();
                 MessageBox.Show("Usuario e senha alterados com sucesso!", "AVISO", MessageBoxButtons.OK);
@@ -231,15 +230,15 @@ namespace teste
 
             if (Convert.ToString(box_login.Text) == novaSenha)//caso o codigo verificado por email bata com o gerado, ele permitira a troca do login e senha do adm
             {
-                label3.Text = "Insira um novo login e senha";
-                lbl_login.Visible = true;
+                label3.Text = "Insira uma nova senha";
+                box_senha.Text = "";
                 lbl_senha.Visible = true;
-                box_login.Visible = true;
+                lbl_login.Visible = false;
+                box_login.Visible = false;
                 box_senha.Visible = true;
                 btn_vis.Visible = true;
                 btn_n_vis.Visible = true;
                 btn_enviar.Visible = false;
-                lbl_login.Text = "Login";
                 lbl_senha.Text = "Senha";
                 box_login.Text = "";
                 button1.Visible = false;

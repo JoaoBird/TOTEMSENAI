@@ -35,6 +35,7 @@ namespace teste
             else
             {
                 lbl_cadastrar.Text = "Cadastrar Curso";//Caso o puxa seleção for zero, ou seja e um curso existente ele muda a label para Cadastrar
+
             }
             MySqlConnection ConBD = conF.getconexao();// chama a conexão mysql
             ConBD.Open();//abre conexao
@@ -45,9 +46,15 @@ namespace teste
             box_modalidade.DataSource = funcao.Fun_modalidade();
             box_modalidade.DisplayMember = "modalidade";
             box_modalidade.ValueMember = "id_modalidade";
+  
+            if (_puxa_selecao == 0)
+            {
+                box_modalidade.Text = "";
+                box_tp.Text = "";
+            }
+            
 
-            box_modalidade.Text = "";
-            box_tp.Text = "";
+
 
             //
             //Esse select e feito para puxar os dados do curso, caso o adm vá atualizar, aparecerao os dados atuais do curso
@@ -66,6 +73,11 @@ namespace teste
                 box_preco.Text = registro.GetString("preco");
                 box_carga_horaria.Text = registro.GetString("carga_horaria");
                 box_url.Text = registro.GetString("nome_img");
+                string tp_curso = registro.GetString("tipo_curso");
+                string mod = registro.GetString("modalidade");
+
+                box_tp.Text = tp_curso;
+                box_modalidade.Text = mod;
             }
             //
             //   
