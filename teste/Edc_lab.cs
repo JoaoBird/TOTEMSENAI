@@ -117,8 +117,15 @@ namespace teste
             }
 
 
+
             var media = mediaI[currentMediaIndexI];
-            pictureBox1.Image = Image.FromFile(media.Path);//onde sera mostrado a imagem
+
+            using (Bitmap bnttemp = new Bitmap(media.Path))
+            {
+                pictureBox1.Image = new Bitmap(bnttemp);//onde sera mostrado a imagem
+            }
+                
+            
 
         }
         private void carregar_vid()//aqui pega se o caminho do video se o contador nao for zero
@@ -197,7 +204,7 @@ namespace teste
                 currentMediaIndexI = mediaI.Count - 1; // Volte para o último item se chegarmos ao início da lista
 
             }
-            if (currentMediaIndexI >= 0)
+            if (currentMediaIndexI > 0)
             {
                 label5.Text = $"{currentMediaIndexI + 1}/{img.Count()}"; // Atualize o contador apenas se o índice for positivo
             }
@@ -218,7 +225,8 @@ namespace teste
                 label5.Text = $"{currentMediaIndexI + 1}/{img.Count()}";//contador
 
             }
-            label5.Text = $"{currentMediaIndexI + 1}/{img.Count()}";//contador 
+            else if (currentMediaIndexV < 0)
+                label5.Text = $"{currentMediaIndexI + 1}/{img.Count()}";//contador 
 
             carregar_img();//o metodo e chamado novamente para atualizar o painel e mostrar a imagem do contador
 
@@ -233,7 +241,7 @@ namespace teste
             {
                 currentMediaIndexV = mediaV.Count - 1; // Volte para o último item se chegarmos ao início da lista
             }
-            if (currentMediaIndexV >= 0)
+            if (currentMediaIndexV > 0)
             {
                 label6.Text = $"{currentMediaIndexV + 1}/{vid.Count()}"; // Atualize o contador apenas se o índice for positivo
             }
@@ -251,6 +259,7 @@ namespace teste
             {
                 currentMediaIndexV = 0; // Volte para o primeiro item se chegarmos ao fim da lista
             }
+            else if (currentMediaIndexV < 0) 
             label6.Text = $"{currentMediaIndexV + 1}/{vid.Count()}";//contador 
             carregar_vid();//o metodo e chamado novamente para atualizar o painel e mostrar a imagem do contador
             player.Ctlcontrols.pause();
@@ -259,6 +268,7 @@ namespace teste
 
         private void btn_excluir_img_Click(object sender, EventArgs e)//Aqui exclui se a imagem atual, que esta vendo no momento
         {
+            
             DialogResult ok = MessageBox.Show("Tem certeza que deseja excluir a imagem selecionada?", "AVISO!", MessageBoxButtons.OKCancel);
             if (ok == DialogResult.OK)
             {

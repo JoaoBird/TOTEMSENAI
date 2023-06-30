@@ -60,7 +60,7 @@ namespace teste
             }
             else 
             {
-                MessageBox.Show("Senha Incorreta!", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("Login e/ou senha incorretos!", "Aviso", MessageBoxButtons.OK);
             }
             //string novaSenha = GerarNovaSenha();
             //EnviarEmail(box_login.Text, "Recuperação de email", $"Codigo de recuperação  \n{novaSenha}");
