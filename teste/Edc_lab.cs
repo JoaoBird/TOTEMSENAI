@@ -204,7 +204,7 @@ namespace teste
                 currentMediaIndexI = mediaI.Count - 1; // Volte para o último item se chegarmos ao início da lista
 
             }
-            if (currentMediaIndexI > 0)
+            if (currentMediaIndexI >= 0)
             {
                 label5.Text = $"{currentMediaIndexI + 1}/{img.Count()}"; // Atualize o contador apenas se o índice for positivo
             }
@@ -225,7 +225,7 @@ namespace teste
                 label5.Text = $"{currentMediaIndexI + 1}/{img.Count()}";//contador
 
             }
-            else if (currentMediaIndexV < 0)
+            
                 label5.Text = $"{currentMediaIndexI + 1}/{img.Count()}";//contador 
 
             carregar_img();//o metodo e chamado novamente para atualizar o painel e mostrar a imagem do contador
@@ -241,7 +241,7 @@ namespace teste
             {
                 currentMediaIndexV = mediaV.Count - 1; // Volte para o último item se chegarmos ao início da lista
             }
-            if (currentMediaIndexV > 0)
+            if (currentMediaIndexV >= 0)
             {
                 label6.Text = $"{currentMediaIndexV + 1}/{vid.Count()}"; // Atualize o contador apenas se o índice for positivo
             }
@@ -259,7 +259,7 @@ namespace teste
             {
                 currentMediaIndexV = 0; // Volte para o primeiro item se chegarmos ao fim da lista
             }
-            else if (currentMediaIndexV < 0) 
+            
             label6.Text = $"{currentMediaIndexV + 1}/{vid.Count()}";//contador 
             carregar_vid();//o metodo e chamado novamente para atualizar o painel e mostrar a imagem do contador
             player.Ctlcontrols.pause();
