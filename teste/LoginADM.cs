@@ -245,6 +245,10 @@ namespace teste
                 btn_enviar.Visible = false;
                 btn_ALT.Visible = true;
             }
+            else
+            {
+                MessageBox.Show("Código Incorreto", "Aviso", MessageBoxButtons.OK);
+            }
         }
 
         private void btn_vis_Click(object sender, EventArgs e)//botão para ver a senha

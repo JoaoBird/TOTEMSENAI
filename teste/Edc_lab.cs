@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -83,8 +84,8 @@ namespace teste
             {
                 btn_enviar.Text = "Cadastrar";
                 lbl_cadastrar.Text = "Cadastrar";
-                panelArred1.Visible= false;
-                panelArred2.Visible= false; 
+                panelArred1.Visible = false;
+                panelArred2.Visible = false;
             }
             player.Ctlcontrols.pause();
             MySqlConnection ConBD = conF.getconexao();// chama a conexão mysql
@@ -103,6 +104,18 @@ namespace teste
                 carregar_img();
                 carregar_vid();
                 //
+                //if (img.Count() == 0)
+                //{
+                //    label5.Visible = false;
+                //}
+                //else
+                //    label5.Visible = true;
+                //if (vid.Count() == 0)
+                //{
+                //    label6.Visible = false;
+                //}
+                //else
+                //    label6.Visible = true;
                 label5.Text = $"{currentMediaIndexI + 1}/{img.Count()}";//contador das fotos
                 label6.Text = $"{currentMediaIndexI + 1}/{vid.Count()}";//contador dos videos
 
@@ -124,8 +137,8 @@ namespace teste
             {
                 pictureBox1.Image = new Bitmap(bnttemp);//onde sera mostrado a imagem
             }
-                
-            
+
+
 
         }
         private void carregar_vid()//aqui pega se o caminho do video se o contador nao for zero
@@ -199,6 +212,7 @@ namespace teste
             // Retroceda para o item anterior na lista
             currentMediaIndexI--;
             var img = MediaProvider.GetImagens(_laboratorio);
+
             if (currentMediaIndexI < 0)
             {
                 currentMediaIndexI = mediaI.Count - 1; // Volte para o último item se chegarmos ao início da lista
@@ -208,6 +222,7 @@ namespace teste
             {
                 label5.Text = $"{currentMediaIndexI + 1}/{img.Count()}"; // Atualize o contador apenas se o índice for positivo
             }
+
             carregar_img();//o metodo e chamado novamente para atualizar o painel e mostrar a imagem do contador
 
         }
@@ -218,6 +233,8 @@ namespace teste
             // Avance para o próximo item na lista
             currentMediaIndexI++;
             var img = MediaProvider.GetImagens(_laboratorio);
+
+
             if (currentMediaIndexI == mediaI.Count)
             {
 
@@ -225,8 +242,9 @@ namespace teste
                 label5.Text = $"{currentMediaIndexI + 1}/{img.Count()}";//contador
 
             }
-            
-                label5.Text = $"{currentMediaIndexI + 1}/{img.Count()}";//contador 
+
+            label5.Text = $"{currentMediaIndexI + 1}/{img.Count()}";//contador 
+
 
             carregar_img();//o metodo e chamado novamente para atualizar o painel e mostrar a imagem do contador
 
@@ -237,6 +255,7 @@ namespace teste
             // Retroceda para o item anterior na lista
             currentMediaIndexV--;
             var vid = MediaProvider.GetVideos(_laboratorio);
+
             if (currentMediaIndexV < 0)
             {
                 currentMediaIndexV = mediaV.Count - 1; // Volte para o último item se chegarmos ao início da lista
@@ -245,6 +264,7 @@ namespace teste
             {
                 label6.Text = $"{currentMediaIndexV + 1}/{vid.Count()}"; // Atualize o contador apenas se o índice for positivo
             }
+
             carregar_vid();//o metodo e chamado novamente para atualizar o painel e mostrar a imagem do contador
             player.Ctlcontrols.pause();
 
@@ -255,12 +275,22 @@ namespace teste
             // Avance para o próximo item na lista
             currentMediaIndexV++;
             var vid = MediaProvider.GetVideos(_laboratorio);
-            if (currentMediaIndexV == mediaV.Count)
+            if (vid.Count() == 0)
             {
-                currentMediaIndexV = 0; // Volte para o primeiro item se chegarmos ao fim da lista
+                label6.Visible = false;
             }
-            
-            label6.Text = $"{currentMediaIndexV + 1}/{vid.Count()}";//contador 
+            else if (vid.Count() != 0)
+            {
+                label6.Visible = true;
+
+                if (currentMediaIndexV == mediaV.Count)
+                {
+                    currentMediaIndexV = 0; // Volte para o primeiro item se chegarmos ao fim da lista
+                }
+
+                label6.Text = $"{currentMediaIndexV + 1}/{vid.Count()}";//contador 
+            }
+
             carregar_vid();//o metodo e chamado novamente para atualizar o painel e mostrar a imagem do contador
             player.Ctlcontrols.pause();
 
@@ -268,7 +298,7 @@ namespace teste
 
         private void btn_excluir_img_Click(object sender, EventArgs e)//Aqui exclui se a imagem atual, que esta vendo no momento
         {
-            
+
             DialogResult ok = MessageBox.Show("Tem certeza que deseja excluir a imagem selecionada?", "AVISO!", MessageBoxButtons.OKCancel);
             if (ok == DialogResult.OK)
             {
@@ -278,6 +308,24 @@ namespace teste
                 mediaI.AddRange(img);
                 currentMediaIndexI = 0;
                 carregar_img();
+                MySqlConnection Conexao = conF.getconexao();// chama a conexão mysql
+                Conexao.Open();//abre conexao
+                string SLC = "SELECT caminho_img from tb_lab where id_lab=" + _puxa_lab;
+                MySqlCommand comandoSL = new MySqlCommand(SLC, Conexao);//comando sql para montar
+                string caminhoImg = comandoSL.ExecuteScalar() as string;
+
+                if (caminhoImg != "")
+                {
+                    string UPD = "UPDATE tb_lab set caminho_img=null where id_lab=" + _puxa_lab;
+                    MySqlCommand comandoIU = new MySqlCommand(UPD, Conexao);//comando sql para montar
+                    comandoIU.ExecuteNonQuery();//ler os dados da consulta
+                    MessageBox.Show("A imagem de demonstração do laboratorio foi deletada!", "Aviso!", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show("A imagem foi deletada!", "Aviso!", MessageBoxButtons.OK);
+                }
+
             }
 
         }
