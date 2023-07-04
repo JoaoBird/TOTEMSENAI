@@ -380,6 +380,7 @@
     <Content Include="Imagens\6\6.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\interrogation-mark.png" />
     <Content Include="Videos\3\SnapSave.io-MOSQUITO GRITANDO EFEITOS SONOROS DO RODRIGO FARO%28720p%29.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -36,16 +36,19 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lbl_nomelab = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_back = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.txt_laboratorio = new System.Windows.Forms.Label();
+            this.lbl_desc = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btn_back = new System.Windows.Forms.Button();
             this.panelArred1 = new teste.PanelArred();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.lbl_cont = new System.Windows.Forms.Label();
             this.btn_proximo = new System.Windows.Forms.Button();
             this.btn_voltar = new System.Windows.Forms.Button();
             this.player = new AxWMPLib.AxWindowsMediaPlayer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txt_laboratorio = new System.Windows.Forms.Label();
-            this.lbl_desc = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelArred1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
@@ -144,6 +147,47 @@
             this.panel1.Size = new System.Drawing.Size(1904, 75);
             this.panel1.TabIndex = 7;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(12, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(132, 42);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "SENAI";
+            // 
+            // txt_laboratorio
+            // 
+            this.txt_laboratorio.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_laboratorio.Location = new System.Drawing.Point(43, 274);
+            this.txt_laboratorio.MaximumSize = new System.Drawing.Size(675, 0);
+            this.txt_laboratorio.Name = "txt_laboratorio";
+            this.txt_laboratorio.Size = new System.Drawing.Size(673, 0);
+            this.txt_laboratorio.TabIndex = 8;
+            this.txt_laboratorio.Text = "label1";
+            // 
+            // lbl_desc
+            // 
+            this.lbl_desc.AutoSize = true;
+            this.lbl_desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_desc.Location = new System.Drawing.Point(47, 274);
+            this.lbl_desc.MaximumSize = new System.Drawing.Size(700, 0);
+            this.lbl_desc.Name = "lbl_desc";
+            this.lbl_desc.Size = new System.Drawing.Size(94, 24);
+            this.lbl_desc.TabIndex = 9;
+            this.lbl_desc.Text = "Descrição";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "label1";
+            // 
             // btn_back
             // 
             this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -158,22 +202,13 @@
             this.btn_back.UseVisualStyleBackColor = true;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(12, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 42);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "SENAI";
-            // 
             // panelArred1
             // 
             this.panelArred1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelArred1.BackColor = System.Drawing.Color.RoyalBlue;
             this.panelArred1.BorderRadius = 30;
+            this.panelArred1.Controls.Add(this.label5);
+            this.panelArred1.Controls.Add(this.label3);
             this.panelArred1.Controls.Add(this.lbl_cont);
             this.panelArred1.Controls.Add(this.btn_proximo);
             this.panelArred1.Controls.Add(this.btn_voltar);
@@ -184,6 +219,27 @@
             this.panelArred1.Name = "panelArred1";
             this.panelArred1.Size = new System.Drawing.Size(946, 823);
             this.panelArred1.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(80, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(760, 24);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Clique na tela uma vez para pausar e duas vezes para entrar no modo tela cheia";
+            this.label5.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.Image = global::teste.Properties.Resources.interrogation_mark;
+            this.label3.Location = new System.Drawing.Point(23, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 41);
+            this.label3.TabIndex = 5;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // lbl_cont
             // 
@@ -240,32 +296,12 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // txt_laboratorio
-            // 
-            this.txt_laboratorio.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_laboratorio.Location = new System.Drawing.Point(43, 274);
-            this.txt_laboratorio.MaximumSize = new System.Drawing.Size(675, 0);
-            this.txt_laboratorio.Name = "txt_laboratorio";
-            this.txt_laboratorio.Size = new System.Drawing.Size(673, 0);
-            this.txt_laboratorio.TabIndex = 8;
-            this.txt_laboratorio.Text = "label1";
-            // 
-            // lbl_desc
-            // 
-            this.lbl_desc.AutoSize = true;
-            this.lbl_desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_desc.Location = new System.Drawing.Point(47, 274);
-            this.lbl_desc.MaximumSize = new System.Drawing.Size(700, 0);
-            this.lbl_desc.Name = "lbl_desc";
-            this.lbl_desc.Size = new System.Drawing.Size(94, 24);
-            this.lbl_desc.TabIndex = 9;
-            this.lbl_desc.Text = "Descrição";
-            // 
             // exibe_video_foto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_desc);
             this.Controls.Add(this.txt_laboratorio);
             this.Controls.Add(this.panel1);
@@ -306,5 +342,8 @@
         private System.Windows.Forms.Label txt_laboratorio;
         private System.Windows.Forms.Label lbl_desc;
         private System.Windows.Forms.Label lbl_cont;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -133,6 +133,16 @@ namespace teste.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap interrogation_mark {
+            get {
+                object obj = ResourceManager.GetObject("interrogation-mark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lucas {
             get {
                 object obj = ResourceManager.GetObject("lucas", resourceCulture);

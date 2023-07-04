@@ -185,5 +185,17 @@ namespace teste
             
 
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            if(label5.Visible == false)
+            {
+                label5.Visible = true;
+            }
+            else
+            {
+                label5.Visible = false;
+            }
+        }
     }
 }
