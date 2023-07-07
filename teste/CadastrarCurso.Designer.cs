@@ -183,81 +183,90 @@
             // lbl_nome
             // 
             this.lbl_nome.AutoSize = true;
-            this.lbl_nome.Location = new System.Drawing.Point(106, 108);
+            this.lbl_nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_nome.Location = new System.Drawing.Point(87, 108);
             this.lbl_nome.Name = "lbl_nome";
-            this.lbl_nome.Size = new System.Drawing.Size(80, 13);
+            this.lbl_nome.Size = new System.Drawing.Size(101, 16);
             this.lbl_nome.TabIndex = 9;
             this.lbl_nome.Text = "Nome do Curso";
             // 
             // lbl_requisitos
             // 
             this.lbl_requisitos.AutoSize = true;
-            this.lbl_requisitos.Location = new System.Drawing.Point(106, 175);
+            this.lbl_requisitos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_requisitos.Location = new System.Drawing.Point(117, 175);
             this.lbl_requisitos.Name = "lbl_requisitos";
-            this.lbl_requisitos.Size = new System.Drawing.Size(56, 13);
+            this.lbl_requisitos.Size = new System.Drawing.Size(71, 16);
             this.lbl_requisitos.TabIndex = 10;
             this.lbl_requisitos.Text = "Requisitos";
             // 
             // lbl_profissao
             // 
             this.lbl_profissao.AutoSize = true;
-            this.lbl_profissao.Location = new System.Drawing.Point(107, 332);
+            this.lbl_profissao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_profissao.Location = new System.Drawing.Point(124, 332);
             this.lbl_profissao.Name = "lbl_profissao";
-            this.lbl_profissao.Size = new System.Drawing.Size(50, 13);
+            this.lbl_profissao.Size = new System.Drawing.Size(64, 16);
             this.lbl_profissao.TabIndex = 11;
             this.lbl_profissao.Text = "Profissao";
             // 
             // lbl_op_trabalho
             // 
             this.lbl_op_trabalho.AutoSize = true;
-            this.lbl_op_trabalho.Location = new System.Drawing.Point(556, 101);
+            this.lbl_op_trabalho.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_op_trabalho.Location = new System.Drawing.Point(521, 107);
             this.lbl_op_trabalho.Name = "lbl_op_trabalho";
-            this.lbl_op_trabalho.Size = new System.Drawing.Size(136, 13);
+            this.lbl_op_trabalho.Size = new System.Drawing.Size(173, 16);
             this.lbl_op_trabalho.TabIndex = 12;
             this.lbl_op_trabalho.Text = "Oportunidades de Trabalho";
             // 
             // lbl_aprender
             // 
             this.lbl_aprender.AutoSize = true;
-            this.lbl_aprender.Location = new System.Drawing.Point(594, 329);
+            this.lbl_aprender.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_aprender.Location = new System.Drawing.Point(572, 335);
             this.lbl_aprender.Name = "lbl_aprender";
-            this.lbl_aprender.Size = new System.Drawing.Size(98, 13);
+            this.lbl_aprender.Size = new System.Drawing.Size(122, 16);
             this.lbl_aprender.TabIndex = 13;
             this.lbl_aprender.Text = "O que vai aprender";
             // 
             // lbl_preco
             // 
             this.lbl_preco.AutoSize = true;
-            this.lbl_preco.Location = new System.Drawing.Point(107, 531);
+            this.lbl_preco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_preco.Location = new System.Drawing.Point(145, 531);
             this.lbl_preco.Name = "lbl_preco";
-            this.lbl_preco.Size = new System.Drawing.Size(35, 13);
+            this.lbl_preco.Size = new System.Drawing.Size(43, 16);
             this.lbl_preco.TabIndex = 14;
             this.lbl_preco.Text = "Preço";
             // 
             // lbl_hora
             // 
             this.lbl_hora.AutoSize = true;
-            this.lbl_hora.Location = new System.Drawing.Point(106, 586);
+            this.lbl_hora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_hora.Location = new System.Drawing.Point(96, 586);
             this.lbl_hora.Name = "lbl_hora";
-            this.lbl_hora.Size = new System.Drawing.Size(72, 13);
+            this.lbl_hora.Size = new System.Drawing.Size(92, 16);
             this.lbl_hora.TabIndex = 15;
             this.lbl_hora.Text = "Carga Horaria";
             // 
             // lbl_tipo_curso
             // 
             this.lbl_tipo_curso.AutoSize = true;
-            this.lbl_tipo_curso.Location = new System.Drawing.Point(594, 531);
+            this.lbl_tipo_curso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_tipo_curso.Location = new System.Drawing.Point(604, 592);
             this.lbl_tipo_curso.Name = "lbl_tipo_curso";
-            this.lbl_tipo_curso.Size = new System.Drawing.Size(72, 13);
+            this.lbl_tipo_curso.Size = new System.Drawing.Size(90, 16);
             this.lbl_tipo_curso.TabIndex = 16;
             this.lbl_tipo_curso.Text = "Tipo do curso";
             // 
             // lbl_modalidade
             // 
             this.lbl_modalidade.AutoSize = true;
-            this.lbl_modalidade.Location = new System.Drawing.Point(594, 586);
+            this.lbl_modalidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_modalidade.Location = new System.Drawing.Point(614, 537);
             this.lbl_modalidade.Name = "lbl_modalidade";
-            this.lbl_modalidade.Size = new System.Drawing.Size(62, 13);
+            this.lbl_modalidade.Size = new System.Drawing.Size(80, 16);
             this.lbl_modalidade.TabIndex = 17;
             this.lbl_modalidade.Text = "Modalidade";
             // 
@@ -268,7 +277,7 @@
             this.box_tp.Items.AddRange(new object[] {
             "",
             ""});
-            this.box_tp.Location = new System.Drawing.Point(721, 523);
+            this.box_tp.Location = new System.Drawing.Point(711, 578);
             this.box_tp.Name = "box_tp";
             this.box_tp.Size = new System.Drawing.Size(258, 28);
             this.box_tp.TabIndex = 18;
@@ -279,15 +288,16 @@
             this.box_modalidade.FormattingEnabled = true;
             this.box_modalidade.Items.AddRange(new object[] {
             ""});
-            this.box_modalidade.Location = new System.Drawing.Point(721, 583);
+            this.box_modalidade.Location = new System.Drawing.Point(711, 523);
             this.box_modalidade.Name = "box_modalidade";
             this.box_modalidade.Size = new System.Drawing.Size(258, 28);
             this.box_modalidade.TabIndex = 19;
+            this.box_modalidade.TextChanged += new System.EventHandler(this.box_modalidade_TextChanged);
             // 
             // box_nome
             // 
             this.box_nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.box_nome.Location = new System.Drawing.Point(227, 101);
+            this.box_nome.Location = new System.Drawing.Point(217, 101);
             this.box_nome.Name = "box_nome";
             this.box_nome.Size = new System.Drawing.Size(236, 26);
             this.box_nome.TabIndex = 20;
@@ -295,7 +305,7 @@
             // box_requisitos
             // 
             this.box_requisitos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.box_requisitos.Location = new System.Drawing.Point(227, 168);
+            this.box_requisitos.Location = new System.Drawing.Point(217, 168);
             this.box_requisitos.Multiline = true;
             this.box_requisitos.Name = "box_requisitos";
             this.box_requisitos.Size = new System.Drawing.Size(236, 110);
@@ -304,7 +314,7 @@
             // box_preco
             // 
             this.box_preco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.box_preco.Location = new System.Drawing.Point(227, 524);
+            this.box_preco.Location = new System.Drawing.Point(217, 524);
             this.box_preco.Name = "box_preco";
             this.box_preco.Size = new System.Drawing.Size(236, 26);
             this.box_preco.TabIndex = 22;
@@ -312,7 +322,7 @@
             // box_carga_horaria
             // 
             this.box_carga_horaria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.box_carga_horaria.Location = new System.Drawing.Point(227, 579);
+            this.box_carga_horaria.Location = new System.Drawing.Point(217, 579);
             this.box_carga_horaria.Name = "box_carga_horaria";
             this.box_carga_horaria.Size = new System.Drawing.Size(236, 26);
             this.box_carga_horaria.TabIndex = 23;
@@ -320,7 +330,7 @@
             // box_profissao
             // 
             this.box_profissao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.box_profissao.Location = new System.Drawing.Point(227, 329);
+            this.box_profissao.Location = new System.Drawing.Point(217, 329);
             this.box_profissao.Multiline = true;
             this.box_profissao.Name = "box_profissao";
             this.box_profissao.Size = new System.Drawing.Size(236, 142);
@@ -329,7 +339,7 @@
             // box_op
             // 
             this.box_op.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.box_op.Location = new System.Drawing.Point(721, 101);
+            this.box_op.Location = new System.Drawing.Point(711, 101);
             this.box_op.Multiline = true;
             this.box_op.Name = "box_op";
             this.box_op.Size = new System.Drawing.Size(258, 142);
@@ -338,7 +348,7 @@
             // box_oq_aprender
             // 
             this.box_oq_aprender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.box_oq_aprender.Location = new System.Drawing.Point(721, 329);
+            this.box_oq_aprender.Location = new System.Drawing.Point(711, 329);
             this.box_oq_aprender.Multiline = true;
             this.box_oq_aprender.Name = "box_oq_aprender";
             this.box_oq_aprender.Size = new System.Drawing.Size(258, 142);
@@ -351,7 +361,7 @@
             this.btn_enviar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_enviar.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_enviar.ForeColor = System.Drawing.Color.White;
-            this.btn_enviar.Location = new System.Drawing.Point(502, 672);
+            this.btn_enviar.Location = new System.Drawing.Point(488, 660);
             this.btn_enviar.Name = "btn_enviar";
             this.btn_enviar.Size = new System.Drawing.Size(89, 35);
             this.btn_enviar.TabIndex = 27;
@@ -362,16 +372,17 @@
             // lbl_url
             // 
             this.lbl_url.AutoSize = true;
-            this.lbl_url.Location = new System.Drawing.Point(107, 634);
+            this.lbl_url.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_url.Location = new System.Drawing.Point(97, 634);
             this.lbl_url.Name = "lbl_url";
-            this.lbl_url.Size = new System.Drawing.Size(74, 13);
+            this.lbl_url.Size = new System.Drawing.Size(91, 16);
             this.lbl_url.TabIndex = 28;
             this.lbl_url.Text = "URL do Curso";
             // 
             // box_url
             // 
             this.box_url.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.box_url.Location = new System.Drawing.Point(227, 627);
+            this.box_url.Location = new System.Drawing.Point(217, 627);
             this.box_url.Name = "box_url";
             this.box_url.Size = new System.Drawing.Size(236, 26);
             this.box_url.TabIndex = 29;

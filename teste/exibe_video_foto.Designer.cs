@@ -36,14 +36,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lbl_nomelab = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_back = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_laboratorio = new System.Windows.Forms.Label();
             this.lbl_desc = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_back = new System.Windows.Forms.Button();
             this.panelArred1 = new teste.PanelArred();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btn_OL = new System.Windows.Forms.Button();
+            this.btn_ML = new System.Windows.Forms.Button();
             this.lbl_cont = new System.Windows.Forms.Label();
             this.btn_proximo = new System.Windows.Forms.Button();
             this.btn_voltar = new System.Windows.Forms.Button();
@@ -147,6 +147,20 @@
             this.panel1.Size = new System.Drawing.Size(1904, 75);
             this.panel1.TabIndex = 7;
             // 
+            // btn_back
+            // 
+            this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_back.BackgroundImage = global::teste.Properties.Resources.botao_de_retorno;
+            this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_back.FlatAppearance.BorderSize = 0;
+            this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_back.Location = new System.Drawing.Point(1842, 17);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(40, 40);
+            this.btn_back.TabIndex = 9;
+            this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -188,27 +202,13 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "label1";
             // 
-            // btn_back
-            // 
-            this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_back.BackgroundImage = global::teste.Properties.Resources.botao_de_retorno;
-            this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_back.FlatAppearance.BorderSize = 0;
-            this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_back.Location = new System.Drawing.Point(1842, 17);
-            this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(40, 40);
-            this.btn_back.TabIndex = 9;
-            this.btn_back.UseVisualStyleBackColor = true;
-            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
-            // 
             // panelArred1
             // 
             this.panelArred1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelArred1.BackColor = System.Drawing.Color.RoyalBlue;
             this.panelArred1.BorderRadius = 30;
-            this.panelArred1.Controls.Add(this.label5);
-            this.panelArred1.Controls.Add(this.label3);
+            this.panelArred1.Controls.Add(this.btn_OL);
+            this.panelArred1.Controls.Add(this.btn_ML);
             this.panelArred1.Controls.Add(this.lbl_cont);
             this.panelArred1.Controls.Add(this.btn_proximo);
             this.panelArred1.Controls.Add(this.btn_voltar);
@@ -220,26 +220,36 @@
             this.panelArred1.Size = new System.Drawing.Size(946, 823);
             this.panelArred1.TabIndex = 5;
             // 
-            // label5
+            // btn_OL
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(80, 29);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(760, 24);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Clique na tela uma vez para pausar e duas vezes para entrar no modo tela cheia";
-            this.label5.Visible = false;
+            this.btn_OL.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_OL.FlatAppearance.BorderSize = 0;
+            this.btn_OL.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_OL.Font = new System.Drawing.Font("Arial", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_OL.ForeColor = System.Drawing.Color.White;
+            this.btn_OL.Location = new System.Drawing.Point(159, 742);
+            this.btn_OL.Name = "btn_OL";
+            this.btn_OL.Size = new System.Drawing.Size(267, 63);
+            this.btn_OL.TabIndex = 41;
+            this.btn_OL.Text = "Ocultar Layout";
+            this.btn_OL.UseVisualStyleBackColor = false;
+            this.btn_OL.Visible = false;
+            this.btn_OL.Click += new System.EventHandler(this.btn_OL_Click);
             // 
-            // label3
+            // btn_ML
             // 
-            this.label3.Image = global::teste.Properties.Resources.interrogation_mark;
-            this.label3.Location = new System.Drawing.Point(23, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 41);
-            this.label3.TabIndex = 5;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.btn_ML.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_ML.FlatAppearance.BorderSize = 0;
+            this.btn_ML.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_ML.Font = new System.Drawing.Font("Arial", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ML.ForeColor = System.Drawing.Color.White;
+            this.btn_ML.Location = new System.Drawing.Point(159, 742);
+            this.btn_ML.Name = "btn_ML";
+            this.btn_ML.Size = new System.Drawing.Size(267, 63);
+            this.btn_ML.TabIndex = 40;
+            this.btn_ML.Text = "Mostrar Layout";
+            this.btn_ML.UseVisualStyleBackColor = false;
+            this.btn_ML.Click += new System.EventHandler(this.btn_ML_Click);
             // 
             // lbl_cont
             // 
@@ -342,8 +352,8 @@
         private System.Windows.Forms.Label txt_laboratorio;
         private System.Windows.Forms.Label lbl_desc;
         private System.Windows.Forms.Label lbl_cont;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btn_OL;
+        private System.Windows.Forms.Button btn_ML;
     }
 }

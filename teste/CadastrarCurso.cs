@@ -79,6 +79,7 @@ namespace teste
                 box_tp.Text = tp_curso;
                 box_modalidade.Text = mod;
             }
+
             //
             //   
 
@@ -114,6 +115,7 @@ namespace teste
                 MessageBox.Show("Preencha os campos em branco!!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             comando3.ExecuteNonQuery();//ler os dados da consulta
             MessageBox.Show("Enviado com sucesso!", "AVISO", MessageBoxButtons.OK);
         }
@@ -174,6 +176,29 @@ namespace teste
             this.Hide();
             EdicaoADM adm = new EdicaoADM();
             adm.ShowDialog();
+        }
+
+        private void box_modalidade_TextChanged(object sender, EventArgs e)
+        {
+            Funcoes funcao_box = new Funcoes(conF.getconexao());
+            string bsc;
+            bsc = box_modalidade.Text;
+            if (bsc == "Cursos Profissionalizantes")
+            {
+
+                box_tp.DataSource = funcao_box.Fun_tipo_curs1o();//Query baseada nos cursos profissionalizantes
+
+            }
+            if (bsc == "Cursos Superiores")
+            {
+                box_tp.DataSource = funcao_box.Fun_tipo_curs2o();//Query baseada nos cursos superiores
+            }
+            if (bsc == "")
+            {
+                box_tp.DataSource = funcao_box.Fun_tipo_curso();//Query baseada nos cursos gerais
+
+            }
+            box_tp.Text = "";
         }
     }
 }

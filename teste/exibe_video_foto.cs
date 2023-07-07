@@ -72,6 +72,7 @@ namespace teste
             pictureBox1.Visible = true;
             player.Visible = false;
             player.Ctlcontrols.stop();
+            btn_ML.Visible= false;
 
         }
 
@@ -81,6 +82,7 @@ namespace teste
             pictureBox1.Visible = false;
             player.Visible = true;
             player.Ctlcontrols.play();
+            btn_ML.Visible= true;
         }
 
 
@@ -188,14 +190,21 @@ namespace teste
 
         private void label3_Click(object sender, EventArgs e)
         {
-            if(label5.Visible == false)
-            {
-                label5.Visible = true;
-            }
-            else
-            {
-                label5.Visible = false;
-            }
+
+        }
+
+        private void btn_ML_Click(object sender, EventArgs e)
+        {
+            player.uiMode = "full";
+            btn_ML.Visible= false;
+            btn_OL.Visible= true;
+        }
+
+        private void btn_OL_Click(object sender, EventArgs e)
+        {
+            player.uiMode = "none";
+            btn_ML.Visible = true;
+            btn_OL.Visible = false;
         }
     }
 }

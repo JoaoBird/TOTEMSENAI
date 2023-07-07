@@ -265,7 +265,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(354, 347);
+            this.label5.Location = new System.Drawing.Point(346, 342);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 31);
             this.label5.TabIndex = 50;
@@ -274,7 +274,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox1.Location = new System.Drawing.Point(45, 17);
+            this.pictureBox1.Location = new System.Drawing.Point(45, 10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(652, 361);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -288,7 +288,7 @@
             this.btn_voltar_img.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_voltar_img.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_voltar_img.Image = ((System.Drawing.Image)(resources.GetObject("btn_voltar_img.Image")));
-            this.btn_voltar_img.Location = new System.Drawing.Point(3, 151);
+            this.btn_voltar_img.Location = new System.Drawing.Point(3, 199);
             this.btn_voltar_img.Name = "btn_voltar_img";
             this.btn_voltar_img.Size = new System.Drawing.Size(39, 51);
             this.btn_voltar_img.TabIndex = 45;
@@ -303,7 +303,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Arial", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(493, 384);
+            this.button2.Location = new System.Drawing.Point(494, 377);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(204, 61);
             this.button2.TabIndex = 42;
@@ -319,7 +319,7 @@
             this.btn_def_primaria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_def_primaria.Font = new System.Drawing.Font("Arial", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_def_primaria.ForeColor = System.Drawing.Color.White;
-            this.btn_def_primaria.Location = new System.Drawing.Point(272, 384);
+            this.btn_def_primaria.Location = new System.Drawing.Point(273, 377);
             this.btn_def_primaria.Name = "btn_def_primaria";
             this.btn_def_primaria.Size = new System.Drawing.Size(204, 61);
             this.btn_def_primaria.TabIndex = 49;
@@ -334,7 +334,7 @@
             this.btn_proximo_img.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_proximo_img.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_proximo_img.Image = ((System.Drawing.Image)(resources.GetObject("btn_proximo_img.Image")));
-            this.btn_proximo_img.Location = new System.Drawing.Point(703, 151);
+            this.btn_proximo_img.Location = new System.Drawing.Point(703, 199);
             this.btn_proximo_img.Name = "btn_proximo_img";
             this.btn_proximo_img.Size = new System.Drawing.Size(39, 51);
             this.btn_proximo_img.TabIndex = 46;
@@ -349,7 +349,7 @@
             this.btn_adc_img.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_adc_img.Font = new System.Drawing.Font("Arial", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_adc_img.ForeColor = System.Drawing.Color.White;
-            this.btn_adc_img.Location = new System.Drawing.Point(45, 384);
+            this.btn_adc_img.Location = new System.Drawing.Point(46, 377);
             this.btn_adc_img.Name = "btn_adc_img";
             this.btn_adc_img.Size = new System.Drawing.Size(204, 61);
             this.btn_adc_img.TabIndex = 40;
@@ -380,7 +380,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(354, 406);
+            this.label6.Location = new System.Drawing.Point(347, 396);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 31);
             this.label6.TabIndex = 51;
@@ -389,7 +389,7 @@
             // player
             // 
             this.player.Enabled = true;
-            this.player.Location = new System.Drawing.Point(48, 28);
+            this.player.Location = new System.Drawing.Point(48, 18);
             this.player.Name = "player";
             this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
             this.player.Size = new System.Drawing.Size(649, 360);
@@ -402,7 +402,7 @@
             this.btn_prev_vid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_prev_vid.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_prev_vid.Image = ((System.Drawing.Image)(resources.GetObject("btn_prev_vid.Image")));
-            this.btn_prev_vid.Location = new System.Drawing.Point(5, 181);
+            this.btn_prev_vid.Location = new System.Drawing.Point(5, 207);
             this.btn_prev_vid.Name = "btn_prev_vid";
             this.btn_prev_vid.Size = new System.Drawing.Size(37, 51);
             this.btn_prev_vid.TabIndex = 47;
@@ -416,7 +416,7 @@
             this.excluir_video.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.excluir_video.Font = new System.Drawing.Font("Arial", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.excluir_video.ForeColor = System.Drawing.Color.White;
-            this.excluir_video.Location = new System.Drawing.Point(430, 394);
+            this.excluir_video.Location = new System.Drawing.Point(430, 384);
             this.excluir_video.Name = "excluir_video";
             this.excluir_video.Size = new System.Drawing.Size(267, 63);
             this.excluir_video.TabIndex = 41;
@@ -431,7 +431,7 @@
             this.btn_proximo_vid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_proximo_vid.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_proximo_vid.Image = ((System.Drawing.Image)(resources.GetObject("btn_proximo_vid.Image")));
-            this.btn_proximo_vid.Location = new System.Drawing.Point(705, 181);
+            this.btn_proximo_vid.Location = new System.Drawing.Point(705, 207);
             this.btn_proximo_vid.Name = "btn_proximo_vid";
             this.btn_proximo_vid.Size = new System.Drawing.Size(37, 51);
             this.btn_proximo_vid.TabIndex = 48;
@@ -445,7 +445,7 @@
             this.btn_adc_vid.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_adc_vid.Font = new System.Drawing.Font("Arial", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_adc_vid.ForeColor = System.Drawing.Color.White;
-            this.btn_adc_vid.Location = new System.Drawing.Point(48, 394);
+            this.btn_adc_vid.Location = new System.Drawing.Point(48, 384);
             this.btn_adc_vid.Name = "btn_adc_vid";
             this.btn_adc_vid.Size = new System.Drawing.Size(267, 63);
             this.btn_adc_vid.TabIndex = 39;
