@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -34,6 +35,8 @@ namespace teste
             //caso tenha ele permite trocar o login e senha
             if (linhaqrecebe > 0)
             {
+                int podefechar1;
+                int podefechar2 = 1;
                 String UPDADM = "UPDATE tb_ADM set login_ADM=@login_ADM, senha_ADM=@senha_ADM where id_ADM=@id_ADM ";
 
                 MySqlCommand comandoADM = new MySqlCommand(UPDADM, conexao);
@@ -41,13 +44,17 @@ namespace teste
                 {
                     MessageBox.Show("Preencha os campos em branco!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
+                    podefechar1 = 0;
                 }
-                comandoADM.Parameters.AddWithValue("@id_ADM", 1);
-                comandoADM.Parameters.AddWithValue("@login_ADM", box_usuN.Text);
-                comandoADM.Parameters.AddWithValue("@senha_ADM", box_senhaN.Text);
-                comandoADM.ExecuteNonQuery();
-                MessageBox.Show("Usuario e senha alterados com sucesso!", "AVISO", MessageBoxButtons.OK);
-                this.Close();
+                else
+                {
+                    comandoADM.Parameters.AddWithValue("@id_ADM", 1);
+                    comandoADM.Parameters.AddWithValue("@login_ADM", box_usuN.Text);
+                    comandoADM.Parameters.AddWithValue("@senha_ADM", box_senhaN.Text);
+                    comandoADM.ExecuteNonQuery();
+                    MessageBox.Show("Usuario e senha alterados com sucesso!", "AVISO", MessageBoxButtons.OK);
+                    podefechar1 = 1;
+                }
                 if (panelArred3.Visible==true)
                 {
                     string UPDADM2 = "UPDATE tb_ADM set email_ADM=@email_ADM  where id_ADM=@id_ADM ";
@@ -56,14 +63,44 @@ namespace teste
                     {
                         MessageBox.Show("Preencha o campo em branco!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
+                        podefechar2 = 0;
                     }
-                    comandoADM2.Parameters.AddWithValue("@id_ADM", 1);
-                    comandoADM2.Parameters.AddWithValue("@email_ADM", box_email.Text);
-                    comandoADM2.ExecuteNonQuery();
-                    MessageBox.Show("E-mail alterado com sucesso!", "AVISO", MessageBoxButtons.OK);
+
+                    bool contempadrao = VerificarPadrao(box_email.Text);
+                    if(contempadrao == true)
+                    {
+                        comandoADM2.Parameters.AddWithValue("@id_ADM", 1);
+                        comandoADM2.Parameters.AddWithValue("@email_ADM", box_email.Text);
+                        comandoADM2.ExecuteNonQuery();
+                        MessageBox.Show("E-mail alterado com sucesso!", "AVISO", MessageBoxButtons.OK);
+                        podefechar2 = 1;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Padrão de Email incorreto!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                        podefechar2 = 0;
+                    }
+                    if(podefechar1 == 1 && podefechar2 == 1)
+                    {
+                        this.Close();
+                    }
+
+                    
                 }
 
             }
+        }
+        static bool VerificarPadrao(string texto)
+        {
+            // Define a expressão regular
+            string padrao = @"@.*\.com";
+
+            // Verifica se o texto corresponde ao padrão
+            Match correspondencia = Regex.Match(texto, padrao);
+
+            // Retorna verdadeiro se houver correspondência
+            return correspondencia.Success;
         }
 
         private void AlterarUSU_SEN_Load(object sender, EventArgs e)

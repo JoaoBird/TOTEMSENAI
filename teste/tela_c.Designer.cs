@@ -84,7 +84,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1904, 76);
+            this.panel1.Size = new System.Drawing.Size(1852, 76);
             this.panel1.TabIndex = 9;
             // 
             // btn_back
@@ -94,7 +94,7 @@
             this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_back.FlatAppearance.BorderSize = 0;
             this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_back.Location = new System.Drawing.Point(1844, 17);
+            this.btn_back.Location = new System.Drawing.Point(1792, 17);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(40, 40);
             this.btn_back.TabIndex = 7;
@@ -181,9 +181,9 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 992);
+            this.panel2.Location = new System.Drawing.Point(0, 815);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1904, 49);
+            this.panel2.Size = new System.Drawing.Size(1852, 49);
             this.panel2.TabIndex = 15;
             // 
             // panelArred4
@@ -463,7 +463,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1604, 881);
             this.Controls.Add(this.panelArred4);
             this.Controls.Add(this.panelArred1);
             this.Controls.Add(this.panel2);

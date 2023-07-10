@@ -51,7 +51,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1904, 76);
+            this.panel1.Size = new System.Drawing.Size(1604, 76);
             this.panel1.TabIndex = 3;
             // 
             // btn_back
@@ -61,7 +61,7 @@
             this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_back.FlatAppearance.BorderSize = 0;
             this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_back.Location = new System.Drawing.Point(1843, 18);
+            this.btn_back.Location = new System.Drawing.Point(1543, 18);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(40, 40);
             this.btn_back.TabIndex = 5;
@@ -125,14 +125,14 @@
             this.pnLaboratorios.Location = new System.Drawing.Point(0, 76);
             this.pnLaboratorios.Name = "pnLaboratorios";
             this.pnLaboratorios.Padding = new System.Windows.Forms.Padding(70, 10, 0, 10);
-            this.pnLaboratorios.Size = new System.Drawing.Size(1904, 965);
+            this.pnLaboratorios.Size = new System.Drawing.Size(1604, 805);
             this.pnLaboratorios.TabIndex = 4;
             // 
             // lab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1604, 881);
             this.Controls.Add(this.pnLaboratorios);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

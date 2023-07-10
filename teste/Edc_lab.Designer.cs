@@ -75,7 +75,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1904, 74);
+            this.panel1.Size = new System.Drawing.Size(1604, 74);
             this.panel1.TabIndex = 30;
             // 
             // panel2
@@ -91,7 +91,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1904, 74);
+            this.panel2.Size = new System.Drawing.Size(1604, 74);
             this.panel2.TabIndex = 6;
             // 
             // label1
@@ -112,7 +112,7 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(1842, 16);
+            this.button1.Location = new System.Drawing.Point(1542, 16);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 40);
             this.button1.TabIndex = 8;
@@ -255,7 +255,7 @@
             this.panelArred1.Controls.Add(this.btn_proximo_img);
             this.panelArred1.Controls.Add(this.btn_adc_img);
             this.panelArred1.ForeColor = System.Drawing.Color.Black;
-            this.panelArred1.Location = new System.Drawing.Point(1147, 80);
+            this.panelArred1.Location = new System.Drawing.Point(847, 80);
             this.panelArred1.Name = "panelArred1";
             this.panelArred1.Size = new System.Drawing.Size(745, 448);
             this.panelArred1.TabIndex = 52;
@@ -369,7 +369,7 @@
             this.panelArred2.Controls.Add(this.btn_proximo_vid);
             this.panelArred2.Controls.Add(this.btn_adc_vid);
             this.panelArred2.ForeColor = System.Drawing.Color.Black;
-            this.panelArred2.Location = new System.Drawing.Point(1147, 548);
+            this.panelArred2.Location = new System.Drawing.Point(847, 548);
             this.panelArred2.Name = "panelArred2";
             this.panelArred2.Size = new System.Drawing.Size(745, 464);
             this.panelArred2.TabIndex = 53;
@@ -457,7 +457,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1904, 1010);
+            this.ClientSize = new System.Drawing.Size(1604, 881);
             this.Controls.Add(this.btn_enviar);
             this.Controls.Add(this.box_desc);
             this.Controls.Add(this.label4);

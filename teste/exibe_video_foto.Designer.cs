@@ -144,7 +144,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1904, 75);
+            this.panel1.Size = new System.Drawing.Size(1604, 75);
             this.panel1.TabIndex = 7;
             // 
             // btn_back
@@ -154,7 +154,7 @@
             this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_back.FlatAppearance.BorderSize = 0;
             this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_back.Location = new System.Drawing.Point(1842, 17);
+            this.btn_back.Location = new System.Drawing.Point(1542, 17);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(40, 40);
             this.btn_back.TabIndex = 9;
@@ -215,7 +215,7 @@
             this.panelArred1.Controls.Add(this.player);
             this.panelArred1.Controls.Add(this.pictureBox1);
             this.panelArred1.ForeColor = System.Drawing.Color.Black;
-            this.panelArred1.Location = new System.Drawing.Point(868, 132);
+            this.panelArred1.Location = new System.Drawing.Point(568, 132);
             this.panelArred1.Name = "panelArred1";
             this.panelArred1.Size = new System.Drawing.Size(946, 823);
             this.panelArred1.TabIndex = 5;
@@ -310,7 +310,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1604, 881);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_desc);
             this.Controls.Add(this.txt_laboratorio);
